@@ -1,0 +1,97 @@
+<style type="text/css">
+	.carousel .carousel-control { visibility: hidden; }
+	.carousel:hover >.carousel-control { visibility: visible; }
+	.carousel-indicators { visibility: hidden; }
+</style>
+<div>	
+	<div class="banner-buying-login" style="min-height:60px;">   
+		<div class=" container">
+		</div>		
+	</div>
+</div>
+<div ng-controller="interCtlr">
+	<div class="project" style="padding: 1em 0px;" >
+	<div class="container">
+		<div class="col-md-12 " style="margin:0em 0em 1em;background:white;padding:1em;">
+			<h3 style="padding-top:.7em;">Your Hospitals</h3>
+			<div class="project-top">
+			<div class="col-md-4 project-grid" style="height:500px;">
+				<div class="project-grid-top">
+					<img class="zoom-img img-responsive" src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/blue-chrome-rain-icons-alphanumeric/069448-blue-chrome-rain-icon-alphanumeric-plus-sign-simple.png" style="height:180px;">
+					<div class="col-md1" style="padding: 1em; height:265px;">      
+					  <h1>Click Here to add New Hospital</h1>
+						<a href="" style="height:35px;"  class="hvr-sweep-to-right more" data-toggle="modal" data-target="#regNew">Add New Hospital</a>
+						<div class="modal fade" id="regNew" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header" style="text-align: center;">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  	<b aria-hidden="true">&times;</b></button>
+                  <h2>Register Your Hospital</h2> 
+                </div>
+                <div class="modal-body">
+                  <div class="form-info" style="padding:0em;" ng-controller="RegisterCtlr">
+                    <form name="hospitalregistration">
+                      <input name="hospitalName" type="text" ng-model="firstformData.hospital_name" placeholder="Name of the Hospital (Required)" pattern="^[a-zA-Z.\s]+$" required style="width:90%;margin-top:1em;margin-bottom:0em;">
+                      <b style="color:green;" ng-show="firstformData.hospital_name">
+                        <i class="fa fa-check"></i>
+                      </b>
+                      <b style="color:red;" ng-show="hospitalregistration.hospitalName.$dirty && hospitalregistration.hospitalName.$invalid ">
+                        <i class="fa fa-times"></i>
+                        <b> Only Letters and .(dot) allowed.</b>
+                      </b>
+                      <br>
+                      <b ng-show="firstformData.hospital_name">
+                        <b>Hospital Name: </b>
+                        <i>{{firstformData.hospital_name}}</i>
+                      </b>
+                      <br><br>
+                        <input type="checkbox" name="" ng-model="is_agreed" >
+                        I have read and agree to the 
+                        <a href="" ng-click="go('terms')" data-dismiss="modal">Terms & Conditions.</a>
+                        <br><div ng-show="!is_agreed" style="color:red;"> You must agree to our <a href="" ng-click="go('terms')" data-dismiss="modal" style="color:red"><u> terms and conditions</u></a> in order to register.</div>
+                      <br>
+                      <button value="none" class="hvr-sweep-to-right more-in" style="height:40px;" ng-disabled="hospitalregistration.$invalid"  ng-click="firstFormSubmit('in')"  data-dismiss="modal"> Register Hospital</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4 project-grid" style="height:500px;" ng-repeat="item in hospitalList" >
+				<div class="project-grid-top">
+					<carousel interval="myInterval" no-wrap="noWrapSlides">   
+					  <slide ng-repeat="slide in item.hospital_image" active="$first">
+					    <img class="zoom-img img-responsive" ng-src="{{slide}}" style="height:180px;">
+					  </slide>   
+					</carousel>
+					<div class="col-md1" style="padding: 1em; height:265px;">      
+					  <div class="col-md12">
+						  <div class="col-md3" style="height:80px;"> 
+						 		<b>{{item.hospital_name}}</b><br>
+	      				<i ng-repeat="i in item.rating" class="fa fa-star" style="color:gold;"></i>
+						  </div>
+						  <div class="col-md4">
+						  </div>
+						  <div class="clearfix"> </div>
+					  </div>
+						<p class="cost">
+							<k style="padding-right:1em;font-size:1em; height:20px;"><b>Address: </b>{{item.hospital_address}}</k>
+						</p>
+						<p style="color:#5F5D5D;">{{item.hospital_short_desc}}</p>
+						<p class="cost" style="height:40px;"><b>{{item.city}} , {{item.state}} , {{item.country}}</b></p>
+						<a href="" style="height:35px;" ng-click="editHospital(item.hospital_id)" class="hvr-sweep-to-right more">Edit Profile</a>
+						<a href="" style="height:35px;float:right;" ng-click="viewHospital(item.hospital_id)" class="hvr-sweep-to-right more">View Profile</a>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+			</div>
+		</div>				
+	</div>
+	</div>
+</div>	

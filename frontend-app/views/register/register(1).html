@@ -1,0 +1,511 @@
+<style type="text/css">
+	.file {
+	  visibility: hidden;
+	  position: absolute;
+
+	}
+	.imageRepeat{
+		width:150px;
+		height:150px;
+	}
+	#_dropdown{
+		background-color: white;
+		margin-top: 0%;
+		width: 100%;
+		max-height: 190px;
+		overflow: auto;
+		/*width: 284px;*/
+		box-shadow: -10px 10px 10px rgba(174, 173, 173, 0.48);
+	}
+</style>
+<script type="text/javascript">
+	$(document).on('click', '.browse', function(){
+	  var file = $(this).parent().parent().parent().find('.file');
+	  file.trigger('click');
+	});
+	$(document).on('change', '.file', function(){
+	  $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
+	});
+</script>
+<div id="top-s" ng-controller="RegisterCtlr">	
+	<div style="background:url('img/hex-transparent1.png'); z-index:0;">	
+		<div class=" banner-buying" style="min-height: 60px;"></div>
+	</div>
+	<div class="loan_single" style="background:#efefef;">
+		<div class="container">
+			<div class="col-md-12 " style="margin: 2em 0em 1em;background:white;padding:1em;">
+				<div class="loan-col" style="padding: 1em 0px;">
+					<h3 style="font-size: 2em;">Complete Profile</h3>
+					<div class="progress" style="height:30px;">
+					  <div  ng-class="{'progress-bar-danger':progressBar<=20 , 'progress-bar-warning':progressBar<=40 ,'progress-bar-info':progressBar<=80 , 'progress-bar-success': progressBar<=100  }" class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{progressBar}}%;font-size:1.2em;">
+					    <span style="color:black;margin-top: 4px;position: absolute;">{{progressBar}}% Complete</span>
+					  </div>
+					</div>
+					<div>
+						<div class="col-loan">
+							<div ng-show="progressDiv==1">
+								<h4>Basic Information(15%)</h4>
+								<form id="form1" name="form1">
+									<ul class="loan-col1">
+										<li style="width: 20%;"><span>Hospital Name </span></li><label>:</label>
+										<li class="loan-list-top"  style="width: 70%;">
+											<input  type="text" ng-model="formData.hospital_name" placeholder="Name of the Hospital ()" pattern="^[a-zA-Z.\s]+$"  ></li>
+									</ul>
+									<ul class="loan-col1">
+										<li style="width: 20%;"><span>Patients served</span></li><label>:</label>
+										<li class="loan-list-top"  style="width: 70%;"><input type="text" ng-model="formData.patients_served" placeholder="Number of patients served ()" ></li>
+									</ul>
+									<ul class="loan-col1">
+										<li style="width: 20%;"><span>Beds </span></li><label>:</label>
+										<li class="loan-list-top"  style="width: 70%;"><input type="text" ng-model="formData.count_beds" placeholder="Number of beds" ></li>
+									</ul>
+									<ul class="loan-col1">
+										<li style="width: 20%;"><span>Specialisation </span></li><label>:</label>
+										<li class="loan-list-top"  style="width: 70%;"><input type="text" ng-model="formData.count_specialisation" placeholder="Count of no. of specialisation" ></li>
+									</ul>
+									<ul class="loan-col1">
+										<li style="width: 20%;"><span>Doctors </span></li><label>:</label>
+										<li class="loan-list-top"  style="width: 70%;"><input type="text" ng-model="formData.count_doctors" placeholder="Number of doctors" ></li>
+									</ul>
+									<ul class="loan-col1">
+										<li style="width: 20%;"><span>Nurses </span></li><label>:</label>
+										<li class="loan-list-top"   style="width: 70%;"><input type="text" ng-model="formData.count_nurses" placeholder="Number of nurses" ></li>
+									</ul>
+									<ul class="loan-col1">
+										<li style="width: 20%;"><span>Since (Required)</span> </li><label>:</label>
+										<li class="loan-list-top"  style="width: 70%;">
+											<select class="drop-select1" ng-model="formData.since" >
+												<option>2015</option>
+												<option>2014</option>
+												<option>2013</option>
+												<option>2012</option>
+												<option>2011</option>
+												<option>2010</option>
+												<option>2009</option>
+												<option>2008</option>
+												<option>2007</option>
+												<option>2006</option>
+												<option>2005</option>
+												<option>2004</option>
+												<option>2003</option>
+												<option>2002</option>
+												<option>2001</option>
+												<option>2000</option>
+												<option>1999</option>
+												<option>1998</option>
+												<option>1997</option>
+												<option>1996</option>
+												<option>1995</option>
+												<option>1994</option>
+												<option>1993</option>
+												<option>1992</option>
+												<option>1991</option>
+												<option>1990</option>
+												<option>1989</option>
+												<option>1988</option>
+												<option>1987</option>
+												<option>1986</option>
+												<option>1985</option>
+												<option>1984</option>
+												<option>1983</option>
+												<option>1982</option>
+												<option>1981</option>
+												<option>1980</option>
+												<option>1979</option>
+												<option>1978</option>
+												<option>1977</option>
+												<option>1976</option>
+												<option>1975</option>
+												<option>1974</option>
+												<option>1973</option>
+												<option>1972</option>
+												<option>1971</option>
+												<option>1970</option>
+												<option>1969</option>
+												<option>1968</option>
+												<option>1967</option>
+												<option>1966</option>
+												<option>1965</option>
+												<option>1964</option>
+												<option>1963</option>
+												<option>1962</option>
+												<option>1961</option>
+												<option>1960</option>
+											</select>
+										</li>
+									</ul>
+									<button type="submit" ng-disabled="form1.$invalid" style="margin-bottom: 3px;height: 35px; border-width:0px; border-radius:2px; background:rgba(128, 128, 128, 0.54); padding:3px 10px 0px 10px;" class="hvr-sweep-to-right more-in"  ng-click="myProgress()">Next <i class="fa fa-arrow-right"></i></button>
+								</form>
+								<hr>
+							</div>
+							<div ng-show="progressDiv==2">
+								<h4>Images for Display (10%)</h4>
+								<ul class="loan-col1">
+									<li><span style="margin-top: -35px;position: absolute;">Hospital Images </span></li><label  style="margin-top: 20px;margin-left: -125px;">:</label>
+									<li class="loan-list-top"  style="width: 70%;margin-left: -88px;">
+										<input type="file" name="img[]" class="file" file-upload multiple accept="image/*">
+								    <div class="input-group col-xs-12" >
+								      <span class="input-group-addon" style="border: 1px solid rgb(212, 204, 204);"><i class="glyphicon glyphicon-picture"></i></span>
+								      <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
+								      <span class="input-group-btn" >
+								        <button class="browse btn btn-primary input-lg" type="button" style="border-color:#DEDFE0;border-top-right-radius:5px;border-bottom-right-radius:5px;"><i class="glyphicon glyphicon-search"></i> Browse</button>
+								      </span>
+								    </div>
+									</li>
+									<ul ng-repeat="file in files">
+										<li style="width: 20%;"><span></span></li><label></label>
+										<li class="loan-list-top"  style="width: 70%;">
+											<span style="font-weight: normal; color:blue;">{{file.name}}
+												<b ng-click="cut($index)" style="color: red;padding: 30px; cursor:pointer;cursor:hand;">X</b>
+											</span>
+										</li>
+									</ul>	
+								</ul>
+								<style type="text/css">
+								
+								</style>
+								<div class="row" ng-show="formData.hospital_image">
+									<h4>&nbsp;&nbsp;&nbsp;Images Already Present</h4>
+									<div style="padding-bottom: 15px;" class="col-md-2" ng-repeat='item in formData.hospital_image'>
+										<img src="{{item}}" class="imageRepeat zoom-img" ng-mouseover="largeImg=$index">
+										<span ng-click="cutImage($index)" style="color:red;position:absolute; right:35px;cursor:pointer;"><b><i class="fa fa-times"></i></b></span>
+									</div>
+								</div>
+								<br>
+								<span style="margin-bottom: 3px;height: 35px; border-width:0px; border-radius:2px; background:rgba(128, 128, 128, 0.54); padding:3px 10px 0px 10px; cursor:pointer;" class="hvr-sweep-to-right more-in"  ng-click="myProgressBack()"><i class="fa fa-arrow-left"></i> Previous</span>
+								<span style="margin-bottom: 3px;height: 35px; border-width:0px; border-radius:2px; background:rgba(128, 128, 128, 0.54); padding:3px 10px 0px 10px; cursor:pointer;" class="hvr-sweep-to-right more-in"  ng-click="myProgress()">Next <i class="fa fa-arrow-right"></i></span>
+								<hr>
+							</div>
+							<div ng-show="progressDiv==3">
+								<h4>Contact Information (10%)</h4>
+								<ul class="loan-col1">
+									<li style="width: 20%;"><span>Contact Person</span></li><label>:</label>
+									<li class="loan-list-top"  style="width: 70%;"><input type="text" ng-model="formData.contact_person" placeholder="Enter person's name "  ></li>
+								</ul>
+								<ul class="loan-col1">
+									<li style="width: 20%;"><span>Contact Person Email ID</span></li><label>:</label>
+									<li class="loan-list-top"  style="width: 70%;"><input type="text" ng-model="formData.other_email1" placeholder="Contact Email ID of the Hospital"></li>
+								</ul>
+								<ul class="loan-col1">
+									<li style="width: 20%;"><span>Alternate Email ID</span></li><label>:</label>
+									<li class="loan-list-top"  style="width: 70%;"><input type="text" ng-model="formData.other_email2" placeholder="Contact Email ID of the Hospital"></li>
+								</ul>
+								<ul class="loan-col1">
+									<li style="width: 20%;"><span>Another Email ID </span></li><label>:</label>
+									<li class="loan-list-top"  style="width: 70%;"><input type="text" ng-model="formData.other_email3" placeholder="Contact Email ID of the Hospital"></li>
+								</ul>
+								<ul class="loan-col1">
+									<li style="width: 20%;"><span>Hospital Email ID</span></li><label>:</label>
+									<li class="loan-list-top"  style="width: 70%;"><input type="text" ng-model="formData.hospitalEmailId" placeholder="Contact Email ID of the Hospital"></li>
+								</ul>
+								<ul class="loan-col1">
+									<li style="width: 20%;"><span>Hospital Website</span></li><label>:</label>
+									<li class="loan-list-top"  style="width: 70%;"><input type="text" ng-model="formData.website" placeholder="Enter URL of Hospital Website"></li>
+								</ul>
+								<ul class="loan-col1">
+									<li style="width: 20%;"><span>Hospital Contact Number</span></li><label>:</label>
+									<li class="loan-list-top"  style="width: 70%;"><input type="text" ng-model="formData.hospital_contactno" placeholder="Enter Hospital Contact Number"></li>
+								</ul>
+								<span style="margin-bottom: 3px;height: 35px; border-width:0px; border-radius:2px; background:rgba(128, 128, 128, 0.54); padding:3px 10px 0px 10px; cursor:pointer;" class="hvr-sweep-to-right more-in"  ng-click="myProgressBack()"><i class="fa fa-arrow-left"></i> Previous</span>
+								<span style="margin-bottom: 3px;height: 35px; border-width:0px; border-radius:2px; background:rgba(128, 128, 128, 0.54); padding:3px 10px 0px 10px; cursor:pointer;" class="hvr-sweep-to-right more-in"  ng-click="myProgress()">Next <i class="fa fa-arrow-right"></i></span>
+								<hr>
+							</div>
+							<div ng-show="progressDiv==4">
+								<h4>Hospital Description (20%)</h4>
+								<ul class="loan-col1">
+									<li style="width: 20%;"><span>Short Description</span></li><label>:</label>
+									<li class="loan-list-top"  style="width: 70%;">
+										<textarea maxlength="160" rows="2" cols="80" style="resize: none;" ng-model="formData.hospital_sort_desc" placeholder="Not more than 140 characters"></textarea>
+									</li>
+								</ul>
+								<ul class="loan-col1">
+									<li style="width: 20%;"><span>Detailed Description</span></li><label>:</label>
+									<li class="loan-list-top"  style="width: 95%;">
+										<div style"padding:20px;" text-angular required ng-model="formData.hospital_long_desc"></div>
+									<!-- <textarea rows="6" ng-model="formData.hospital_long_desc" cols="69" placeholder="" ></textarea> -->
+									</li>
+								</ul>
+								<span style="margin-bottom: 3px;height: 35px; border-width:0px; border-radius:2px; background:rgba(128, 128, 128, 0.54); padding:3px 10px 0px 10px; cursor:pointer;" class="hvr-sweep-to-right more-in"  ng-click="myProgressBack()"><i class="fa fa-arrow-left"></i> Previous</span>
+								<span style="margin-bottom: 3px;height: 35px; border-width:0px; border-radius:2px; background:rgba(128, 128, 128, 0.54); padding:3px 10px 0px 10px; cursor:pointer;" class="hvr-sweep-to-right more-in"  ng-click="myProgress()">Next <i class="fa fa-arrow-right"></i></span>
+								<hr>
+							</div>
+							<div ng-show="progressDiv==5">
+								<h4>Additional Services you Offer (10%)</h4>
+								<br><br>
+								<ul class="loan-col1">
+									<li class="loan-list-top" style="width: 100%;">
+										<table class="table" style="margin-top: -43px;">
+											<tr>
+												<td><input type="checkbox" name="" ng-model="formData.is_online_doctor_consultation"> Online doctor consultation </td>
+												<td><input type="checkbox" name="" ng-model="formData.is_medical_travel_insurance"> Medical travel insurance</td>
+												<td><input type="checkbox" name="" ng-model="formData.is_health_insurance_coordination"> Health Insurance Coordination </td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" name="" ng-model="formData.is_medical_records_transfer"> Medical records transfer </td>
+												<td><input type="checkbox" name="" ng-model="formData.is_rehabilitation"> Rehabilitation</td>
+												<td><input type="checkbox" name="" ng-model="formData.is_translation_services"> Translation services</td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" name="" ng-model="formData.is_interpreter_services"> Interpreter services</td>
+												<td><input type="checkbox" name="" ng-model="formData.is_personal_assistance"> Personal assistance / Concierge </td>
+												<td><input type="checkbox" name="" ng-model="formData.is_welcome_package"> Welcome Package</td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" name="" ng-model="formData.is_airport_pickup"> Airport pickup</td>
+												<td><input type="checkbox" name="" ng-model="formData.is_private_driver_or_limo"> Private driver / Limousine service </td>
+												<td><input type="checkbox" name="" ng-model="formData.is_car_hire"> Car hire </td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" name="" ng-model="formData.is_local_transportation_booking"> Local transportation booking</td>
+												<td><input type="checkbox" name="" ng-model="formData.is_hotel_booking"> Hotel booking</td>
+												<td><input type="checkbox" name="" ng-model="formData.is_flight_booking"> Flight booking</td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" name="" ng-model="formData.is_local_tourism_option"> Local tourism options </td>
+												<td><input type="checkbox" name="" ng-model="formData.is_shopping_trip_org"> Shopping trip organisation </td>
+												<td><input type="checkbox" name="" ng-model="formData.is_local_tourism_option"> Entertainment options</td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" name="" ng-model="formData.is_air_ambulance"> Air Ambulance</td>
+												<td><input type="checkbox" name="" ng-model="formData.is_special_offer_for_group_stay"> Special offer for group stays</td>
+												<td><input type="checkbox" name="" ng-model="formData.is_free_wifi"> Free WiFi</td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" name="" ng-model="formData.is_phone_in_the_room"> Phone in the room</td>
+												<td><input type="checkbox" name="" ng-model="formData.is_tv_in_the_room"> TV in the Room</td>
+												<td><input type="checkbox" name="" ng-model="formData.is_special_dietary_requests_accepted"> Special Diet Request</td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" name="" ng-model="formData.is_private_rooms_for_patients_available"> Private rooms for patients available</td>
+												<td><input type="checkbox" name="" ng-model="formData.is_family_accommodation"> Family accommodation </td>
+												<td><input type="checkbox" name="" ng-model="formData.is_parking_available"> Parking</td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" name="" ng-model="formData.is_restaurant"> Restaurant </td>
+												<td><input type="checkbox" name="" ng-model="formData.is_cafe"> Cafe</td>
+												<td><input type="checkbox" name="" ng-model="formData.is_halal"> Halal Prepared</td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" name="" ng-model="formData.is_nursery_or_nanny_service"> Nursery / Nanny services </td>
+												<td><input type="checkbox" name="" ng-model="formData.is_pharmacy">Pharmacy </td>
+												<td><input type="checkbox" name="" ng-model="formData.is_room_rating"> Room Ratings Options(3 star 5 Star)</td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" name="" ng-model="formData.is_shop"> Shop</td>
+												<td><input type="checkbox" name="" ng-model="formData.is_visa_or_travel_office">Visa / Travel office </td>
+												<td><input type="checkbox" name="" ng-model="formData.is_buisness_center_services">Business centre services </td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" name="" ng-model="formData.is_document_legalisation"> Document legalisation </td>
+												<td><input type="checkbox" name="" ng-model="formData.is_currency_exchange"> Currency Exchange</td>
+												<td><input type="checkbox" name="" ng-model="formData.is_laundry">Laundry </td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" name="" ng-model="formData.is_dry_cleaning"> Dry cleaning</td>
+												<td><input type="checkbox" name="" ng-model="formData.is_religious_facilities"> Religious facilities</td>
+												<td><input type="checkbox" name="" ng-model="formData.is_gym"> Gym</td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" name="" ng-model="formData.is_mobile_accessible_rooms"> Mobility accessible rooms</td>
+												<td><input type="checkbox" name="" ng-model="formData.is_locker"> Locker option </td>
+												<td><input type="checkbox" name="" ng-model="formData.is_dedicated_smoking_area"> Dedicated smoking areas</td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" name="" ng-model="formData.is_international_newspapers"> International newspapers </td>
+											</tr>
+										</table>
+									</li>
+								</ul>
+								<span style="margin-bottom: 3px;height: 35px; border-width:0px; border-radius:2px; background:rgba(128, 128, 128, 0.54); padding:3px 10px 0px 10px; cursor:pointer;" class="hvr-sweep-to-right more-in"  ng-click="myProgressBack()"><i class="fa fa-arrow-left"></i> Previous</span>
+								<span style="margin-bottom: 3px;height: 35px; border-width:0px; border-radius:2px; background:rgba(128, 128, 128, 0.54); padding:3px 10px 0px 10px; cursor:pointer;" class="hvr-sweep-to-right more-in"  ng-click="myProgress()">Next <i class="fa fa-arrow-right"></i></span>
+								<hr>
+							</div>
+							<div ng-show="progressDiv==6">
+								<ul>
+									<h4>Do you Dedicated department for Medical Tourism? (5%)
+										<input type="checkbox" name="" ng-model="formData.is_dedicated_dept">&nbsp;<b style="color:green;">Yes</b>
+									</h4>
+								</ul>
+								<ul class="loan-col1" ng-show="formData.is_dedicated_dept">
+									<li style="width: 20%;"><span>Department Head Name </span></li><label>:</label>
+									<li class="loan-list-top"  style="width: 70%;">
+										<input type="text" ng-model="formData.dept_head_name" placeholder="Enter full name" >
+									</li>
+								</ul>
+								<ul class="loan-col1" ng-show="formData.is_dedicated_dept">
+									<li style="width: 20%;"><span>Department Head email</span></li><label>:</label>
+									<li class="loan-list-top"  style="width: 70%;">
+										<input type="text" ng-model="formData.dept_head_email" placeholder="" >
+									</li>
+								</ul>
+								<ul class="loan-col1" ng-show="formData.is_dedicated_dept">
+									<li style="width: 20%;"><span>Department Head Contact</span></li><label>:</label>
+									<li class="loan-list-top"  style="width: 70%;">
+										<input type="text" ng-model="formData.dept_head_contact" placeholder="" >
+									</li>
+								</ul>
+								<span style="margin-bottom: 3px;height: 35px; border-width:0px; border-radius:2px; background:rgba(128, 128, 128, 0.54); padding:3px 10px 0px 10px; cursor:pointer;" class="hvr-sweep-to-right more-in"  ng-click="myProgressBack()"><i class="fa fa-arrow-left"></i> Previous</span>
+								<span style="margin-bottom: 3px;height: 35px; border-width:0px; border-radius:2px; background:rgba(128, 128, 128, 0.54); padding:3px 10px 0px 10px; cursor:pointer;" class="hvr-sweep-to-right more-in"  ng-click="myProgress()">Next <i class="fa fa-arrow-right"></i></span>
+								<hr>
+							</div>
+							<div ng-show="progressDiv==7">
+								<h4>Address (10%)</h4>
+								<ul class="loan-col1" >
+									<li style="width: 20%;"><span>Map Location:</span></li><label>:</label>
+									<li class="loan-list-top"  style="width: 70%;">
+										<input ng-model="mapLocation" type="text" id="Autocomplete" placeholder="{{formData.city+', '+formData.state+', '+formData.country}}" ng-autocomplete="mapLocation"  autocomplete="on" my-ng-model/>
+									</li>
+								</ul>
+								<ul class="loan-col1" ng-show="mapLocation">
+									<li style="width: 20%;"><span>Selected Location:</span></li><label>:</label>
+									<li  style="width: 70%;">
+										{{mapLocation}}
+										<span id="lol"></span>
+									</li>
+								</ul>
+								<map center="{{mapCentre}}" zoom="13" style="width: 98%;">
+									<marker position="{{mapCentre}}" title="{{mapLocation}}" draggable="true"></marker>
+								</map>
+								<ul class="loan-col1">
+									<li style="width: 20%;"><span>Address </span></li><label>:</label>
+									<li class="loan-list-top"  style="width: 70%;">
+									<textarea rows="4" ng-model="formData.hospital_address" cols="80" style="resize: none;" placeholder="" ></textarea>
+									</li>	
+								</ul>
+								<span style="margin-bottom: 3px;height: 35px; border-width:0px; border-radius:2px; background:rgba(128, 128, 128, 0.54); padding:3px 10px 0px 10px; cursor:pointer;" class="hvr-sweep-to-right more-in"  ng-click="myProgressBack()"><i class="fa fa-arrow-left"></i> Previous</span>
+								<span style="margin-bottom: 3px;height: 35px; border-width:0px; border-radius:2px; background:rgba(128, 128, 128, 0.54); padding:3px 10px 0px 10px; cursor:pointer;" class="hvr-sweep-to-right more-in"  ng-click="myProgress()">Next <i class="fa fa-arrow-right"></i></span>
+								<hr>
+							</div>
+							<div ng-show="progressDiv==8">
+								<h4>Specialization and Certification (20%)</h4>
+								<ul class="loan-col1">
+									<li style="width: 20%;"><span>Procedure Supported </span></li><label>:</label>
+									<li class="loan-list-top"  style="width: 40%;">
+										<angucomplete-alt selected-object="dis" placeholder="Select/Type Procedure" pause="10"  local-data="disData" search-fields="dis" title-field="dis" minlength="0" input-class="disclass" match-class="highlight"></angucomplete-alt>
+									</li>
+									<li>
+									<span onclick="javascript:$('.disclass').val('')" ng-click="addProDisease(dis.originalObject)" class="hvr-sweep-to-right" style="margin-bottom: 7px;height: 35px; border-width:0px; border-radius:2px; background:rgba(128, 128, 128, 0.54); padding:3px 10px 0px 10px; cursor:pointer;">Add</span>
+								</li>
+									<br>
+
+									<li style="width: 20%;"><span>Add other procedures</span></li><label>:</label>
+										<!-- <li class="loan-list-top"  style="width: 40%;">
+										
+									</li> -->
+									
+
+   
+
+									<li>
+										<input type='text' style="width: 129%;" ng-model="formData.procedure_supported1">
+										<!-- <span onclick="javascript:$('.disclass').val('')" ng-click="addProDisease(dis.originalObject)" class="hvr-sweep-to-right" style="margin-bottom: 7px;height: 35px; border-width:0px; border-radius:2px; background:rgba(128, 128, 128, 0.54); padding:3px 10px 0px 10px; cursor:pointer;">Add</span> -->
+									</li>
+								</ul>
+								<div class="blog-list2" style="margin:0 0 0em">
+									<ul>
+										<li style="margin-right: 10px;" ng-repeat="item in disToShowPro" ng-click="removePro($index)">
+											<a href="" >{{item}} X</a>
+										</li>
+									</ul>      
+								</div>
+								<ul class="loan-col1">
+									<li style="width: 20%;"><span>Specialisation Area</span></li><label>:</label>
+									 <!-- <li class="loan-list-top"  style="width: 70%;"><input type="text" ng-model="formData.specialisation_area" placeholder="Kindly seperate them by comma ( , )(If any)"></li>  -->
+
+									<li class="loan-list-top"  style="width: 40%;">
+										<angucomplete-alt selected-object="dis" placeholder="Select/Type Specialisation" pause="100"  local-data="disData" search-fields="dis" title-field="dis" minlength="0" input-class="disclass" match-class="highlight" ng-model="formData.specialisation_area"></angucomplete-alt>
+									</li>
+								
+										<li>
+									<span onclick="javascript:$('.disclass').val('')" ng-click="addSpeDisease(dis.originalObject)" class="hvr-sweep-to-right" style="margin-bottom: 7px;height: 35px; border-width:0px; border-radius:2px; background:rgba(128, 128, 128, 0.54); padding:3px 10px 0px 10px; cursor:pointer;">Add</span>
+										</li>
+    
+										<br>   
+
+										<li style="width: 20%;"><span>Add other specialisations</span></li><label>:</label>
+										<!-- <li class="loan-list-top"  style="width: 40%;">
+										
+									</li> -->
+
+									<li>
+										<input type='text' style="width: 129%;" ng-model="formData.specialisation1">
+										<!-- <span onclick="javascript:$('.disclass').val('')" ng-click="addSpeDisease(dis.originalObject)" class="hvr-sweep-to-right" style="margin-bottom: 7px;height: 35px; border-width:0px; border-radius:2px; background:rgba(128, 128, 128, 0.54); padding:3px 10px 0px 10px; cursor:pointer;">Add</span> -->
+									</li>
+								</ul>
+								<div class="blog-list2" style="margin:0 0 0em">          
+									<ul>
+						  				<li style="margin-right: 10px;" ng-repeat="item in disToShowSpe" ng-click="removeSpe($index)">
+											<a href="" >{{item}} X</a>
+										</li>
+									</ul>           
+								</div>  
+								<ul class="loan-col1">
+									<li style="width: 20%;"><span>Special Packages </span></li><label>:</label>
+									<li class="loan-list-top"  style="width: 70%;"><input type="text" ng-model="formData.special_packages" placeholder="Kindly seperate them by comma ( , )(If any)"></li>
+								</ul>
+								<hr>      
+								<h4>Certificates</h4>
+								<ul class="loan-col1">
+									<li class="loan-list-top" style="width: 100%;">
+										<table class="table">
+											<tr>
+												<td>
+													<input type="checkbox" name="" ng-model="formData.is_nabh"> NABH
+												</td>
+												<!-- <td ng-show="is_nabh">
+													Image of Certificate:
+												</td>
+												<td ng-show="is_nabh">
+													<input  type="file" file-upload accept="image/*" >
+												</td> -->
+											</tr>
+										</table>
+										<table class="table" >
+											<tr>
+												<td>
+													<input type="checkbox" name="" ng-model="formData.is_jci"> JCI
+												</td>
+												<!-- <td ng-show="is_jci">
+													Image of Certificate:
+												</td>
+												<td ng-show="is_jci">
+													<input  type="file" file-upload accept="image/*" >
+												</td> -->
+											</tr>
+										</table>
+										<table class="table" >
+											<tr>
+												<td>
+													<input type="checkbox" name="" ng-model="formData.is_hbot"> HBOT
+												</td>
+											</tr>
+										</table>
+									</li>
+								</ul>
+								<span style="margin-bottom: 3px;height: 35px; border-width:0px; border-radius:2px; background:rgba(128, 128, 128, 0.54); padding:3px 10px 0px 10px; cursor:pointer;" class="hvr-sweep-to-right more-in"  ng-click="myProgressBack()"><i class="fa fa-arrow-left"></i> Previous</span>
+								<span style="margin-bottom: 3px;height: 35px; border-width:0px; border-radius:2px; background:rgba(128, 128, 128, 0.54); padding:3px 10px 0px 10px; cursor:pointer;" class="hvr-sweep-to-right more-in"  ng-click="myProgress()">Next <i class="fa fa-arrow-right"></i></span>
+								<hr>
+							</div>
+							<div ng-show="progressDiv==9">
+								<span style="margin-bottom: 3px;height: 35px; border-width:0px; border-radius:2px; background:rgba(128, 128, 128, 0.54); padding:3px 10px 0px 10px; cursor:pointer;" class="hvr-sweep-to-right more-in"  ng-click="myProgressBack()"><i class="fa fa-arrow-left"></i> Previous</span>
+							</div>
+							<p></p>
+							<div class="sub">
+								<button value="none" class="hvr-sweep-to-right more-in" style="height:40px;" ng-click="formSubmit()"> Save Changes</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$('#formid').on('keyup keypress', function(e) {
+  var code = e.keyCode || e.which;
+  if (code == 13) { 
+    e.preventDefault();
+    return false;
+  }
+});
+</script>

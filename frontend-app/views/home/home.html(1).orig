@@ -1,0 +1,661 @@
+<<<<<<< working copy
+<<<<<<< working copy
+<search></search>
+
+=======
+
+=======
+<style type="text/css">
+			.carousel-inner{
+				top: -20px;
+			    position: absolute;
+			    height: 150px;
+				background : transparent;
+			}
+			
+			.carousel-caption{
+				position: absolute;
+				top:0px;
+			}
+			.carousel-indicators {
+			    bottom: -80px;
+			    position: relative;
+			}
+			
+			.carousel-control {
+				background : transparent;
+			}
+	    
+	    .testimony{
+	       background-color: transparent;
+	        margin-top: 200px;
+	     }
+	    </style>
+>>>>>>> destination
+	<div class="header-container" >
+		<div class="video-container">
+			<video class="video-top" autoplay loop muted volume="0" poster="img/vid-poster.png">
+		  		<source src="video/vid1.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+		</div>
+	  <div class="container" >
+	    <div class="row">
+		    <div class="col-md-8 col-md-offset-2">
+		    	<div class="above-video">
+		        <form class="form-inline searchbox well">
+				      <div class="row">
+				        <div class="form-group">
+								  <div class="input-group">
+								    <div class="input-group-addon" style="height:40px;">
+								      <i class="fa fa-ambulance"></i>
+								    </div>
+										<select class="form-control" ng-model="dis" style="height:40px;">
+				              <option value="dis1">Cancer</option>
+				              <option value="dis3">Bimari </option>
+				              <option value="dis2">Bimari 3</option>
+				              <option value="dis4">Bimari 4</option>
+				            </select>
+								  </div>
+								</div>
+								<div class="form-group">
+								  <div class="input-group">
+								    <div class="input-group-addon">
+								      <i class="fa fa-map-marker"></i>
+								    </div>
+								    <select class="form-control" ng-model="loc" style="height:40px;">
+				              <option value="delhi">Delhi</option>
+				              <option value="gwalior">Gwalior</option>
+				              <option value="mumbai">Mumbai</option>
+				              <option value="hari" >Haridwar</option>
+				            </select>
+								  </div>
+								</div>
+								<div class="form-group">
+								  <div class="input-group">
+								    <div class="input-group-addon">
+								      <i class="fa fa-calendar"></i>
+								    </div>
+								    <input class="datepicker form-control" type="text" placeholder="Arrival Date" style="height:40px; width:120px;"/>
+								   </div>
+								</div>
+				        <button type="submit" class="hvr-sweep-to-right more-in" style="height:42px; width:110px;" ng-click="searchKramya(dis,loc)">Search
+				        </button>
+				      </div>
+		      	</form>
+		      </div>
+		    </div>
+		    <div class="col-md-offset-2"></div>
+	    </div>
+	    <!-- Testimony -->
+	  	<div class="row">
+	      <div class="testimony"> 
+			   	<div ng-controller="CarouselDemoCtrl">
+				      <carousel interval="myInterval" no-wrap="noWrapSlides">
+				        <slide ng-repeat="slide in slides" active="slide.active">
+				          <!-- <img ng-src="{{slide.image}}" style="margin:auto;"> -->
+				          <div class="carousel-caption">
+				            <h4>{{slide.text}}</h4>
+				            <p>- {{slide.providers}}</p>
+				          </div>
+				        </slide>
+				      </carousel>
+			  	</div>
+			  </div>
+			</div>
+			<!-- End Testimoney-->
+	  </div>
+	</div>
+
+>>>>>>> destination
+	<!--header-bottom-->
+	<div  class="banner-bottom-top">
+		<div class="container">
+			<div class="bottom-header">
+				<div class="header-bottom">
+					<div class=" bottom-head">
+						<a href="buy.html">
+							<div class="buy-media">
+								<i class="buy"> </i>
+								<h6>Buy</h6>
+							</div>
+						</a>
+					</div>
+					<div class=" bottom-head">
+						<a href="buy.html">
+							<div class="buy-media">
+							<i class="rent"> </i>
+							<h6>Rent</h6>
+							</div>
+						</a>
+					</div>
+					<div class=" bottom-head">
+						<a href="buy.html">
+							<div class="buy-media">
+							<i class="pg"> </i>
+							<h6>Hostels</h6>
+							</div>
+						</a>
+					</div>
+					<div class=" bottom-head">
+						<a href="buy.html">
+							<div class="buy-media">
+							<i class="sell"> </i>
+							<h6>Resale</h6>
+							</div>
+						</a>
+					</div>
+					<div class=" bottom-head">
+						<a href="loan.html">
+							<div class="buy-media">
+							<i class="loan"> </i>
+							<h6>Home Loans</h6>
+							</div>
+						</a>
+					</div>
+					<div class=" bottom-head">
+						<a href="buy.html">
+							<div class="buy-media">
+							<i class="apart"> </i>
+							<h6>Projects</h6>
+							</div>
+						</a>
+					</div>
+					<div class=" bottom-head">
+						<a href="dealers.html">
+							<div class="buy-media">
+							<i class="deal"> </i>
+							<h6>Dealers</h6>
+							</div>
+						</a>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="container">
+		<div class="top-grid">
+			<h3>Top Destinations</h3>
+			<div class="gvrid-at">
+				<div class="col-md-3 grid-city">
+					<div class="grid-lo">
+						<a href="buy_single.html">
+							<figure class="effect-layla">
+							<img class=" img-responsive" src="img/ce.jpg" alt="img06">
+							<figcaption>
+								<h4>Mumbai</h4>
+							</figcaption>			
+						</figure>
+						</a>
+					 </div>
+				</div>
+				<div class="col-md-3 grid-city">
+					<div class="grid-lo">
+							<a href="buy_single.html">
+						<figure class="effect-layla">
+							<img class=" img-responsive" src="img/ce1.jpg" alt="img06">
+							<figcaption>
+								<h4>Lucknow</h4>
+							</figcaption>			
+						</figure>
+						</a>
+					 </div>
+				</div>
+				<div class="col-md-6 grid-city grid-city1">
+					<div class="grid-me">
+					<div class="col-md-8 grid-lo1">
+						<div class=" grid-lo">
+								<a href="buy_single.html">
+						<figure class="effect-layla">
+							<img class=" img-responsive" src="img/ce2.jpg" alt="img06">
+							<figcaption>
+								<h4 class="effect1">Delhi</h4>
+							</figcaption>			
+						</figure>
+						</a>
+					 </div>
+					</div>
+					 <div class="col-md-4 grid-lo2">
+					 	<div class=" grid-lo">
+					 			<a href="buy_single.html">
+						<figure class="effect-layla">
+							<img class=" img-responsive" src="img/ce3.jpg" alt="img06">
+							<figcaption>
+								<h4 class="effect2">Chennai</h4>
+							</figcaption>			
+						</figure>
+						</a>
+					 </div>
+					 </div>
+					 <div class="clearfix"> </div>
+				</div>	
+				<div class="grid-me">
+					<div class="col-md-6 grid-lo3">
+						<div class=" grid-lo">
+								<a href="buy_single.html">
+						<figure class="effect-layla">
+							<img class="img-responsive" src="img/ce4.jpg" alt="img06">
+							<figcaption>
+								<h4 class="effect3">Singapore</h4>
+							</figcaption>			
+						</figure>
+						</a>
+					 </div>
+					 </div>
+					 <div class="col-md-6 grid-lo4">
+					 	<div class=" grid-lo">
+					 			<a href="buy_single.html">
+						<figure class="effect-layla">
+							<img class="img-responsive" src="img/ce5.jpg" alt="img06">
+							<figcaption>
+								<h4 class="effect3">Banglore</h4>
+							</figcaption>			
+						</figure>
+						</a>
+					 </div>
+					 </div>
+					 <div class="clearfix"> </div>
+				</div>	
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+
+
+<div class="content">
+	<div class="content-grid">
+		<div class="container">
+			<h3>Chart Bustors</h3>
+			<div class="col-md-4 box_2">
+			  <a href="single.html" class="mask">
+			    <img class="img-responsive zoom-img" src="img/pc4.jpg" alt="">
+			    <span class="four">5.0 Star</span>
+			  </a>
+			  <div class="most-1">
+			    <h5><a href="single.html">AIIMS</a></h5>
+			    <p>All India Institute of Medical Sciences.</p>
+			  </div>
+			</div>
+			<div class="col-md-4 box_2">
+		    <a href="single.html" class="mask">
+				  <img class="img-responsive zoom-img" src="img/pc5.jpg" alt="">
+				  <span class="four">4.9 Star</span>
+			  </a>
+		    <div class="most-1">
+			    <h5><a href="single.html">Apollo Hospitals</a></h5>
+			    <p>Breaking record in the world of medicine.</p>
+			  </div>
+		  </div>
+			<div class="col-md-4 box_2">
+		   	<a href="single.html" class="mask">
+				  <img class="img-responsive zoom-img" src="img/pc3.jpg" alt="" >
+				  <span class="four">4.8 Star</span>
+			  </a>
+		    <div class="most-1">
+			    <h5><a href="single.html">Fortis Hospitals</a></h5>
+			    <p>A world class establishment</p>
+			  </div>
+		  </div>
+		 	<div class="clearfix"> </div>
+		</div>
+	</div>
+<<<<<<< working copy
+<<<<<<< working copy
+
+
+
+
+<div class="container">
+	<div class="future2">
+=======
+	
+=======
+
+>>>>>>> destination
+<!-- 	<div class="container">
+	<div class="future">
+>>>>>>> destination
+		<h3 >Most Popular Hospitals</h3>
+			<div class="content-bottom-in">
+					<ul id="flexiselDemo1">			
+						<li><div class="project-fur">
+								<a href="single.html" ><img class="img-responsive" src="img/pi.jpg" alt="" />	</a>
+									<div class="fur">
+										<div class="fur1">
+		                                    <span class="fur-money">$2.44 Lacs - 5.28 Lacs </span>
+		                                    <h6 class="fur-name"><a href="single.html">Contrary to popular</a></h6>
+		                                   	<span>Paris</span>
+                               			</div>
+			                            <div class="fur2">
+			                               	<span>2 BHK</span>
+			                             </div>
+									</div>					
+							</div></li>
+							<li><div class="project-fur">
+									<a href="single.html" ><img class="img-responsive" src="img/pi1.jpg" alt="" />	</a>
+										<div class="fur">
+											<div class="fur1">
+			                                    <span class="fur-money">$2.44 Lacs - 5.28 Lacs </span>
+			                                   <h6 class="fur-name"><a href="single.html">Contrary to popular</a></h6>
+			                                   	<span>Paris</span>
+	                               			</div>
+				                            <div class="fur2">
+				                               	<span>2 BHK</span>
+				                             </div>
+										</div>					
+								</div></li>
+								<li><div class="project-fur">
+								<a href="single.html" ><img class="img-responsive" src="img/pi2.jpg" alt="" />	</a>
+									<div class="fur">
+										<div class="fur1">
+		                                    <span class="fur-money">$2.44 Lacs - 5.28 Lacs </span>
+		                                   <h6 class="fur-name"><a href="single.html">Contrary to popular</a></h6>
+		                                   	<span>Paris</span>
+                               			</div>
+			                            <div class="fur2">
+			                               	<span>2 BHK</span>
+			                             </div>
+									</div>					
+							</div></li>
+							<li><div class="project-fur">
+								<a href="single.html" ><img class="img-responsive" src="img/pi3.jpg" alt="" />	</a>
+									<div class="fur">
+										<div class="fur1">
+		                                    <span class="fur-money">$2.44 Lacs - 5.28 Lacs </span>
+		                                    <h6 class="fur-name"><a href="single.html">Contrary to popular</a></h6>
+		                                   	<span>Paris</span>
+                               			</div>
+			                            <div class="fur2">
+			                               	<span>2 BHK</span>
+			                             </div>
+									</div>					
+							</div></li>
+					</ul>
+		</div>
+	</div>
+</div> -->
+<flex-slider flex-slide="s in mySlides">
+    <li>
+        <img ng-src="{{s}}">
+    </li>
+</flex-slider>
+
+</div>
+
+<!--service-->
+	<div class="services" style="background-color:rgba(21, 20, 20, 0.05);">
+		<div class="container">
+			<div class="service-top">
+				<h3>How Kramya Works</h3>
+				  
+			</div>
+			
+			<div class="services-grid">
+		   		<div class="col-md-6 service-top1">
+		   			<div class=" ser-grid">	
+		   				<a href="#" class="hi-icon hi-icon-archive glyphicon glyphicon-search"> </a>
+		   			</div>
+		   			<div  class="ser-top">
+		   				<h4>Search</h4>
+		   				<p>Type in keywords to search procedure / disease with destination country, click on the search icon to automatically show results.
+		   				Apply filters which can help you shortlist Hospitals in an efficient way.
+</p>
+		   		  </div>
+					<div class="clearfix"> </div>
+		   	   </div>
+				<div class="col-md-6 service-top1">
+		   			<div class=" ser-grid">	
+		   				<a href="#" class="hi-icon hi-icon-archive glyphicon glyphicon-random"> </a>
+		   			</div>
+		   			<div  class="ser-top">
+		   				<h4>Connect</h4>
+		   				<p>Connect with shortlisted Hospital and send email, check availability and know the procedures.</p><p> You can check previous feedbacks  about the hospital to know more.
+
+</p>
+		   		  </div>
+					<div class="clearfix"> </div>
+		   		</div>
+		   	<div class="clearfix"> </div>
+		 </div>
+		 <div class="services-grid">
+			   	<div class="col-md-6 service-top1">
+			   		<div class=" ser-grid">	
+			   			<a href="#" class="hi-icon hi-icon-archive glyphicon glyphicon-thumbs-up"> </a>
+			   		</div>
+			   		<div  class="ser-top">
+		   				<h4>book</h4>
+		   				<p> Confirm the Appointment. Upon booking, you'll receive confirmation and reminder emails. Your personal information is confidential and will be safe with us.</p><p>
+Share your review with your contacts to help them get destinations.
+ </p>
+		   		  </div>
+					<div class="clearfix"> </div>
+			   	</div>
+				<div class="col-md-6 service-top1">
+			   		<div class=" ser-grid">	
+			   			<a href="#" class="hi-icon hi-icon-archive glyphicon glyphicon-pencil"> </a>
+			   		</div>
+			   		<div  class="ser-top">
+		   				<h4>Review</h4>
+		   				<p>Review your experience after your appointment, your reviews is key for us to improve! It helps others patients choose the right hospital. </p><p>
+Share your review with your contacts to help them get destinations.
+ </p>
+		   		  </div> 
+					<div class="clearfix"> </div>
+			   	</div>
+		   	  <div class="clearfix"> </div>
+		 	</div> 
+		 	<video class="video-main" poster="img/vid-poster.png" controls>
+			  <source src="video/vid1.mp4" type="video/mp4" >
+			  Your browser does not support the video tag.
+			</video>
+			<div class="service-top"></div>
+		</div>
+	</div>
+<!--//services-->
+<!--features-->
+		<div class="content-middle">
+			<div class="container">
+				<div class="mid-content">
+					<h3>Why Kramya is Best?</h3>
+					<p>Contrary to popular belief
+							, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
+					<a class="hvr-sweep-to-right more-in" href="single.html">Read More</a>
+				</div>
+			</div>
+		</div>
+<!--//features-->
+<!--phone-->
+	<div class="phone">
+		<div class="container">
+			<div class="col-md-6">
+				<img src="img/ph1.png" class="img-responsive" alt=""/>
+			</div>
+			<div class="col-md-6 phone-text">
+				<h4>Search Hospitals Everywhere</h4>
+					<div class="text-1">
+						<h5>Custom Location Tracker</h5>
+						<p>There are many variations of passages of Lorem Ipsum available, but the majorit</p>
+					</div>
+					<div class="text-1">
+						<h5>Map Search</h5>
+						<p>There are many variations of passages of Lorem Ipsum available, but the majorit</p>
+					</div>
+					<div class="text-1">
+						<h5>Quick Details</h5>
+						<p>There are many variations of passages of Lorem Ipsum available, but the majorit</p>
+					</div>
+					<a href="mobile_app.html" class="hvr-sweep-to-right more">Download the App</a>
+			</div>
+		</div>
+	</div>
+<!--//phone-->
+<!--project-->
+	<div class="project">
+		<div class="container">
+			<h3>Most Popular Hospitals</h3>
+				<div class="project-top">
+					<div class="col-md-3 project-grid">
+						<div class="project-grid-top">
+							 <a href="single.html" class="mask"><img src="img/ga.jpg" class="img-responsive zoom-img" alt=""/></a>
+							 <div class="col-md1">
+								 <div class="col-md2">
+									 <div class="col-md3">
+									 	<span class="star"> 4.5</span>
+									 </div>
+									 <div class="col-md4">
+									 	<strong>AIIMS</strong>
+									 	<small>150 Reviews</small>
+									 </div>
+									 <div class="clearfix"> </div>
+								 </div>
+								 <p>All India Institute of Medical Science.</p>
+								 <p class="cost">Delhi , India</p>
+								 <a href="single.html" class="hvr-sweep-to-right more">See Details</a>
+							 </div>
+						</div>
+					</div>
+					<div class="col-md-3 project-grid">
+						<div class="project-grid-top">
+							  <a href="single.html" class="mask"><img src="img/ga1.jpg" class="img-responsive zoom-img" alt=""/></a>
+							 <div class="col-md1">
+								 <div class="col-md2">
+									 <div class="col-md3">
+									 	<span class="star"> 4.5</span>
+									 </div>
+									 <div class="col-md4">
+									 	<strong>Apollo Hospitals</strong>
+									 	<small>130 Reviews</small>
+									 </div>
+									 <div class="clearfix"> </div>
+								 </div>
+								 <p>Maintaining a path breaking record in the world of medicine</p>
+								 <p class="cost">Mumbai , India</p>
+								 <a href="single.html" class="hvr-sweep-to-right more">See Details</a>
+							 </div>
+						</div>
+					</div>
+					<div class="col-md-3 project-grid">
+						<div class="project-grid-top">
+							  <a href="single.html" class="mask"><img src="img/ga2.jpg" class="img-responsive zoom-img" alt=""/></a>
+							 <div class="col-md1">
+								 <div class="col-md2">
+									 <div class="col-md3">
+									 	<span class="star"> 4.5</span>
+									 </div>
+									 <div class="col-md4">
+									 	<strong>Fortis Hospitals</strong>
+									 	<small>120 Reviews</small>
+									 </div>
+									 <div class="clearfix"> </div>
+								 </div>
+								 <p>Fortis offers excellence and is a world class establishment.</p>
+								 <p class="cost">Chennai , India</p>
+								 <a href="single.html" class="hvr-sweep-to-right more">See Details</a>
+							 </div>
+						</div>
+					</div>
+					<div class="col-md-3 project-grid">
+						<div class="project-grid-top">
+							  <a href="single.html" class="mask"><img src="img/ga3.jpg" class="img-responsive zoom-img" alt=""/></a>
+							 <div class="col-md1">
+								 <div class="col-md2">
+									 <div class="col-md3">
+									 	<span class="star"> 4.5</span>
+									 </div>
+									 <div class="col-md4">
+									 	<strong>NIMHANS</strong>
+									 	<small>100 Reviews</small>
+									 </div>
+									 <div class="clearfix"> </div>
+								 </div>
+								 <p>National Institute of Mental Health and Neuro Sciences</p>
+								 <p class="cost">Banglore , India</p>
+								 <a href="single.html" class="hvr-sweep-to-right more">See Details</a>
+							 </div>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>				
+		</div>
+	</div>
+<!--//project-->
+<!--test-->
+		<div class="content-bottom">
+			<div class="container">
+				<h3>Testimonials</h3>
+					<div class="col-md-6 name-in">
+						<div class=" bottom-in">
+							<p class="para-in">Duis aute irure dolor in reprehenderit in voluptate
+							velit esse cillum dolore eu fugiat nulla pariatur.</p>
+						    <i class="dolor"> </i>
+							<div class="men-grid">
+								<a href="#" class="men-top"><img class="img-responsive men-top" src="img/te.jpg" alt=""></a>
+								<div class="men">
+								<span>Roger V. Coates</span>
+								<p>Ut enim ad minim</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+						<div class=" bottom-in">
+							<p class="para-in">Duis aute irure dolor in reprehenderit in voluptate
+							velit esse cillum dolore eu fugiat nulla pariatur.</p>
+							<i class="dolor"> </i>
+							<div class="men-grid">
+								<a href="#" class="men-top"><img class="img-responsive " src="img/te2.jpg" alt=""></a>
+								<div class="men">
+									<span>Ann K. Perez</span>
+									<p>Ut enim ad minim</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6  name-on">
+						<div class="bottom-in ">
+							<p class="para-in">Duis aute irure dolor in reprehenderit in voluptate
+							velit esse cillum dolore eu fugiat nulla pariatur.</p>
+							<i class="dolor"> </i>
+							<div class="men-grid">
+								<a href="#" class="men-top"><img class="img-responsive " src="img/te1.jpg" alt=""></a>
+								<div class="men">
+									<span>Nancy M. Picker</span>
+									<p>Ut enim ad minim</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+			</div>
+		</div>		
+<!--//test-->	
+<!--partners-->
+	<div class="content-bottom1">
+		<h3>Our Partners</h3>
+	 		<div class="container">
+				<ul>
+					<li><a href="#"><img class="img-responsive" src="img/lg.png" alt=""></a></li>
+					<li><a href="#"><img class="img-responsive" src="img/lg1.png" alt=""></a></li>
+					<li><a href="#"><img class="img-responsive" src="img/lg2.png" alt=""></a></li>
+					<li><a href="#"><img class="img-responsive" src="img/lg3.png" alt=""></a></li>
+					<li><a href="#"><img class="img-responsive" src="img/lg4.png" alt=""></a></li>
+				<div class="clearfix"> </div>
+				</ul>
+				<ul>
+					<li><a href="#"><img class="img-responsive" src="img/lg5.png" alt=""></a></li>
+					<li><a href="#"><img class="img-responsive" src="img/lg6.png" alt=""></a></li>
+					<li><a href="#"><img class="img-responsive" src="img/lg7.png" alt=""></a></li>
+					<li><a href="#"><img class="img-responsive" src="img/lg8.png" alt=""></a></li>
+					<li><a href="#"><img class="img-responsive" src="img/lg9.png" alt=""></a></li>	
+				<div class="clearfix"> </div>
+				</ul>
+			</div>
+		</div>	
+<!--//partners-->	
+	</div>

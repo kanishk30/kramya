@@ -1,0 +1,2 @@
+30 Aug:Databse Schema and E-R Diagram completed.
+03 Sept:Relational Database coded. 

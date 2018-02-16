@@ -1,0 +1,486 @@
+	<style type="text/css">
+	.star-rating {
+	  margin: 0;
+	  padding: 0;
+	  display: inline-block;
+	  .star {
+	    padding: 1px;
+	    color: #ddd;
+	    font-size: 20px;
+	    text-shadow: .05em .05em #aaa;
+	    list-style-type: none;
+	    display: inline-block;
+	    cursor: pointer;
+
+	    &.filled {
+	      color: #fd0;
+	    }
+	  }
+  	&.readonly .star.filled {
+    	color: #666;
+  	}
+	}
+	a.mask {
+		height: 250px;
+	}
+	.middle-side p span.two {
+		color: #0C398B;
+		font-weight: bold;
+	}
+	.mapclass{
+		display: block;
+		height: 95%;
+		position: fixed; 
+		right: 0px; 
+		margin-top: -57px;
+		/*box-shadow: -2px 10px 10px rgba(128, 128, 128, 0.68);*/
+	}
+	.project-grid{
+		margin-top: 20px;
+	}
+	.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	}
+	.filter-box{
+		background: #FFFFFF;
+		z-index: 1; 
+		padding: 0px;
+		float: left;
+		display:inline-flex;
+		white-space: nowrap;
+		margin-top: 0%;
+		border-style: solid;
+    border-width: 0px 0px 2px 0px;
+    border-color: #F0F0F0;
+	}
+	.filter-box-border{
+		box-shadow: -10px 10px 10px rgba(128, 128, 128, 0.68);
+		position: fixed;
+	}
+	@-moz-document url-prefix() { 
+		.filter-box-search{
+			padding-top: 6.5px;
+		}
+	}
+	.filter-box-search{
+		border-color:rgb(240, 240, 240);
+		border-style:solid;
+		border-width: 0px 2px 0px 0px;
+		display: inherit;
+		z-index: 20!important;
+		padding-bottom: 6.5px;
+		/*position: fixed;*/
+		/*float: left;
+		display:inline-flex;
+		white-space: nowrap;*/
+	}
+	.filter-box-search:hover{
+		background-color: rgba(68, 68, 68, 0.05);
+		color: #16535C;
+		cursor: pointer;
+	}
+	.filter-box-box-info{
+		border-color:rgb(240, 240, 240);
+		border-style:solid;
+		border-width: 0px 2px 0px 0px;
+		padding:20px;
+	}
+	.filter-box-box-info{
+		cursor: not-allowed;
+	}
+	.filter-box-box-sort{
+		border-color:rgb(240, 240, 240);
+		border-style:solid;
+		border-width: 0px 2px 0px 0px;
+		padding:20px; 
+		cursor:pointer;
+	}
+	.filter-box-box-sort:hover{
+		background-color: rgba(68, 68, 68, 0.05);
+		color: #16535C;
+	}
+	.sort-dropdown{
+		width: 16.6%;
+    position: fixed;
+    padding: 0px 0em 0px 0em;
+    margin-top: 66.8px;
+    background-color: white;
+    z-index: 2000!important;
+    box-shadow: -10px 10px 10px rgba(128, 128, 128, 0.68);
+    border-style: solid;
+    border-width: 2px 0px 2px 0px;
+    border-color: rgba(68, 68, 68, 0.1);
+	}
+	.sort-dropdown li {
+		padding: .5em 1em .5em 1em;
+    cursor: pointer;
+    cursor: hand;
+    /*text-align: center;*/
+    /*box-shadow: 5px 10px 20px rgba(128, 128, 128, 0.68);*/
+	}
+	.sort-dropdown li:hover {
+		background-color: rgba(68, 68, 68, 0.1);
+		font-weight: bold;
+		/*border-style: solid;
+		border-width: 1px 0px 1px 0px;
+		border-color: red;*/
+    /*box-shadow: 5px 10px 20px rgba(128, 128, 128, 0.68);*/
+	}
+	.filter-box-box-search{
+		color:rgba(78, 77, 77,0.7);
+		text-align:center;
+		font-size:2em;
+		padding-top:1%;
+		border-color:rgb(240, 240, 240);
+		border-style:solid;
+		border-width: 0px 2px 0px 0px;
+		cursor:pointer;
+		padding-left: 10px;
+	}
+	.filter-box-box-search:hover{
+		background-color: rgba(68, 68, 68, 0.05);
+		color: #16535C;
+		padding-left: 0px;
+	}
+	.filter-box-box-map{
+		color:rgba(78, 77, 77,0.7);
+		text-align:center;
+		font-size:2em;
+		padding-top:1%;
+		cursor:pointer;
+		cursor:hand;
+		padding-right: 10px;
+	}
+	.filter-box-box-map:hover{
+		background-color: rgba(68, 68, 68, 0.05);
+		color: #16535C;
+		padding-right: 0px;
+	}
+	.angucomplete-holder{
+  	background: rgba(255, 255, 255, 0);
+  	cursor: pointer;
+  	cursor: hand;
+  }
+	#_dropdown{
+		background-color: white;
+		margin-top: 1.2%;
+		width: 100%;
+		max-height: 200px;
+		overflow: auto; 
+		/*width: 284px;*/
+		box-shadow: -10px 10px 10px rgba(174, 173, 173, 0.48);
+	}
+  .highlight{
+		color:rgb(255,90,95) ;
+	}
+	.angucomplete-selected-row{
+		background-color: rgba(172, 172, 172, 0.2);
+		color: rgba(22, 83, 92, 0.8);
+	}
+	#_value{
+		width: 100%;
+    height: 50px;
+    padding: 6px 12px;
+    font-size: 0.9em;
+    color: #000000;
+    background-color: rgba(122, 122, 122, 0);
+    border: 1px solid rgba(122, 122, 122, .1);
+    border-radius: 0px;
+	}
+	.dis-box{
+		padding-top: 1%;width: 45%;padding-left: 1%;
+	}
+	.loc-box{
+		padding-top: 1%;width: 45%;padding-left: 3%;margin-left: -7%;
+	}
+	.dis-holder{
+		font-size: 2em;width: 5%;padding-top: 1%;
+	}
+	.dis-holder-span{
+		margin-left: -140%;
+	}
+	.loc-holder{
+		font-size: 2em;width: 5%;padding-top: 1%;
+	}
+	.loc-holder-span{
+		margin-left: -85%;
+	}
+	.search-btn-box{
+		width:10%;padding-top: 1%;
+	}
+	.search-btn-holder{
+		margin-left: -40%;height:50px;width: 130%; padding: 0% 3%;border-width: 0px;
+	}
+	.fav-icon{
+	 	position: absolute;
+	 	margin-top: -57%;
+	 	margin-left: 76%;
+	 	font-size: 3em;
+	 	color: rgba(244, 244, 244, 0.21);
+	 }
+	 .fav-icon:hover{
+	 	cursor:pointer;
+	 }
+	 	.fa.change-icon:hover:before{
+	 		content: "\f004";
+	 		color: rgba(237, 19, 19, 0.70);
+	 	}
+	 	.heart-box.ng-hide{
+	 		animation:0.5s bounce ease;
+	 		opacity: 0;
+	 	}
+	 	.col-md1 span{
+	 		background-position: 2px 9px;
+	    height: 48px;
+	    width: 45px;
+	    color: #000;
+	    font-size: 1em;
+	    font-weight: bold;
+	 	}
+	 	a.more{
+	 		font-size: 1em;
+    	border: 2px solid #16535C;
+	 	}
+	/*.drop-div.ng-hide-add{ 
+		animation:0.5s bounceOutUp ease;
+	}*/
+	/*.drop-div.ng-hide-remove{
+		animation:1s bounceInDown ease;
+	}*/
+	/*.sort-word.ng-hide-add{ 
+		animation:0.5s bounceOutDown ease;
+	}*/
+	.sort-word.ng-hide-remove{
+		z-index: 100!important;
+		animation:1s bounceInUp ease;
+	}
+	.arrow-left.ng-hide-remove{
+		animation:.1s flipInY ease;
+	}
+	.arrow-right.ng-hide-remove{
+		animation:.1s flipInY ease;
+	}
+	.filter-box-search.ng-hide-remove{
+		animation:1s slideInLeft ease;
+	}
+	/*.filter-box-search.ng-hide-add{
+		animation:1s slideOutRight ease;
+	}*/
+	.filter-box-box-info.ng-hide-remove{
+		animation:1s slideInLeft ease;
+	}
+	/*.filter-box-box-info.ng-hide-add{
+		animation:.1s slideOutRight ease;
+	}*/
+	.filter-box-box-sort.ng-hide-remove{
+		animation:1s slideInLeft ease;
+	}
+	.ng-move {
+  	animation:1s fadeOut ease;
+	}
+	.repeat-animation.ng-enter {
+  	animation:3s slideInLeft ease;
+	}
+	.repeat-animation.ng-enter.ng-enter-active {
+	  animation:3s fadeOut ease;
+	}
+	.carousel .carousel-control { visibility: hidden; }
+	.carousel:hover .carousel-control { visibility: visible; }
+	.carousel-indicators { visibility: hidden; }
+	/*.repeat-animation.ng-leave {
+	  opacity: 1;
+	}
+	.repeat-animation.ng-leave.ng-leave-active {
+	  opacity: 0;
+	}
+	.repeat-animation.ng-move {
+	  left:2px;
+	  opacity: 0.5;
+	}
+	.repeat-animation.ng-move.ng-move-active {
+	  left:0;
+	  opacity: 1;
+	}*/
+</style>
+<script>
+	var zoom=function(){
+ 		$('.disclass').focus(function(){
+ 			$('.dis-holder').css({'color': '#FF5A5F' });
+		})
+		.blur(function(){
+			$('.dis-holder').css({'color': '#8D7C7C' }); 
+		});
+		$('.locclass').focus(function(){
+ 			$('.loc-holder').css({'color': '#FF5A5F' });
+		})
+		.blur(function(){
+			$('.loc-holder').css({'color': '#8D7C7C' }); 
+		});
+	}
+	setTimeout(zoom,1000);
+	$(window).on('scroll',function(){
+    // we round here to reduce a little workload
+    var start = Math.round($(window).scrollTop());
+    if (start > mainbottom) {
+        $('.filter-box').addClass('filter-box-border');
+        $('.mapclass').addClass('filter-box-border');
+    } else {
+        $('.filter-box').removeClass('filter-box-border');
+        $('.mapclass').removeClass('filter-box-border');
+   }
+  });
+</script>
+<div ng-controller="searchResultCtlr" autoscroll="true" style="background:rgba(172, 172, 172, 0.18);">
+	<div style="background:url('img/hex-transparent1.png'); z-index:0;">	
+		<div class=" banner-buying" style="min-height: 60px;"></div>
+	</div>
+	<div class="drop-div noselect" ng-show="showDrop" >
+		<ul ng-style="showMapHere==false && {'margin-left':'70%' } || {'margin-left':'36.67%' } " class='sort-dropdown trans' >
+			<li class="top-list" ng-click="bedsUp()" > <i class="fa fa-bed"></i>&nbsp;&nbsp;&nbsp;&nbsp; Beds <i style="color:red;" class="fa fa-long-arrow-up"></i></li>
+		  <li ng-click="bedsDown()"><i class="fa fa-bed"></i> &nbsp;&nbsp;&nbsp;&nbsp;Beds <i style="color:red;" class="fa fa-long-arrow-down"></i></li>
+		  <li ng-click="sinceUp()"><i class="fa fa-calendar"></i> &nbsp;&nbsp;&nbsp;&nbsp;Since <i style="color:red;" class="fa fa-long-arrow-up"></i></li>
+		  <li ng-click="sinceDown()"><i class="fa fa-calendar"></i> &nbsp;&nbsp;&nbsp;&nbsp;Since <i style="color:red;" class="fa fa-long-arrow-down"></i></li>
+		  <li ng-click="ratingUp()" ><i class="fa fa-star-o"></i>&nbsp;&nbsp;&nbsp;&nbsp; Rating <i style="color:red;" class="fa fa-long-arrow-up"></i></li>
+		  <li ng-click="ratingDown()"><i class="fa fa-star-o"></i>&nbsp;&nbsp;&nbsp;&nbsp; Rating <i style="color:red;" class="fa fa-long-arrow-down"></i></li>
+		  <li ng-click="doctorsUp()" ><i class="fa fa-stethoscope"></i> &nbsp;&nbsp;&nbsp;&nbsp;Doctors <i style="color:red;" class="fa fa-long-arrow-up"></i></li>
+		  <li class="bottom-list" ng-click="doctorsDown()"><i class="fa fa-stethoscope"></i> &nbsp;&nbsp;&nbsp;&nbsp;Doctors <i style="color:red;" class="fa fa-long-arrow-down"></i></li>
+		</ul>
+	</div>
+	<div ng-style="showMapHere==false && {'width':'100%' } || {'width':'66.666%'}" class="trans filter-box" style="">
+		<div ng-show='showSearch' class="filter-box-search noselect" ng-style="showMapHere==false && {'width':'86.67%' } || {'width':'80%'}">
+			<div class="dis-box" style="">
+				<angucomplete-alt selected-object="dis" placeholder="Select Procedure" pause="100"  local-data="disData" search-fields="dis" title-field="dis" minlength="2" input-class="form-control form-control-small disclass" match-class="highlight"></angucomplete-alt>
+			</div>
+			<div class="dis-holder">
+				<span class="dis-holder-span"><i class="fa fa-ambulance " ></i></span>
+			</div>
+			<div class="loc-box">
+				<angucomplete-alt selected-object="loc" placeholder="Search Location" pause="100"  local-data="cities" search-fields="city,country" title-field="city,country" minlength="2" input-class="form-control form-control-small locclass" match-class="highlight"></angucomplete-alt>
+			</div>
+			<div class="loc-holder">
+				<span class="loc-holder-span"><i class="fa fa-map-marker"></i></span>
+			</div>
+			<div class="search-btn-box">
+				<button type="submit" class="hvr-sweep-to-right more-in search-btn-holder"  ng-click="searchKramya(dis.originalObject.id,loc.originalObject.city)">Search
+		    </button>
+			</div>
+		</div>
+		<div ng-hide='showSearch' class="filter-box-box-info " ng-style="showMapHere==false && {'width':'70%' } || {'width':'55%'}">
+			<span>	{{countResult}} Search Results  </span>
+		</div>
+		<div ng-hide='showSearch' class="filter-box-box-sort noselect" ng-style="showMapHere==false && {'width':'16.67%' } || {'width':'25%'}" ng-click="showDrop=!showDrop">
+			<span><b>Sort By:</b></span>
+			<span>
+				<span class="sort-word" ng-show="repeatData=='-hospital_rating'">Rating <i style="color:red;" class="fa fa-long-arrow-up"></i></span>
+				<span class="sort-word" ng-show="repeatData=='hospital_rating'">Rating <i style="color:red;" class="fa fa-long-arrow-down"></i></span>
+				<span class="sort-word" ng-show="repeatData=='-doctors'">Doctors <i style="color:red;" class="fa fa-long-arrow-up"></i></span>
+				<span class="sort-word" ng-show="repeatData=='doctors'">Doctors <i style="color:red;" class="fa fa-long-arrow-down"></i></span>
+				<span class="sort-word"ng-show="repeatData=='-beds'">Beds <i style="color:red;" class="fa fa-long-arrow-up"></i></span>
+				<span class="sort-word" ng-show="repeatData=='beds'">Beds <i style="color:red;" class="fa fa-long-arrow-down"></i></span>
+				<span class="sort-word" ng-show="repeatData=='-since'">Since <i style="color:red;" class="fa fa-long-arrow-up"></i></span>
+				<span class="sort-word" ng-show="repeatData=='since'">Since <i style="color:red;" class="fa fa-long-arrow-down"></i></span>
+    	</span>
+    	<span ng-show='!showDrop'>&nbsp;&nbsp;&nbsp;<i class="fa fa-caret-down"></i></span>
+    	<span ng-show='showDrop'>&nbsp;&nbsp;&nbsp;<i class="fa fa-caret-up"></i></span>
+		</div>
+		<div ng-click="setShowSearch()" class="filter-box-box-search noselect trans" ng-style="showMapHere==false && {'width':'6.66%' } || {'width':'10%'}" >
+			<span class="arrow-right" ng-show="showSearch"><i class="fa fa-caret-right"></i></span>
+			<span class="arrow-left" ng-show="!showSearch"><i class="fa fa-caret-left"></i></span>
+			<span><i class="fa fa-search-plus"></i></span>
+		</div>
+		<div ng-click="showMap()" class="filter-box-box-map noselect trans" ng-style="showMapHere==false && {'width':'6.66%' } || {'width':'10%'}">
+			<i class="fa fa-globe"></i>
+			<span class="arrow-right" ng-show="showMapHere"><i class="fa fa-caret-right"></i></span>
+			<span class="arrow-left" ng-show="!showMapHere"><i class="fa fa-caret-left"></i></span>
+		</div>
+	</div>
+	<div class="single" style="padding-top:0px;" >
+		<!-- <div class="container"> -->
+		<div class="buy-single" style="background:#efefef;">
+			<div class="box-sin">
+				<div id="box" ng-class="{'col-md-8':showMapHere==true , 'col-md-12':showMapHere==false}" class="single-box trans" style="margin-top:0%;padding-left: 15px;padding-right: 5px;padding-bottom:2em ; background: #efefef;">
+					<div class="project-top" >
+					<div class="trans" ng-repeat="item in searchData |  orderBy: repeatData">
+						<div  ng-class="{'col-md-6':showMapHere==true , 'col-md-4':showMapHere==false}" style="padding-top:1em;">
+							<div class="project-grid-top">
+								<carousel interval="myInterval" no-wrap="noWrapSlides">
+						      <slide ng-repeat="slide in item.hospital_image" active="$first">
+						        <img class="zoom-img" ng-src="{{slide}}" style="margin:auto; height:250px;width:800px; max-width:100%; border-radius:0px; max-width: 101%; ">
+						      </slide>
+						    </carousel>
+								 <div class="col-md1">
+									 <div class="col-md2">
+										 <div class="col-md3">
+										 	<span class="star">{{item.hospital_rating}}</span>
+										 </div>
+										 <div class="col-md4">
+										 	<strong>{{item.hospital_name}}</strong>
+										 	<small>0 Reviews</small>
+										 </div>
+										 <div class="clearfix"> </div>
+									 </div>
+									 <p class="cost">
+									 	<k style="padding-right:1em;font-size:1.05em;"><b>Since: {{item.since}}</b></k>
+									 </p>
+									 <p class="cost">
+									 	<k style="padding-right:.5em;"><b>Doctors:</b>{{item.doctors}}</k>
+									 	<k style="padding-right:.5em;"><b>Beds:</b>{{item.beds}}</k>
+									 	<k style="padding-right:.5em;"><b>Nurses:</b>{{item.nurses}}</k>
+									 	<k style=""><b>Specialisation: </b>{{item.specialisation_count}}</k>
+									 </p>
+									 <p style="color:#5F5D5D;">{{item.hospital_short_desc}}</p>
+									 <p class="cost"><b>{{item.city}} , {{item.state}} , {{item.country}}</b></p>
+									 <a href="" ng-click="searchHospital(item.hospital_id)" class="hvr-sweep-to-right more">Know More</a>
+									 <strong ng-show="item.showHeart">
+										 <a href=""  class="hvr-sweep-to-right more"  ng-show="isLogin" ng-click="addFavorite(item)">
+											<i class="fa fa-heart-o change-icon" style="font-size:1.3em; "></i>Add Favorite
+										</a>
+										<a href=""   class="hvr-sweep-to-right more"  ng-hide="isLogin" data-toggle="modal" data-target="#login">
+											<i class="fa fa-heart-o change-icon" style="font-size:1.3em; "></i>Add Favorite
+										</a>
+									</strong>
+								 </div>
+							</div>
+						</div>
+						<div ng-show="showMapHere" ng-class="{'clearfix':($index+1)%2==0}"></div>
+						<div ng-show="!showMapHere" ng-class="{'clearfix':($index+1)%3==0}"></div>
+					</div>
+					<!-- </div> -->
+					<!-- <div class="clearfix"> </div> -->
+				</div>				
+			</div>
+		</div>
+			<div ng-style="showMapHere==false && {'width':'0%'}"  id="mapdiv" class="col-md-4 mapclass trans" style="padding:0px;">
+				<map center="{{mapCentre}}" zoom='{{mapZoom}}' style="display: block; height: 100%;">
+					<marker position="{{item.position}}" title="{{item.title}}" ng-repeat="item in marker" on-click="toggleBounce()" animation="DROP" draggable="true"></marker>
+				</map>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"> </div>
+</div>
+
+<script type="text/javascript">
+		$( document ).ready(function() {
+		    setTimeout(function() {
+		    	$('#mapdiv').css('z-index','0');
+		    }, 700);
+		});
+ 		var highestCol = $('#middle').height();
+		$('.elements').height(highestCol);
+  	$(window).on('scroll',function(){
+	  	var win=$(document).height()-$('#foot').height();
+	  	var start = $(window).scrollTop()+$('#mapdiv').height();
+	      if (start > win) {
+	          $('#mapdiv').css('z-index','-1');
+	        }
+	       else {
+	          $('#mapdiv').css('z-index','0');
+	     }
+  	});
+</script>

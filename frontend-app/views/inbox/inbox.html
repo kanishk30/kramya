@@ -1,0 +1,104 @@
+<style type="text/css">
+   #list > tbody > tr{
+      border: 10px solid white;
+      cursor: pointer;
+      border-radius: 10px; 
+      
+   }
+  .selected{
+      background-color:#16535C;
+      color: white;
+   }
+   #list > tbody > tr:hover {
+      background-color:#E3F3F9;
+      color: black;
+      cursor: pointer;
+   }
+   #msglist>li{
+      background:#EFEFEF; margin-bottom: 5px; padding :10px;
+   }
+   #msglist>li:hover{
+      background-color:#E3F3F9;
+      color: black;
+      cursor: pointer;
+   }
+   #list{
+      background:#EFEFEF;
+   }
+   .right>span>img{
+      margin-left:20px;
+   }
+   .left>span>img{
+      margin-right:20px;
+   }
+</style>
+
+<div style="background:url('img/hex-transparent1.png'); z-index:0;"> 
+   <div class=" banner-buying" style="min-height: 60px;"></div>
+</div>
+<!-- INBOX DIV -->
+<div class="row">
+   <div class="col-md-12 personal-info" ng-controller="inboxDataCtlr" style="background:#EFEFEF; padding-top:20px;  padding-bottom:20px;">
+      <div class="profile-content" >
+         <div class="col-md-3" style="background:white ; padding: 20px; margin:0px 20px;"> 
+            <div class="scrollD" style="overflow:auto;height:460px; border:solid grey 1px ;">
+               <table id="list" class="table table-hover" border="0" style="">
+                  <tr class="bg-primary">
+                        <h4 style="position: relative; top: 12px; padding: 10px;">
+                           <b>Total:</b>{{inboxData.total_messages}}
+                           <b>    Not Read:</b>{{inboxData.unread_messages}}
+                           <br>
+                           <b>Last Message:</b>{{inboxData.lastMsgFrom}}
+                        </h4>
+                        
+                  </tr>
+                  <tr ng-repeat="sender in senderList" ng-click="showMessage(sender.user_id , sender.user_name , sender.user_image , $index)" ng-class="{'selected':$index==thisSelect}">
+                     <td width="20%"><img src="{{sender.user_image}}" width="80px" height="80px"></td>
+                     <td>
+                        <h4 style="position: relative; top: 12px;">{{sender.user_name}}</h4>
+                        <br>
+                        <small class="text-muted">
+                           <span class="glyphicon glyphicon-time"></span> {{sender.fromNow}}
+                        </small>
+                     </td>
+                  </tr>
+               </table>
+             </div>  
+         </div>
+         <div class="col-md-8" style="background:white; height:500px; ">
+            <div style="padding: 20px 10px 0px 10px;">
+               <div class="panel-body scrollD" style="overflow:auto; height:380px;  padding:0px;" >
+               <ul id="msglist" class="chat" >
+                  <li class="clearfix" ng-repeat="msg in messages" ng-class="{'right':msg.type=='from' , 'left':msg.type=='to'}">
+                     <span class="chat-img" ng-class="{'pull-right':msg.type=='from' , 'pull-left':msg.type=='to'}">
+                        <img src="{{msg.img}}" class="img-circle img-responsive" style="width:70px;height:70px;" />
+                     </span>
+                     <strong class="primary-font" ng-class="{'pull-right':msg.type=='from'}">{{msg.name}}<br>
+                        <small class="text-muted">
+                           <span class="glyphicon glyphicon-time"></span>{{msg.fromNow}}
+                        </small>
+                     </strong>   
+                     <p  ng-bind-html='toTrustedHTML(msg.message)'> </p>
+                  </li>
+               </ul>
+               </div>
+            </div>   
+            <div style="margin-top:10px; padding:15px; background:#EFEFEF; border-top: solid grey 1px;" ng-show="showSend"> 
+               <div class="input-group" >
+                  <input id="btn-input" type="text" class="form-control input-lg" placeholder="Type your message here..." ng-model="messageContent"/>
+                  <span class="input-group-btn">
+                  <button class="btn btn-info btn-lg" id="btn-chat" ng-click="sendMsg()">
+                  Send</button>
+                  </span>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<script type="text/javascript">
+   window.setInterval(function() {
+     var elem = $('.scrollD');
+     elem.scrollTop = elem.scrollHeight;
+   }, 50);
+</script>         

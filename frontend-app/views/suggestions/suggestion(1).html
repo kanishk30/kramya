@@ -1,0 +1,62 @@
+
+<!--//-->	
+<div style="background:url('img/hex-transparent1.png'); z-index:0;">    
+        <div class=" banner-buying" style="min-height: 300px;background:url('img/at1.jpg');" >
+            <div class=" container">
+                <h3 style="color: #fff"><span>suggest</span>ions</h3> 
+            </div> 
+        </div> 
+ 	</div>
+ 
+<!--//header-->
+<!--contact-->
+<div class="feedback">
+	<div class="container">
+		
+		<div class="feedback-top">
+			<form id="suggestions" action="http://kramya.com/kramyaapi/index.php/reachus/suggestions?X-API-KEY=ANSHULVYAS16" method="post">
+				<input type="text"  placeholder="Name"  required="" id="name">
+				<input type="text"  placeholder="Email "  required="" id="email">
+				<input type="text"  placeholder="Phone Number " required="" id="phoneno">
+				<input type="text"  placeholder="Subject " required="" id="subject">
+				<textarea  placeholder="Suggestion" requried="" id="message"></textarea>
+				 <label class="hvr-sweep-to-right">
+	           	<input type="submit" value="Submit">
+	           </label>
+			</form>
+		</div>
+	</div>
+</div>
+
+	<script>
+			$('#suggestions').submit(function(event){
+				event.preventDefault();
+				var formData={
+					'name' :$('#name').val(),
+					'email':$('#email').val(),
+					'phoneno':$('#phoneno').val(),
+					'subject':$('#subject').val(),
+					'message':$('#message').val()
+				}
+
+
+					$.ajax({
+						method:'post',
+						url:'http://kramya.com/kramyaapi/index.php/reachus/suggestions',
+						data:formData,
+						dataType:'json',
+			 			encode:'true',
+			 			headers: { 'X-API-KEY': 'ANSHULVYAS16' }
+						})
+					.done(function(data){
+			 		//console.log(data);
+			 		var obj=JSON.parse(data);
+			 		//console.log(obj.result);
+			 		alert(obj.result);
+			 		
+			 		});
+
+			});
+
+
+		</script>

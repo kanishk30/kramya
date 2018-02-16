@@ -1,0 +1,442 @@
+<style type="text/css">
+   /* Profile container */
+   .profile {
+   margin: 20px 0;
+   }
+   /* Profile sidebar */
+   .profile-sidebar {
+   padding: 20px 0 10px 0;
+   background: #fff;
+   }
+   .profile-userpic img {
+   float: none;
+   margin: 0 auto;
+   width: 80%;
+   height: 200px;
+   -webkit-border-radius: 50% !important;
+   -moz-border-radius: 50% !important;
+   border-radius: 50% !important;
+   }
+   .profile-usertitle {
+   text-align: center;
+   margin-top: 20px;
+   }
+   .profile-usertitle-name {
+   color: #5a7391;
+   font-size: 16px;
+   font-weight: 600;
+   margin-bottom: 7px;
+   }
+   .profile-usertitle-job {
+   text-transform: uppercase;
+   color: #5b9bd1;
+   font-size: 12px;
+   font-weight: 600;
+   margin-bottom: 15px;
+   }
+   .profile-userbuttons {
+   text-align: center;
+   margin-top: 10px;
+   }
+   .profile-userbuttons .btn {
+   text-transform: uppercase;
+   font-size: 11px;
+   font-weight: 600;
+   padding: 6px 15px;
+   margin-right: 5px;
+   }
+   .profile-userbuttons .btn:last-child {
+   margin-right: 0px;
+   }
+   .profile-usermenu {
+   margin-top: 30px;
+   }
+   .profile-usermenu ul li {
+   border-bottom: 1px solid #f0f4f7;
+   }
+   .profile-usermenu ul li:last-child {
+   border-bottom: none;
+   }
+   .profile-usermenu ul li a {
+   color: #93a3b5;
+   font-size: 14px;
+   font-weight: 400;
+   }
+   .profile-usermenu ul li a i {
+   margin-right: 8px;
+   font-size: 14px;
+   }
+   .profile-usermenu ul li a:hover {
+   background-color: #fafcfd;
+   color: #5b9bd1;
+   }
+   .profile-usermenu ul li.active {
+   border-bottom: none;
+   }
+   .profile-usermenu ul li.active a {
+   color: #5b9bd1;
+   background-color: #f6f9fb;
+   border-left: 2px solid #5b9bd1;
+   margin-left: -2px;
+   }
+   /* Profile Content */
+   .profile-content {
+   padding: 20px;
+   background: #fff;
+   min-height: 460px;
+   }
+   .chat
+   {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   }
+   .chat li
+   {
+   margin-bottom: 10px;
+   padding-bottom: 5px;
+   border-bottom: 1px dotted #B3A9A9;
+   }
+   .chat li.left .chat-body
+   {
+   margin-left: 60px;
+   }
+   .chat li.right .chat-body
+   {
+   margin-right: 60px;
+   }
+   .chat li .chat-body p
+   {
+   margin: 0;
+   color: #777777;
+   }
+   .panel .slidedown .glyphicon, .chat .glyphicon
+   {
+   margin-right: 5px;
+   }
+   .panel-body
+   {
+   overflow-y: scroll;
+   height: 250px;
+   }
+   ::-webkit-scrollbar-track
+   {
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+   background-color: #F5F5F5;
+   }
+   ::-webkit-scrollbar
+   {
+   width: 12px;
+   background-color: #F5F5F5;
+   }
+   ::-webkit-scrollbar-thumb
+   {
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+   background-color: #555;
+   }
+</style>
+<div ng-controller="userController">
+   <div style="background:url('img/hex-transparent1.png'); z-index:0;">
+      <div class="banner-buying">
+         <div class=" container">
+         </div>
+      </div>
+   </div>
+   <div style="background: #F1F3FA">
+      <div class="container">
+         <div class="row profile">
+            <div class="col-md-3">
+               <div class="profile-sidebar">
+                  <!-- SIDEBAR USERPIC -->
+                  <div class="profile-userpic">
+                     <img src="{{userData.user_img}}" class="img-responsive" alt="">
+                     <div ng-show="showProfile">
+                        <h6 style="padding:15px; padding-left:32%;">Upload New</h6>
+                        <input type="file" class="form-control">
+                     </div>
+                  </div>
+                  <!-- END SIDEBAR USERPIC -->
+                  <!-- SIDEBAR USER TITLE -->
+                  <div class="profile-usertitle" ng-show="!showProfile">
+                     <div class="profile-usertitle-name">
+                        {{userData.fullname}}
+                     </div>
+                     <div class="profile-usertitle-job">
+                        {{userData.user_location}}
+                     </div>
+                  </div>
+                  <div class="profile-usermenu">
+                     <ul class="nav">
+                        <li ng-click="show(1)" ng-class="{active:showHome}" ng-click="">
+                           <a href="">
+                           <i class="glyphicon glyphicon-home"></i>
+                           Home </a>
+                        </li>
+                        <li ng-click="show(2)" ng-class="{active:showInbox}">
+                           <a href="">
+                           <i class="glyphicon glyphicon-envelope"></i>
+                           Inbox/Messages</a>
+                        </li>
+                        <li ng-click="show(3)" ng-class="{active:showFav}">
+                           <a href="">
+                           <i class="glyphicon glyphicon-star"></i>
+                           My favourites </a>
+                        </li>
+                        <li ng-click="show(4)" ng-class="{active:showProfile}">
+                           <a href="">
+                           <i class="glyphicon glyphicon-user"></i>
+                           Account Settings</a>
+                        </li>
+                     </ul>
+                  </div>
+                  <!-- END MENU -->
+               </div>
+            </div>
+            <div class="col-md-9" ng-show="showHome">
+               <div class="profile-content">
+                  <h2>Hello {{userData.fullname}}</h2>
+                  <h3>Welcome aboard!</h3>
+                  <p>Use my account to manage clinic inquiries and to plan your trip.</p>
+                  <hr>
+                  <h2 class="text-center">Your favorite hospitals</h2>
+                  <div class="col-md-12">
+                     <div class="carousel slide" id="myCarousel">
+                        <div class="carousel-inner">
+                           <div class="item active">
+                              <div class="col-lg-4 col-xs-4 col-md-4 col-sm-4">
+                                 <a href="#"><img src="http://lorempixel.com/400/200/sports" class="img-responsive">Apollo Hospital</a>
+                              </div>
+                           </div>
+                           <div class="item">
+                              <div class="col-lg-4 col-xs-4 col-md-4 col-sm-4">
+                                 <a href="#"><img src="http://lorempixel.com/400/200/" class="img-responsive">Fortis Hospital</a>
+                              </div>
+                           </div>
+                           <div class="item">
+                              <div class="col-lg-4 col-xs-4 col-md-4 col-sm-4">
+                                 <a href="#"><img src="http://lorempixel.com/400/200/sports" class="img-responsive">Birla Hospital</a>
+                              </div>
+                           </div>
+                           <div class="item">
+                              <div class="col-lg-4 col-xs-4 col-md-4 col-sm-4">
+                                 <a href="#"><img src="http://lorempixel.com/400/200/" class="img-responsive">Abhiui Clinics</a>
+                              </div>
+                           </div>
+                        </div>
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-9 personal-info" ng-show="showProfile">
+               <div class="alert alert-info alert-dismissable">
+                  <a class="panel-close close" data-dismiss="alert">×</a> 
+                  <i class="fa fa-coffee"></i>
+                  This is an <strong>.alert</strong>. Use this to show important messages to the user.
+               </div>
+               <h3>Personal info</h3>
+               <form class="form-horizontal" role="form">
+                  <div class="form-group">
+                     <label class="col-lg-3 control-label">First name:</label>
+                     <div class="col-lg-8">
+                        <input class="form-control" type="text" value="Zoe">
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label class="col-lg-3 control-label">Last name:</label>
+                     <div class="col-lg-8">
+                        <input class="form-control" type="text" value="Morgan">
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label class="col-lg-3 control-label">Contact number:</label>
+                     <div class="col-lg-8">
+                        <input class="form-control" type="" value="">
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label class="col-lg-3 control-label">Email:</label>
+                     <div class="col-lg-8">
+                        <input class="form-control" type="text" value="xyz@gmail.com">
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label class="col-md-3 control-label">Username:</label>
+                     <div class="col-md-8">
+                        <input class="form-control" type="text" value="zoem">
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label class="col-md-3 control-label">Password:</label>
+                     <div class="col-md-8">
+                        <input class="form-control" type="password" value="1234">
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label class="col-md-3 control-label">Confirm password:</label>
+                     <div class="col-md-8">
+                        <input class="form-control" type="password" value="1234">
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label class="col-md-3 control-label"></label>
+                     <div class="col-md-8">
+                        <input type="button" class="btn btn-primary" value="Save Changes">
+                        <span></span>
+                        <input type="reset" class="btn btn-default" value="Cancel">
+                     </div>
+                  </div>
+               </form>
+            </div>
+            <div class="col-md-9 personal-info" ng-show="showInbox">
+               <div class="profile-content">
+                  <h3>Inbox</h3>
+                  <div class="col-md-6">
+                     <table class="table table-hover" border="0">
+                        <tr class="bg-primary">
+                           <td width="20%"><img src="http://ehealth.eletsonline.com/wp-content/uploads/2015/08/hospital.png" class="img-responsive img-thumbnail" width="80px"></td>
+                           <td>
+                              <h4 style="position: relative; top: 12px;">Apollo Hospital, Delhi</h4>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td width="20%"><img src="http://ehealth.eletsonline.com/wp-content/uploads/2015/08/hospital.png" class="img-responsive img-thumbnail" width="80px"></td>
+                           <td>
+                              <h4 style="position: relative; top: 12px;">Apollo Hospital, Delhi</h4>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td width="20%"><img src="http://ehealth.eletsonline.com/wp-content/uploads/2015/08/hospital.png" class="img-responsive img-thumbnail" width="80px"></td>
+                           <td>
+                              <h4 style="position: relative; top: 12px;">Apollo Hospital, Delhi</h4>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td width="20%"><img src="http://ehealth.eletsonline.com/wp-content/uploads/2015/08/hospital.png" class="img-responsive img-thumbnail" width="80px"></td>
+                           <td>
+                              <h4 style="position: relative; top: 12px;">Apollo Hospital, Delhi</h4>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td width="20%"><img src="http://ehealth.eletsonline.com/wp-content/uploads/2015/08/hospital.png" class="img-responsive img-thumbnail" width="80px"></td>
+                           <td>
+                              <h4 style="position: relative; top: 12px;">Apollo Hospital, Delhi</h4>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="panel panel-primary">
+                        <div class="panel-body">
+                           <ul class="chat">
+                              <li class="left clearfix">
+                                 <span class="chat-img pull-left">
+                                 <img src="http://ehealth.eletsonline.com/wp-content/uploads/2015/08/hospital.png" alt="User Avatar" class="img-circle img-responsive" width="50px" />
+                                 </span>
+                                 <div class="chat-body clearfix">
+                                    <div class="header">
+                                       <strong class="primary-font">Apollo Hospital</strong> <small class="pull-right text-muted">
+                                       <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
+                                    </div>
+                                    <p>
+                                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                       dolor, quis ullamcorper ligula sodales.
+                                    </p>
+                                 </div>
+                              </li>
+                              <li class="right clearfix">
+                                 <span class="chat-img pull-right">
+                                 <img src="http://www.drodd.com/images12/facebook-profile-picture22.jpg" alt="User Avatar" class="img-circle img-responsive" width="50px" />
+                                 </span>
+                                 <div class="chat-body clearfix">
+                                    <div class="header">
+                                       <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
+                                       <strong class="pull-right primary-font">Username</strong>
+                                    </div>
+                                    <p>
+                                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                       dolor, quis ullamcorper ligula sodales.
+                                    </p>
+                                 </div>
+                              </li>
+                              <li class="left clearfix">
+                                 <span class="chat-img pull-left">
+                                 <img src="http://ehealth.eletsonline.com/wp-content/uploads/2015/08/hospital.png" alt="User Avatar" class="img-circle img-responsive" width="50px" />
+                                 </span>
+                                 <div class="chat-body clearfix">
+                                    <div class="header">
+                                       <strong class="primary-font">Apollo Hospital</strong> <small class="pull-right text-muted">
+                                       <span class="glyphicon glyphicon-time"></span>14 mins ago</small>
+                                    </div>
+                                    <p>
+                                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                       dolor, quis ullamcorper ligula sodales.
+                                    </p>
+                                 </div>
+                              </li>
+                              <li class="right clearfix">
+                                 <span class="chat-img pull-right">
+                                 <img src="http://www.drodd.com/images12/facebook-profile-picture22.jpg" alt="User Avatar" class="img-circle img-responsive" width="50px" />
+                                 </span>
+                                 <div class="chat-body clearfix">
+                                    <div class="header">
+                                       <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>15 mins ago</small>
+                                       <strong class="pull-right primary-font">Username</strong>
+                                    </div>
+                                    <p>
+                                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                       dolor, quis ullamcorper ligula sodales.
+                                    </p>
+                                 </div>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="panel-footer">
+                           <div class="input-group">
+                              <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                              <span class="input-group-btn">
+                              <button class="btn btn-warning btn-sm" id="btn-chat">
+                              Send</button>
+                              </span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-9 personal-info" ng-show="showFav">
+               <div class="profile-content">
+                  <h2>My Favourite Hospitals</h2>
+                  <div class="row" style="padding:15px;margin-bottom:20px;">
+                     <div class="col-md-5">
+                        <img src="http://trichythagaval.com/wp-content/uploads/2015/10/apolloBlr-9.jpg" class="img-responsive img-thumbnail">
+                     </div>
+                     <div class="col-md-7">
+                        <h3>Apollo Hospital</h3>
+                        <h4 style="border-width: medium medium 2px; border-style: none none dashed; border-color: -moz-use-text-color; padding-bottom: 15px;">Indraprastha</h4>
+                        <p>Inquired for: <strong>Cancer</strong></p>
+                        <button class="btn btn-warning btn-sm">Contact</button>
+                        <br><br><br>
+                        <a href=""><u style="color:#454095;"><span style="color:#454095;">Remove from the list</span></u></a>
+                     </div>
+                  </div>
+                  <div class="row" style="padding:15px;margin-bottom:20px;">
+                     <div class="col-md-5">
+                        <img src="http://trichythagaval.com/wp-content/uploads/2015/10/apolloBlr-9.jpg" class="img-responsive img-thumbnail">
+                     </div>
+                     <div class="col-md-7" >
+                        <h3>Apollo Hospital</h3>
+                        <h4 style="border-width: medium medium 2px; border-style: none none dashed; border-color: -moz-use-text-color; padding-bottom: 15px;">Indraprastha</h4>
+                        <p>Inquired for: <strong>Cancer</strong></p>
+                        <button class="btn btn-warning btn-sm">Contact</button>
+                        <br><br><br>
+                        <a href=""><u style="color:#454095;"><span style="color:#454095;">Remove from the list</span></u></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

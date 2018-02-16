@@ -1,0 +1,679 @@
+<style type="text/css">
+	.carousel-inner{
+		top: -20px;
+	  position: relative;
+	  height: 150px;
+		background : transparent;
+	}
+	.carousel-indicators li {
+		border: 2px solid rgb(255, 255, 255);
+	}
+	.carousel-caption{
+		margin-top: 3%;
+		position: absolute;
+		top:0%;
+	}
+	.carousel-indicators {
+		position: absolute;
+		margin-top: 10%;
+	}
+	.carousel-control {
+		background : transparent;
+	}
+  .testimony{
+  	background:transparent;; 
+  }
+  .angucomplete-holder{
+  	background: white;
+  	cursor: pointer;
+  	cursor: hand;
+  }
+	#_dropdown{
+		background-color: white;
+		margin-top: 22%;
+		/*width: 105%;*/
+		max-height: 190px;
+		overflow: auto;
+		width: 284px;
+		box-shadow: -10px 10px 10px rgba(174, 173, 173, 0.48);
+	}
+	#_value{
+		height: 50px;
+		border-color:#fff;
+		box-shadow:none;
+		font-size: 16px;
+		border-radius: 1px 0px 0px 1px;
+	}
+	.arrow-up {
+		height: 0px;
+		width: 0px;
+		z-index: 5; 
+		border-left: 20px solid transparent;
+		border-right: 20px solid transparent;
+		border-bottom: 20px solid #16535C;
+		z-index: 1000 !important;
+	}
+	.scroll-top-box{
+		box-shadow: 5px 5px 15px #888888;
+		height: 40px;
+		width: 40px;
+		background-color: #16535C;
+		color: #f0f0f0;
+		text-align: center;
+		font-size: 1.6em;
+		z-index: 1000 !important;
+		margin-top: 0.153%;
+	}
+	.scroll-top{
+		cursor: pointer;
+		cursor: hand;
+		display:none;
+		position: fixed;
+		margin-left: 95%;
+		margin-top: 43%;
+		z-index: 1000 !important;
+	}
+	.scroll-top-box:hover{
+		color: white;
+		font-size: 1.7em;
+	}
+	.after-icon{
+		position: relative;
+		background:white;
+		left: -5px;
+		text-align: center;
+		height: 50px;
+		width:80px;
+		border-radius: 0px 0px 0px 0px;
+		color:#8D7C7C;
+		font-size:1.9em;
+		padding-right:0px;
+		padding-top:10%
+	}
+	.highlight{
+		color:rgb(255,90,95) ;
+	}
+	.angucomplete-selected-row{
+		background-color: rgba(172, 172, 172, 0.2);
+		color: rgba(22, 83, 92, 0.8);
+	}
+	.fa-check { 
+		display: block; 
+		font-size: 25px;
+		margin-top: 6px;
+	}
+	.fa-check::before {color: #16535C; }
+	.top-grid.ng-hide-remove{
+		animation:2s fadeIn ease;
+	}
+	.project.ng-hide-remove{
+		animation:4s fadeIn ease;
+	}
+	.services-grid {
+  	margin: 2em 0px 0em 0em;
+		padding-left: 0em;
+	}
+	.service-top {
+    padding: 2em 0px 0px 0px;
+	}
+	.ser-top p{
+		text-align: justify;
+	}
+	.vidup{
+		padding: 0em 0em 0.2em;
+		color: rgb(22, 83, 92);
+		font-size: 1.5em;
+		font-weight: bolder;
+		text-transform: uppercase;
+	}
+	.top-grid h3 {
+    margin: .4em 0px 0.4em;
+  }
+  .fa-check {
+    display: inline-block;
+    font-size: 1.2em;
+    /* margin-top: 6px; */
+    padding-right: 10px;
+  }
+  .fa-ul {
+    padding-left: 0;
+    margin-left: 0;
+    list-style-type: none;
+    font-size: 1.2em;
+	}
+	.carousel .carousel-control { visibility: hidden; }
+	.carousel:hover .carousel-control { visibility: visible; }
+	.carousel-indicators { visibility: hidden; }
+	.project-grid-top >.carousel.ng-isolate-scope>.carousel-inner{
+		position: relative;
+		top: 0px;
+		height: inherit;
+	}
+	.top-grid {
+    padding: 0px 0px 0em;
+	}
+	.services {
+    padding: .5em 0px 0em;
+	}
+	.phone {
+    padding: 0em 0px;
+	}
+	.project {
+    padding: 0em 0px;
+    background-color: #efefef;
+	}
+	.content-bottom {
+    padding: 0em 0px;
+	}
+	.content-bottom1 {
+    padding: 0em 0px;
+    background-color: #e2e2e2;
+    background-color: #efefef;
+	}
+	h3::before {
+    width: 100px;
+  }
+</style>
+<div class="scroll-top" ng-click="scrollTo('search')">
+	<div class="arrow-up"></div>
+	<div class="scroll-top-box ">
+ 		<i class="fa fa-arrow-circle-up"></i>
+ </div>
+</div>
+<div class="header-container" id="search">
+	<div class="video-container">
+		<video class="video-top" autoplay loop muted poster="img/vid-poster1.png">
+			<source src="video/vid11.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+	</div>
+ 	<div class="container" >
+    <div class="row">
+	    <div class="col-md-8 col-md-offset-2">
+	    	<div class="above-video">
+	        <form class="form-inline searchbox well" autocomplete="on">
+			      <div class="row">
+			        <div class="form-group">
+							  <div class="input-group">
+							    <angucomplete-alt selected-object="dis" placeholder="Select Procedure" pause="100"  local-data="disData" search-fields="dis" title-field="dis" minlength="2" input-class="form-control form-control-small disclass" match-class="highlight"></angucomplete-alt>
+							  </div>
+							  <div class="input-group ">
+							  	<i class="fa fa-ambulance after-icon dis" ></i>
+							  </div>
+							  <div class="input-group" style="">
+							    <angucomplete-alt selected-object="loc" placeholder="Search Location" pause="100"  local-data="cities" search-fields="city,country" title-field="city,country" minlength="2" input-class="form-control form-control-small locclass" match-class="highlight"></angucomplete-alt>
+								</div>
+								<div class="input-group " >
+							  	<i class="fa fa-map-marker after-icon loc"></i>
+							  </div>
+							</div>
+			        <button type="submit" class="hvr-sweep-to-right more-in" style="height:52px;padding: 0% 3%;border-width: 0px;" ng-click="searchKramya(dis.originalObject.id,loc.originalObject.city)">Search</button>
+			      </div>
+	      	</form>
+	      </div>
+	    </div>
+	    <div class="col-md-offset-2"></div>
+    </div>
+  	<div class="row">
+      <div class="testimony"> 
+		   	<div ng-controller="CarouselDemoCtrl">
+			      <carousel interval="myInterval" no-wrap="noWrapSlides">
+			        <slide ng-repeat="slide in slides" active="slide.active">
+			          <!-- <img ng-src="{{slide.image}}" style="margin:auto;"> -->
+			          <div class="carousel-caption">
+			            <h3><b>{{slide.text}}</b></h3>
+			            <h4>-{{slide.providers}}</h4>
+			          </div>
+			        </slide>
+			      </carousel>
+		  	</div>
+		  </div>
+		</div>
+  </div>
+</div>
+<div style="background:#efefef;">
+	<div  class="banner-bottom-top" style="font-size:16px;">
+		<div class="container">
+			<div class="bottom-header">
+				<div class="header-bottom" style="z-index: 0;">
+					
+
+					<div class=" bottom-head">
+						<a href="">
+							<div class="buy-media">
+							<!-- <i class="fa fa-hospital-o fa-2x"> </i>
+							<h6>About Us</h6> -->
+							</div>
+						</a>
+					</div>
+
+
+					<div class=" bottom-head">
+						<a href="#about">
+							<div class="buy-media">
+							<i class="fa fa-hospital-o fa-2x"> </i>
+							<h6>About Us</h6>
+							</div>
+						</a>
+					</div>
+					<div class=" bottom-head">
+						<a href="" ng-click="scrollTo('how')">
+							<div class="buy-media">
+								<i class="fa fa-cogs fa-2x"></i>
+								<h6>How it Works</h6>
+							</div>
+						</a>
+					</div>
+					<div class=" bottom-head">
+						<a href="" ng-click="scrollTo('why')">
+							<div class="buy-media">
+							<i class="fa fa-question fa-2x"></i>
+							<h6>Why Kramya</h6>
+							</div>
+						</a>
+					</div>
+					<!-- <div class=" bottom-head">
+						<a href="" ng-click="scrollTo('search')">
+							<div class="buy-media">
+							<i class="fa fa-search fa-2x"></i>
+							<h6>Search Hospitals</h6>
+							</div>
+						</a>
+					</div> -->
+					<div class=" bottom-head">
+						<a href="" ng-click="scrollTo('popular')">
+							<div class="buy-media">
+							<i class="fa fa-hand-peace-o fa-2x"></i>
+							<h6>Popular Hospital</h6>
+							</div>
+						</a>
+					</div>
+					<div class=" bottom-head">
+						<a href="" ng-click="scrollTo('test')">
+							<div class="buy-media">
+							<i class="fa fa-quote-left fa-2x"></i>
+							<h6>Testimonials</h6>
+							</div>
+						</a>
+					</div>
+					<div class=" bottom-head">
+						<a href="" ng-click="scrollTo('part')">
+							<div class="buy-media">
+							<!-- <i class="fa fa-heartbeat fa-2x"></i> -->
+							<!-- <h6>Our Partners</h6> -->
+							</div>
+						</a>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container" ng-show="imgDataLoad">
+		<div class="col-md-12 " style="margin: 0em 0em 1em;background:white;padding:1em;">
+			<div class="top-grid" >
+				<h3>Top Destinations </h3>
+				<div class="gvrid-at">
+					<div class="col-md-3 grid-city" ng-click="imageSearch('mumbai')">
+						<div class="grid-lo">
+							<a href="" >
+								<figure class="effect-layla" style="width: -moz-available;">
+									<img class=" img-responsive" style="opacity: 0.85;" src="{{frontdata.top_destination[1]}}" alt="Mumbai">
+									<figcaption>
+										<h4>Mumbai</h4>
+									</figcaption>			
+								</figure>
+							</a>
+						 </div>
+					</div>
+					<div class="col-md-3 grid-city" ng-click="imageSearch('calcutta')">
+						<div class="grid-lo">
+								<a href="" >
+							<figure class="effect-layla" style="width: -moz-available;" >
+								<img class=" img-responsive" style="opacity: 0.85;"  src="img/ce12.jpg" alt="Calcutta">
+								<figcaption>
+									<h4>Calcutta</h4>
+								</figcaption>			
+							</figure>
+							</a>
+						 </div>
+					</div>
+					<div class="col-md-6 grid-city grid-city1">
+						<div class="grid-me">
+						<div class="col-md-8 grid-lo1" ng-click="imageSearch('delhi')">
+							<div class=" grid-lo">
+									<a href="">
+							<figure class="effect-layla" style="width: -moz-available;">
+								<img class=" img-responsive" style="opacity: 0.85;"  src="{{frontdata.top_destination[3]}}" alt="Delhi">
+								<figcaption>
+									<h4 class="effect1">Delhi</h4>
+								</figcaption>			
+							</figure>
+							</a>
+						 </div>
+						</div>
+						 <div class="col-md-4 grid-lo2" ng-click="imageSearch('chennai')">
+						 	<div class=" grid-lo">
+						 			<a href="" >
+							<figure class="effect-layla" style="width: -moz-available;">
+								<img class=" img-responsive" style="opacity: 0.85;"  src="{{frontdata.top_destination[4]}}" alt="Chennai">
+								<figcaption>
+									<h4 class="effect2">Chennai</h4>
+								</figcaption>			
+							</figure>
+							</a>
+						 </div>
+						 </div>
+						 <div class="clearfix"> </div>
+					</div>	
+					<div class="grid-me">
+						<div class="col-md-6 grid-lo3" ng-click="imageSearch('gwalior')">
+							<div class=" grid-lo">
+									<a href="" >
+							<figure class="effect-layla" style="width: -moz-available;">
+								<img class="img-responsive" style="opacity: 0.85;"  src="{{frontdata.top_destination[5]}}" alt="Gwalior">
+								<figcaption>
+									<h4 class="effect3">Gwalior</h4>
+								</figcaption>			
+							</figure>
+							</a>
+						 </div>
+						 </div>
+						 <div class="col-md-6 grid-lo4" ng-click="imageSearch('bengaluru')">
+						 	<div class=" grid-lo">
+						 		<a href="" >
+									<figure class="effect-layla" style="width: -moz-available;" >
+										<img class="img-responsive" style="opacity: 0.85;"  src="{{frontdata.top_destination[6]}}" alt="Bangalore">
+										<figcaption>
+											<h4 class="effect3">Bangalore</h4>
+										</figcaption>			
+									</figure>
+								</a>
+						 	</div>
+						 </div>
+						 <div class="clearfix"> </div>
+					</div>	
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="how" class="services">
+		<div class="container">
+			<div class="col-md-12 " style="margin:0em 0em 1em;background:white;padding:1em;">
+				<div class="service-top">
+					<h3>How Kramya Works</h3>
+				</div>
+				<div class="services-grid">
+			   	<div class="col-md-6 service-top1" style="padding: 0.5em 1em;">
+			   		<div class=" ser-grid">	
+			   			<a href="#" class="hi-icon hi-icon-archive glyphicon glyphicon-search"> </a>
+			   		</div>
+			   		<div  class="ser-top">
+			   			<h4>Search</h4>
+			   			<p>Use keyword filter to search procedure / disease with destination country, to shortlist Hospitals in an efficient way.</p>
+			   		</div>
+						<div class="clearfix"> </div>
+			   	</div>
+					<div class="col-md-6 service-top1" style="padding: 0.5em 1em;">
+			   		<div class=" ser-grid">	
+			   			<a href="#" class="hi-icon hi-icon-archive glyphicon glyphicon-random"> </a>
+			   		</div>
+			   		<div  class="ser-top">
+			   			<h4>Connect</h4>
+			   			<p>Connect with best Hospital with your query, check availability and know the procedures with genuine rating and reviews.</p>
+			   		</div>
+						<div class="clearfix"> </div>
+			   	</div>
+			   	<div class="clearfix"> </div>
+			 	</div>
+			 	<div class="services-grid">
+				  <div class="col-md-6 service-top1">
+				   	<div class=" ser-grid">	
+				   		<a href="#" class="hi-icon hi-icon-archive glyphicon glyphicon-thumbs-up"></a>
+				   	</div>
+				   	<div  class="ser-top">
+			   			<h4>Book</h4>
+			   			<p >Upon confirming the appointment, your personal information is confidential and will be safe with us.</p><br>
+			   		</div>
+						<div class="clearfix"> </div>
+				   </div>
+					<div class="col-md-6 service-top1">
+				   	<div class=" ser-grid">	
+				   		<a href="#" class="hi-icon hi-icon-archive glyphicon glyphicon-pencil"> </a>
+				   	</div>
+				   	<div  class="ser-top">
+			   			<h4>Review</h4>
+			   			<p>Share your review with your contacts to help them get destinations and avail special privileges.</p><br>
+			   		</div> 
+						<div class="clearfix"> </div>
+				  </div>
+			   	<div class="clearfix"> </div>
+			 	</div> 
+			 	<div class="services-grid">
+			 	  <div class="col-md-6 service-top1">
+			 	  <h3 class="vidup">For patients</h3>
+			   		<div class="player">
+				    	<div class="mediaplayer">
+				        <video poster="img/hkwpat.png" controls preload="none">
+				          <source src="video/vidpat.mp4" type="video/mp4" />
+				        </video>
+				    	</div>
+						</div>
+						<div class="clearfix"> </div>
+				  </div>
+					<div class="col-md-6 service-top1">
+						<h3 class="vidup">For hospitals</h3>
+			   		<div class="player">
+				    	<div class="mediaplayer">
+				        <video poster="img/hkwhosp.png" controls preload="none">
+				          <source src="video/vidhosp.mp4" type="video/mp4" />
+				        </video>
+				    	</div>
+						</div>
+						<div class="clearfix"> </div>
+				  </div>
+			   	<div class="clearfix"> </div>
+			 	</div>
+				<div class="service-top"></div>
+			</div>
+		</div>
+	</div>
+	<div id="why" class="container">
+		<div class="col-md-12 " style="margin:0em 0em 1em;background:white;padding:1em;">
+			<div class="content-middle2">
+				<div class="mid-content">
+			<h3>Why Kramya?</h3>
+			<p>We are the leading aggregator and our unique search mechanism gives you the best choice for your medical tourism.</p>
+			<a class="hvr-sweep-to-right more-in" href="#about">Read More</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="phone">
+		<div class="container">
+			<div class="col-md-12 " style="margin:0em 0em 1em;background:white;padding:1em;">
+				<div class="col-md-6">
+					<img src="img/ph1.png" class="img-responsive" alt=""/>
+				</div>
+				<div class="col-md-6 phone-text">
+					<h4>Power of Mobility</h4>
+					<br>
+					<ul class="fa-ul">
+							<li><i class="fa fa-check"></i>Search Procedures</li>
+							<li><i class="fa fa-check"></i>Search Locations</li>
+							<li><i class="fa fa-check"></i>Search Accommodations</li>
+							<li><i class="fa fa-check"></i>Get Quotes</li>
+							<li><i class="fa fa-check"></i>Pick up the phone and talk</li>
+							<li><i class="fa fa-check"></i>Book Appointment</li>
+							<li><i class="fa fa-check"></i>Control your budget</li>
+							<li><i class="fa fa-check"></i>List your hospitals</li>
+					</ul>
+					<a href="" class="hvr-sweep-to-right more" data-toggle="modal" data-target="#dApp">Download the App</a>
+					<div class="modal fade" id="dApp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+						<div class="modal-dialog" role="document">
+						  <div class="modal-content">
+						    <div class="modal-header">
+						      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						    </div>
+						    <div class="modal-body">
+						      <h3 class="text-center">Hang in there! The mobile app is coming soon.</h3>
+						    </div>
+						    <div class="modal-footer" style="margin:20px;padding:20px;">
+						      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						    </div>
+						  </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="project"  id="popular" ng-show="frontdata.most_popular_hospitals">
+		<div class="container">
+			<div class="col-md-12 " style="margin:0em 0em 1em;background:white;padding:1em;">
+				<h3 style="padding-top:.7em;">Most Popular Hospitals</h3>
+				<div class="project-top">
+				<div class="col-md-3 project-grid" style="height:500px;" ng-repeat="item in frontdata.most_popular_hospitals" >
+					<div class="project-grid-top">
+						<carousel interval="myInterval" no-wrap="noWrapSlides">   
+						  <slide ng-repeat="slide in item.hospital_image" active="$first">
+						    <img class="zoom-img img-responsive" ng-src="{{slide}}" style="height:180px;">
+						  </slide>   
+						</carousel>
+						<div class="col-md1" style="padding: 1em; height:265px;">      
+						  <div class="col-md2">
+							  <div class="col-md3" style="height:80px;"> 
+							 		<b>{{item.hospital_name}}</b><br>
+		      				<i ng-repeat="i in item.rating" class="fa fa-star" style="color:gold;"></i>
+							  </div>
+							  <div class="col-md4">
+							  </div>
+							  <div class="clearfix"> </div>
+						  </div>
+							<p class="cost">
+								<k style="padding-right:1em;font-size:1em; height:20px;"><b>Since: {{item.since}}</b></k>
+							</p>
+							<p style="color:#5F5D5D;">{{item.hospital_short_desc}}</p>
+							<p class="cost" style="height:40px;"><b>{{item.city}} , {{item.state}} , {{item.country}}</b></p>
+							<a href="" style="height:35px;" ng-click="searchHospital(item.hospital_id)" class="hvr-sweep-to-right more">Know More</a>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+				</div>
+			</div>				
+		</div>
+	</div>
+	<div class="content-bottom" id="test" >
+		<div class="container">
+			<div class="col-md-12 " style="margin:0em 0em 1em;background:white;padding:1em;">
+				<h3 style="padding-top: 0.7em;">Testimonials</h3>
+				<div class="col-md-6 name-in">
+					<div class=" bottom-in">
+						<p class="para-in" style="text-justify"> In my opinion kramya is the need of the hour for indian health system.It will take  our highly sofesticated health system to the international market more over within india it will help needy person as well as allow the hospitals to reach more and more people.</p>
+					  <i class="dolor"> </i>
+						<div class="men-grid">
+							<a href="#" class="men-top"><img class="img-responsive men-top" src="img/tes1.png" alt=""></a>
+							<div class="men">
+								<span>Dr. Praveen Kumar Garg</span>
+								<p>Director(Prayaas Children Hospital)</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+					<div class=" bottom-in">
+						<p class="para-in"  style="text-justify">Look no further than Kramya for end to end guidance on reliable and cost effective treatment you have been waiting for so long to undergo !!</p>
+						<i class="dolor"> </i>
+						<div class="men-grid">
+							<a href="#" class="men-top"><img class="img-responsive " src="img/tes2.png" alt=""></a>
+							<div class="men">
+								<span>Mr. Raj Kumar Rana</span>
+								<p>North Carolina, USA</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6  name-on">
+					<div class=" bottom-in">
+						<p class="para-in" style="text-justify"> Kramya will provide advantage of medical treatment in India which include reduced cost the availability of latest medical technologies and growing compliance on international quality standard. I wish kramya all the best</p>
+					  <i class="dolor"> </i>
+						<div class="men-grid">
+							<a href="#" class="men-top"><img class="img-responsive men-top" src="img/tes3.png" alt=""></a>
+							<div class="men">
+								<span>Dr. Shubhanshu Dagaonkar</span>
+								<p>ENT Specialist, India</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>   
+					<div class="bottom-in ">
+						<p class="para-in" style="text-justify">Kramya provides helpful guidance provides from search to end of treatment. This is a great model to get one of the best treatment at a fraction of the cost.</p>
+						<i class="dolor"> </i>
+						<div class="men-grid">
+							<a href="#" class="men-top"><img class="img-responsive " src="img/tes4.png" alt=""></a>
+							<div class="men">
+								<span>Er. Amit Singh</span>
+								<p>St. Louis, USA</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<div class="content-bottom1" ng-show="false" id="part">
+		<div class="container">
+			<div class="col-md-12 " style="margin:0em 0em 1em;background:white;padding:1em;">
+				<h3 style="pading-top:.7em;">Our Partners</h3>
+				<ul>
+					<li><a href="#"><img class="img-responsive" src="img/lg.png" alt=""></a></li>
+					<li><a href="#"><img class="img-responsive" src="img/lg1.png" alt=""></a></li>
+					<li><a href="#"><img class="img-responsive" src="img/lg2.png" alt=""></a></li>
+					<li><a href="#"><img class="img-responsive" src="img/lg3.png" alt=""></a></li>
+					<li><a href="#"><img class="img-responsive" src="img/lg4.png" alt=""></a></li>
+					<div class="clearfix"> </div>
+				</ul>
+				<ul>
+					<li><a href="#"><img class="img-responsive" src="img/lg5.png" alt=""></a></li>
+					<li><a href="#"><img class="img-responsive" src="img/lg6.png" alt=""></a></li>
+					<li><a href="#"><img class="img-responsive" src="img/lg7.png" alt=""></a></li>
+					<li><a href="#"><img class="img-responsive" src="img/lg8.png" alt=""></a></li>
+					<li><a href="#"><img class="img-responsive" src="img/lg9.png" alt=""></a></li>	
+					<div class="clearfix"> </div>
+				</ul>
+			</div>
+		</div>
+	</div>		
+</div>
+	<script type="text/javascript">
+	 $(window).scroll(function (event){
+		  var y = $(window).scrollTop();
+		  if (y > 150) {
+		    $('.scroll-top').fadeIn();
+		    $('.scroll-top').css("display", "block");
+		  } else {
+		    $('.scroll-top').fadeOut();
+		  }
+		});
+	 	var zoom=function(){
+	 		$('.disclass').focus(function(){
+	 			$('.dis').css({'color': '#FF5A5F' , 'font-size': '2.1em' , 'padding-top':'8%'});
+			})
+			.blur(function(){
+				$('.dis').css({'color': '#8D7C7C' , 'font-size': '1.9em' , 'padding-top':'10%'}); 
+			});
+			$('.locclass').focus(function(){
+	 			console.log('p');
+	 			$('.loc').css({'color': '#FF5A5F' , 'font-size': '2.1em' , 'padding-top':'8%'});
+			})
+			.blur(function(){
+				$('.loc').css({'color': '#8D7C7C' , 'font-size': '1.9em' , 'padding-top':'10%'}); 
+			});
+		}
+		setTimeout(zoom,1000);
+	 </script>

@@ -1,0 +1,770 @@
+	 <!-- Video player -->
+	 <style type="text/css">
+	 td:hover {
+	    background-color: rgba(19, 149, 116, 0.2);
+	    color: #1D6DB1;
+	    cursor: pointer;
+	    cursor: hand;
+	  }
+	  strong {
+    	font-weight: inherit;
+		}
+	 h4{
+	 	font-size: 1.2em;
+		text-transform: uppercase;
+		color: #2580B3;
+		margin: 0px 0px 0.5em;
+		font-weight: bold;
+	 }
+		.ta-scroll-window > .ta-bind {
+	    background: #ECECEC;
+		}
+		.ta-scroll-window.form-control{
+	    margin-top: 0.5%;
+		}
+		.btn-toolbar .btn, .btn-toolbar .btn-group, .btn-toolbar .input-group {
+			height: 40px;
+		}
+		.btn-group > .btn, .btn-group-vertical > .btn {
+	    width: 47px;
+  	}
+		.angucomplete-holder{
+	  	background: white;
+	  	cursor: pointer;
+	  	cursor: hand;
+	  }
+	  #_dropdown{
+			background-color: white;
+			margin-top: 1.2%;
+			width: 100%;
+			max-height: 200px;
+			overflow: auto; 
+			/*width: 284px;*/
+			box-shadow: -10px 10px 10px rgba(174, 173, 173, 0.48);
+		}
+	  #_value{
+	  	border-radius: 5px 0px 0px 5px;
+	  }
+
+	 .form-controls {
+    	background-color: #ECECEC;
+			border: medium none;
+			border-radius: 4px;
+			color: #66615B;
+			font-size: 16px;
+			padding: 10px 18px;
+			box-shadow: none;
+			width: 100%
+  	}
+  	.highlight{
+			color:rgb(255,90,95) ;
+		}
+		.rating{
+		  color: #a9a9a9;
+		  margin: 0;
+		  padding: 0;
+		}
+		ul.rating {
+		  display: inline-block;
+		}
+		.rating li {
+		  list-style-type: none;
+		  display: inline-block;
+		  text-align: center;
+		  cursor: pointer;
+		  font-size: 1.8em;
+		}
+		.rating .filled {
+		  color: gold;
+		}
+		.star-rating{
+			display: inline-block;
+		}
+		h4 {
+    	font-size: 1.5em;
+  	}
+  	h4.media-heading {
+	    font-size: 1em;
+	    padding-top: 5px;
+		}
+		img.media-object {
+	    border: none;
+	    padding: 5px;
+		}
+		.ltblue{
+			background-color: rgba(139, 230, 219, 0.05);
+		}
+		.ltgreen{
+			background-color: rgba(212, 219, 218, 0.05form);
+		}
+		.smallspan{
+			color: black;
+			font-size: 0.7em;
+			text-transform: lowercase;
+			font-weight: normal;
+			margin-left: 1em;
+			margin-top: 3.5px;
+			/*position: absolute;*/
+		}
+		.media.ng-enter {
+	  	animation:.5s bounceInDown ease;
+		}
+		.media.ng-move {
+	  	animation:1s fadeInUp ease;
+		}
+		.filter-span{
+			margin: -0.1em 0em 0em 3em;
+			font-size: 0.7em;
+			width: 160px;
+			background: rgba(128, 128, 128, 0.31) none repeat scroll 0% 0%;
+			position: absolute;
+			padding: 8px;
+			color: rgb(108, 108, 108);
+			text-transform: none;
+			font-weight: normal;
+			cursor: pointer;
+		}
+		#filter{
+	    position: absolute;
+	    width: 160px;
+	    height: auto;
+	    background: rgb(240, 240, 240) none repeat scroll 0% 0%;
+	    margin: 7px 165px;
+	    padding: 5px 10px 5px 10px;
+	    border: 1px solid #D7D7D7;
+	    cursor: pointer;
+		}
+		#filter>li{
+			text-align: left;
+			fpadding-left: 40px;
+		}
+		#filter>li>strong
+		{
+			font-size: 1.4em;
+			margin-top: -5px;
+			position: absolute;
+			padding: 2px 5px 5px 7px;
+			right: 0px;
+		}
+		#filter>li>strong>i:hover{
+			color:#3DD218;
+			background: white;
+		}
+		.more.ng-hide-remove{
+			animation:1s bounceInUp ease;
+		}
+		.notpre{
+			text-decoration: line-through;
+			color: rgba(24, 51, 78, 0.32);
+		}
+		.single-box-img {
+	    margin: 1.5em 0 0;
+	    padding: .1em;
+	    border: solid 1px #ddd;
+	    cursor: pointer;
+		}
+		.same-heading{
+			font-size: 1.2em;
+			text-transform: uppercase;
+			color: #16535C;
+			margin: 0px 0px 0em;
+			font-family: "Calibri";
+		}
+		.player {
+	    margin: auto;
+	    max-width: inherit;
+	    min-width: inherit;
+		}
+		#filter-arrow{
+			position: absolute;
+			right: 10px;
+			font-size: 2em;
+			margin-top: -7px;
+			font-weight: bolder;
+		}
+		#filter-arrow:hover{
+			background-color: white;
+			color:green;
+		}
+	 </style>
+<div ng-controller="hospitalDataCtlr" >
+	<div style="background:url('img/hex-transparent1.png'); z-index:0;">
+		<div class=" banner-buying" style="">
+			<img style="height:200px; width:100%; " src="{{searchData.hospital_image[0]}}">
+		</div>
+	</div>
+	<div style="background:#efefef;">
+		<div class="container" >
+			<div class="col-md-12 " style="margin: 1em 0em 1em;background:white;padding:1em;">
+				<div class="future" style="padding:0px;top:0px;">
+					<h3 style="font-size: 2em;">{{searchData.hospital_name}}</h3>
+					<div class="buy-single-single" style="padding:0px;top:0px;">
+					<div class="col-md-9 single-box">
+				    <carousel interval="myInterval" no-wrap="noWrapSlides">
+				      <slide ng-repeat="slide in slides" active="$first">
+				        <img ng-src="{{slide}}" style="margin:auto; height:400px; max-width:100%; border-radius:0px; width: 900px; ">
+				        <div class="carousel-caption">
+				        </div>
+				      </slide>
+				    </carousel>
+						<div class="buy-sin-single">
+							<div class="col-sm-5 middle-side immediate">
+						    <h4>Details</h4>
+						    <i ng-repeat="i in searchData.hospital_rating" class="fa fa-star" style="color:gold;"></i>
+							  <p ng-show="searchData.count_beds">
+							  	<span class="bath" style="margin-right: 0%;">Beds </span>: 
+							  	<span class="two">{{searchData.count_beds}}+</span>
+							  </p>
+							  <p ng-show="searchData.count_doctors">
+							  	<span class="bath" style="margin-right: 0%;">Doctors</span>: 
+							  	<span class="two">{{searchData.count_doctors}}+</span>
+							  </p>
+							  <p ng-show="searchData.count_specialisation">
+							  	<span class="bath" style="margin-right: 0%;">Total Specialisation</span>: 
+							  	<span class="two">{{searchData.count_specialisation}}+</span>
+							  </p>
+								<p ng-show="searchData.count_nurses">
+									<span class="bath" style="margin-right: 0%;">Nurses</span> : 
+									<span class="two"> {{searchData.count_nurses}}+</span>
+								</p>
+								<p ng-show="searchData.since">
+									<span class="bath" style="margin-right: 0%;">Since </span>:
+									<span class="two">{{searchData.since}}</span>
+								</p>
+								<div class="right-side">
+									<a href="" ng-hide="isLogin" class="hvr-sweep-to-right more" data-toggle="modal" data-target="#login">Contact Hospital</a>
+									<a href="" ng-hide="!isLogin || isHospital" class="hvr-sweep-to-right more" data-toggle="modal" data-target="#hospitalAppointment">Contact Hospital</a>
+									<div class="modal fade" id="hospitalAppointment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							  		<div class="modal-dialog modal-lg" role="document">
+									    <div class="modal-content">
+									      <div class="modal-header" style="text-align: center;">
+									        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									        <h4 class="modal-title" id="myModalLabel" style="padding-bottom:0px;margin-bottom:0px;">Get in touch with {{searchData.hospital_name}}</h4>
+									        <p>This form will only take a couple of minutes.<br>There are no booking fees, and all of our clinics are thoroughly assessed.</p>
+									      </div>
+								      	<div class="modal-body">
+								        	<form name="enquiry" class="form-horizontal">
+										  			<div class="form-group">
+										    			<label class="col-sm-6 control-label">Procedures you are interested in</label>
+													    <div class="col-sm-6">
+													    	<angucomplete-alt selected-object="dis" placeholder="Select Procedure" pause="100"  local-data="disData" search-fields="dis" title-field="dis" minlength="1" input-class="form-control form-control-small disclass" match-class="highlight"></angucomplete-alt>
+													    </div>
+										  			</div>
+										  			<div class="form-group">
+										    			<label class="col-sm-6 control-label">When you are planning on travelling</label>
+													    <div class="col-sm-6">
+															  <input id="StartDate" style="height:40px;width:46%;" class="form-controls"  ng-model="enquiryData.fromDate" date-from />
+															  <label for="EndDate">to</label>
+															  <input id="EndDate" style="height:40px;width:46%;" class="form-controls"  ng-model="enquiryData.toDate" date-to />  
+													    </div>
+										  			</div>
+										  			<div class="form-group">
+										    			<label class="col-sm-6 control-label">Which statement best describes you?</label>
+										    			<div class="col-sm-6 table-responsive">
+										    				<table class="table table-hover">
+														    	<tr>
+														    		<td>
+															    		<input type="radio" name="radio1" ng-model="enquiryData.userIntrest" value="general">
+															    	</td>
+															    	<td>
+															    		I just started researching and looking for a general information.
+															    	</td>
+															    </tr>
+															    <tr>
+															    	<td>
+															    		<input type="radio" name="radio1" ng-model="enquiryData.userIntrest" value="interested">
+															         	</td>
+															    	<td>
+															    		I am in the process of choosing the right clinic.
+															    	</td>
+															    </tr>
+															    <tr>
+															    	<td>
+															    		<input type="radio" name="radio1" ng-model="enquiryData.userIntrest" value="appointment">
+															    	</td>
+															    	<td>
+															    		I am now ready to book an appointment.
+															    	</td>
+															    </tr>
+											    			</table>
+															</div>
+										  			</div>
+										  			<div class="form-group">
+														  <div class="col-sm-6 control-label">
+													    	<label>Add a file to share with the clinic:</label>
+													    	<br>
+													    	<span>(Provide medical information relevant to the procedure (e.g. medical record, pictures, x-rays). Include any travel arrangements/ special assistance you might need. If you have any additional questions add them here!)</span>
+														  </div>
+											  			<div class="col-sm-6">
+											    			<input type="file" class="form-controls" file-upload placeholder="Add a file to share with the clinic" name="file" >
+											    			<ul ng-repeat="file in files">
+																	<li style="width: 20%;"><span></span></li>
+																	<label></label>
+																	<li class="loan-list-top"  style="width: 50%;">
+																		<span style="font-weight: normal; color:blue;">{{file.name}}
+																			<b ng-click="cut(file.name)" style="color: red;padding: 0px; cursor:pointer;cursor:hand;">X
+																			</b>
+																		</span>
+																	</li>
+																</ul>	
+														  </div>
+													  </div>
+													  <div class="form-group">
+													  	<div class="col-sm-12 ">
+														    <h3 style="margin: 0px 0px 0.5em;font-size: 1.5em;color: #66615B;">
+															    <label>
+															    	Enter your message
+															    </label>
+														    </h3>
+													  	</div>
+												  		<div class="col-sm-12 ">
+													  		<div style"padding:20px;" text-angular required ng-model="userMessageData"></div>
+													  	</div>
+										  			</div>
+													  <div class="form-group">
+													     <button style="margin-left:44%;" ng-click="sendEnquiry(dis.originalObject)" class="btn red" ng-disabled="enquiry.$invalid" data-dismiss="modal">Send Inquiry</button>
+													  </div>
+													</form>
+								      	</div>
+									      <div class="modal-footer" style="margin-right:20px;">
+									      	<p>&nbsp;</p>
+									        <button type="button" class="btn black" data-dismiss="modal">Close</button>
+									        <p>&nbsp;</p>
+									      </div>
+							    		</div>
+							  		</div>
+									</div>
+						 		</div>
+							</div>
+							<div class="col-sm-7">
+							 	<h4 class="same-heading">Description</h4>
+							 	<div class="buy-sin">
+							 		<p class="text-justify" ng-bind-html='toTrustedHTML(searchData.hospital_long_desc)'> </p>
+							 	</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class=" right-immediate">
+					    <h4 class="same-heading">Related hospitals</h4>
+							<div class="single-box-img " ng-repeat="hospi in searchData.related_hospitals" ng-click="goToHospital(hospi.hospital_id , hospi.hospital_name)">
+								<div class="box-img">
+									<img class="img-responsive" src="{{hospi.hospital_image}}" alt="">
+								</div>
+								<div class="box-text">
+									<p>{{hospi.hospital_name}}</p>
+									<a href="" class="in-box">More Info</a>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+					 	</div>
+				  </div>
+					<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 " style="margin: 0em 0em 1em;background:white;padding:1em;">
+				<div class="buy-sin-single" style="padding:0px;">
+					<h4 class="same-heading">Services</h4>
+					<div class="more-less" ng-show="!showService">
+						<table class="table table-border">
+					 		<tr>
+					 			<td ng-class="{'notpre':searchData.is_online_doctor_consultation=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0% 0%;padding-left: 9%;font-size: 18px;display: block;">
+					 					Online doctor consultation
+					 				</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_medical_travel_insurance=='false'}">
+						 			<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -72px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Medical travel insurance
+						 			</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_health_insurance_coordination=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -148px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Health insurance coordination
+						 			</strong>
+					 			</td>
+					 		</tr>
+					 		<tr>
+					 			<td ng-class="{'notpre':searchData.is_medical_records_transfer=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -212px;padding-left: 9%;font-size: 18px;display: block;">
+					 					Medical records transfer
+					 				</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_rehabilitation=='false'}">
+						 			<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -288px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Rehabilitation
+						 			</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_translation_services=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -360px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Translation services
+						 			</strong>
+					 			</td>
+					 		</tr>
+					 	</table>
+					</div>
+					<div class="more-less more" ng-show="showService">
+					   <table class="table table-border">
+					 		<tr>
+					 			<td ng-class="{'notpre':searchData.is_online_doctor_consultation=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0% 0%;padding-left: 9%;font-size: 18px;display: block;">
+					 					Online doctor consultation
+					 				</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_medical_travel_insurance=='false'}">
+						 			<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -72px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Medical travel insurance
+						 			</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_health_insurance_coordination=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -148px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Health insurance coordination
+						 			</strong>
+					 			</td>
+					 		</tr>
+					 		<tr>
+					 			<td ng-class="{'notpre':searchData.is_medical_records_transfer=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -212px;padding-left: 9%;font-size: 18px;display: block;">
+					 					Medical records transfer
+					 				</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_rehabilitation=='false'}">
+						 			<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -288px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Rehabilitation
+						 			</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_translation_services=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -360px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Translation services
+						 			</strong>
+					 			</td>
+					 		</tr>
+					 		<tr>
+					 			<td ng-class="{'notpre':searchData.is_interpreter_services=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -434px;padding-left: 9%;font-size: 18px;display: block;">
+					 					Interpreter services
+					 				</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_personal_assistance=='false'}">
+						 			<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -507px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Personal assistance / Concierge
+						 			</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_welcome_package=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -583px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Welcome Package
+						 			</strong>
+					 			</td>
+					 		</tr>
+					 		<tr>
+					 			<td ng-class="{'notpre':searchData.is_airport_pickup=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -657px;padding-left: 9%;font-size: 18px;display: block;">
+					 					Airport pickup
+					 				</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_private_driver_or_limo=='false'}">
+						 			<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -730px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Private driver / Limousine service
+						 			</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_car_hire=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -802px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Car hire
+						 			</strong>
+					 			</td>
+					 		</tr>
+					 		<tr>
+					 			<td ng-class="{'notpre':searchData.is_local_transportation_booking=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -876px;padding-left: 9%;font-size: 18px;display: block;">
+					 					Local transportation booking
+					 				</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_hotel_booking=='false'}">
+						 			<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -953px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Hotel booking
+						 			</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_flight_booking=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -1023px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Flight booking
+						 			</strong>
+					 			</td>
+					 		</tr>
+					 		<tr>
+					 			<td ng-class="{'notpre':searchData.is_local_tourism_option=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -1100px;padding-left: 9%;font-size: 18px;display: block;">
+					 					Local tourism options
+					 				</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_shopping_trip_org=='false'}">
+						 			<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -1174px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Shopping trip organisation
+						 			</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_entertainment_option=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -1250px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Entertainment options
+						 			</strong>
+					 			</td>
+					 		</tr>
+					 		<tr>
+					 			<td ng-class="{'notpre':searchData.is_air_ambulance=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -1322px;padding-left: 9%;font-size: 18px;display: block;">
+					 					Air Ambulance
+					 				</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_special_offer_for_group_stay=='false'}">
+						 			<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -1396px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Special offer for group stays
+						 			</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_free_wifi=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -1471px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Free Wifi
+						 			</strong>
+					 			</td>
+					 		</tr>
+					 		<tr>
+					 			<td ng-class="{'notpre':searchData.is_phone_in_the_room=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -1545px;padding-left: 9%;font-size: 18px;display: block;">
+					 					Phone in the room
+					 				</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_tv_in_the_room=='false'}">
+						 			<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -1620px;padding-left: 9%;font-size: 18px;display: block;">
+						 				TV in the room
+						 			</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_special_dietary_requests_accepted=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -1692px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Special dietary requests accepted
+						 			</strong>
+					 			</td>
+					 		</tr>
+					 		<tr>
+					 			<td ng-class="{'notpre':searchData.is_private_rooms_for_patients_available=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -1766px;padding-left: 9%;font-size: 18px;display: block;">
+					 					Private rooms for patients available
+					 				</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_family_accommodation=='false'}">
+						 			<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -1841px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Family accommodation
+						 			</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_parking_available=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -1913px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Parking available
+						 			</strong>
+					 			</td>
+					 		</tr>
+					 		<tr>
+					 			<td ng-class="{'notpre':searchData.is_restaurant=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -1692px;padding-left: 9%;font-size: 18px;display: block;">
+					 					Restaurant
+					 				</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_cafe=='false'}">
+						 			<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -1990px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Café
+						 			</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_halal=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -2064px;padding-left: 9%;font-size: 18px;display: block;">
+						 				 Halal Prepared
+						 			</strong>
+					 			</td>
+					 		</tr>
+					 		<tr>
+					 			<td ng-class="{'notpre':searchData.is_nursery_or_nanny_service=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -2137px;padding-left: 9%;font-size: 18px;display: block;">
+					 					Nursery / Nanny services
+					 				</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_pharmacy=='false'}">
+						 			<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -2211px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Pharmacy
+						 			</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_room_rating=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -2285px;padding-left: 9%;font-size: 18px;display: block;">
+						 				 Room Ratings Options(3 star 5 Star)
+						 			</strong>
+					 			</td>
+					 		</tr>
+					 		<tr>
+					 			<td ng-class="{'notpre':searchData.is_shop=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -2359px;padding-left: 9%;font-size: 18px;display: block;">
+					 					Shop
+					 				</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_visa_or_travel_office=='false'}">
+						 			<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -2432px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Visa / Travel office
+						 			</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_buisness_center_services=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -2507px;padding-left: 9%;font-size: 18px;display: block;">
+						 				 Business centre services
+						 			</strong>
+					 			</td>
+					 		</tr>
+					 		<tr>
+					 			<td ng-class="{'notpre':searchData.is_document_legalisation=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -2582px;padding-left: 9%;font-size: 18px;display: block;">
+					 					Document legalisation
+					 				</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_currency_exchange=='false'}">
+						 			<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -2653px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Currency Exchange
+						 			</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_laundry=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -2728px;padding-left: 9%;font-size: 18px;display: block;">
+						 				 Laundry
+						 			</strong>
+					 			</td>
+					 		</tr>
+					 		<tr>
+					 			<td ng-class="{'notpre':searchData.is_dry_cleaning=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -2803px;padding-left: 9%;font-size: 18px;display: block;">
+					 					Dry cleaning
+					 				</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_religious_facilities=='false'}">
+						 			<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -2877px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Religious facilities
+						 			</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_gym=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -2950px;padding-left: 9%;font-size: 18px;display: block;">
+						 				 Gym
+						 			</strong>
+					 			</td>
+					 		</tr>
+					 		<tr>
+					 			<td ng-class="{'notpre':searchData.is_mobile_accessible_rooms=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -3025px;padding-left: 9%;font-size: 18px;display: block;">
+					 					Mobility accessible rooms
+					 				</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_locker=='false'}">
+						 			<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -3100px;padding-left: 9%;font-size: 18px;display: block;">
+						 				Locker option
+						 			</strong>
+					 			</td>
+					 			<td ng-class="{'notpre':searchData.is_dedicated_smoking_area=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -3175px;padding-left: 9%;font-size: 18px;display: block;">
+						 				 Dedicated smoking areas
+						 			</strong>
+					 			</td>
+					 		</tr>
+					 		<tr>
+					 			<td ng-class="{'notpre':searchData.is_international_newspapers=='false'}">
+					 				<strong style="background:transparent url('img/facilitiess.png') no-repeat scroll 0px -3245px;padding-left: 9%;font-size: 18px;display: block;">
+					 					International newspapers
+					 				</strong>
+					 			</td>
+					 		</tr>
+				 		</table>
+					</div>
+					<a data-toggle="collapse" data-target="#services" aria-controls="services">
+					  <span ng-hide="showService" ng-click="showService=!showService" style="font-size:18px;cursor: pointer; cursor: hand;">+ Show more services</span>
+					  <span ng-show="showService" ng-click="showService=!showService" style="cursor: pointer; cursor: hand;">- Show less services</span>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-12 " style="margin: 0em 0em 1em;background:white;padding:1em;">
+				<h4 class="same-heading">Map Location</h4>
+				<br>
+				<map center="{{mapMarker}}" default-style="true" zoom="10"  min-zoom="10"  draggable="true">
+					<marker id="foo" position="{{mapMarker}}" title="{{searchData.hospital_name}}" on-click="toggleBounce()"></marker>
+					<info-window id="bar" visible-on-marker="foo">
+		        <div ng-non-bindable>
+		          <div id="siteNotice"></div>
+		          <h2 id="firstHeading" class="firstHeading">{{searchData.hospital_name}}</h2>
+		          <div id="bodyContent">
+		           	<b>{{searchData.city}} , {{searchData.state}} , {{searchData.country}}</b>, 
+		          </div>
+		        </div>
+		      </info-window>
+				</map>
+			</div>
+			<!-- <div class="col-md-12 " style="margin: 0em 0em 1em;background:white;padding:1em;">
+				<h4 class="same-heading">Video Presentation</h4>
+				<br>
+				<div class="video-pre">
+					<div class="player">
+					  <div class="mediaplayer">
+					    <video poster="http://corrupt-system.de/assets/media/sintel/sintel-trailer.jpg" controls preload="none">
+					      <source src="http://corrupt-system.de/assets/media/sintel/sintel-trailer.m4v" type="video/mp4" />
+					      <source src="http://corrupt-system.de/assets/media/sintel/sintel-trailer.webm" type="video/webm" />
+					    </video>
+					  </div>
+					</div>
+				</div>
+			</div> -->
+			<div class="col-md-12" style="margin: 0em 0em 1em;background:white;padding:1em;">
+				<div class="single-grid">
+					<div class="leave">
+						<h4 class="same-heading">Rate Hospital</h4>
+						<form>
+							<div class="star-rating" star-rating rating-value="rating" data-max="5">
+							</div>
+							<br>
+						  <textarea  placeholder="Write your comment!" ng-model="comment"></textarea>
+						  <br>
+				      <a href="" ng-hide="isLogin" class="hvr-sweep-to-right more" data-toggle="modal" data-target="#login">Post Comment</a>
+							<a href="" ng-show="isLogin" ng-click="postComment()" class="hvr-sweep-to-right more">Post Comment</a>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12" style="margin: 0em 0em 1em;background:white;padding:1em;">
+				<div class="single-grid">	
+					<h4 class="same-heading">Comments 
+						<span class="filter-span" ng-click="showFilter=!showFilter">
+							<b>Sort By: </b>{{filterText}}
+							<b id="filter-arrow">
+								<i class="fa fa-angle-down" ng-hide="showFilter"></i>
+								<i class="fa fa-angle-up" ng-show="showFilter"></i>
+							</b>
+						</span>
+					</h4>
+					<ul id="filter" ng-show="showFilter">
+						<li>Rating
+							<strong>
+								<i class="fa fa-angle-up" ng-click="filterRateUp()"></i> 
+								<i class="fa fa-angle-down" ng-click="filterRateDown()"></i>
+							</strong>
+						</li>
+						<li >Time
+							<strong>
+								<i class="fa fa-angle-up" ng-click="filterTimeUp()"></i> 
+								<i class="fa fa-angle-down" ng-click="filterTimeDown()"></i>
+							</strong>
+						</li>
+					</ul>
+					<div style="overflow:auto;max-height:500px;margin-top:15px;padding-top:30px;border-top: 1px solid rgb(198, 198, 198);">
+		    		<div class="media" style="margin-left:2em;margin-right:2em;" ng-repeat="comments in commentData | orderBy : rData" ng-class="{'ltblue':$index%2==0 , 'ltgreen':$index%2==1}">
+	          <div class="media-left">
+	            <a href="#">
+	            	<img class="media-object" src="{{comments.user_image}}" alt="" height="60" width="60"/>
+	            </a>
+	          </div>
+		        <div class="media-body">
+		        	<h4 class="media-heading">{{comments.user_name}}<span class="smallspan">({{comments.review_time_text}})</span></h4>
+		        	<span>
+	      				<i ng-repeat="i in comments.rating" class="fa fa-star" style="color:gold;"></i>
+	      			</span>
+		        </div>
+		        <p style="font-weight:normal;padding: 0px 5px 5px;margin-top:-7px;">{{comments.comment}}</p>
+			    	</div>
+			    </div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>

@@ -1,0 +1,669 @@
+<!--NAVBAR STARTS-->
+<style type="text/css">
+  .navigation nav ul li a {
+    color:white;
+    font-size: 1.0em;
+  }
+  /*nav ul li a:hover {
+    color: rgb(216, 218, 218)!important;
+    font-size: 18px;
+    font-weight: bolder;
+  }*/
+  .navigation {
+    text-align: right;
+    margin-right: 50px;
+  }
+  .navbar .btn {
+      margin: 0px 0px;
+      }
+    .btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+  }
+  .btn-circle.btn-lg {
+    width: 50px;
+    height: 50px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 25px;
+  }
+  .btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    font-size: 24px;
+    line-height: 1.33;
+    border-radius: 35px;
+  }
+  .dropdown-menu:before {
+    position: absolute;
+    top: -7px;
+    left: 9px;
+    display: inline-block;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #ccc;
+    border-left: 7px solid transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+    content: '';
+  }
+
+  .dropdown-menu:after {
+    position: absolute;
+    top: -6px;
+    left: 10px;
+    display: inline-block;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #ffffff;
+    border-left: 6px solid transparent;
+    content: '';
+  }
+  i.glyphicon.glyphicon-menu-hamburger {
+        top: 15px;
+        font-size: 2.5em;
+        color: #fff;
+  }
+  .modal-backdrop {
+    z-index: 0;
+  }
+  .pac-container {
+    z-index: 1051 !important;
+  }
+
+  .black:hover {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+  }
+  .black{
+    background-color: transparent;
+  background-image: none;
+  border-bottom-color: #000;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-left-color: #000;
+  border-left-style: solid;
+  border-left-width: 2px;
+  border-right-color: #000;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-top-color: #000;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Montserrat","Helvetica",Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 36px;
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 0px;
+  text-align: center;
+  text-decoration: none;
+  text-decoration-color: #000;
+  text-decoration-line: none;
+  text-decoration-style: solid;
+  transition-delay: 0s;
+  transition-duration: 0.10s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0, 0, 1, 1);
+  vertical-align: middle;
+  white-space: nowrap;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  -moz-user-select: none;
+  }
+  .white:hover {
+    color: #000;
+    background-color: #FFF;
+    border-color: #16535C;
+  }
+  .white{
+    background-color: transparent;
+  background-image: none;
+  border-bottom-color: #FFF;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-left-color: #FFF;
+  border-left-style: solid;
+  border-left-width: 2px;
+  border-right-color: #FFF;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-top-color: #FFF;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  box-sizing: border-box;
+  color: #FFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Montserrat","Helvetica",Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 36px;
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 0px;
+  text-align: center;
+  text-decoration: none;
+  text-decoration-color: #FFF;
+  text-decoration-line: none;
+  text-decoration-style: solid;
+  transition-delay: 0s;
+  transition-duration: 0.10s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0, 0, 1, 1);
+  vertical-align: middle;
+  white-space: nowrap;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  -moz-user-select: none;
+  }
+  .red:hover {
+    color: #FFF;
+    background-color: #EB5E28;
+    border-color: #FFF;
+  }
+  .red{
+    background-color: transparent;
+  background-image: none;
+  border-bottom-color: #EB5E28;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-left-color: #EB5E28;
+  border-left-style: solid;
+  border-left-width: 2px;
+  border-right-color: #EB5E28;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-top-color: #EB5E28;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  box-sizing: border-box;
+  color: #EB5E28;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Montserrat","Helvetica",Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 36px;
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 0px;
+  text-align: center;
+  text-decoration: none;
+  text-decoration-color: #EB5E28;
+  text-decoration-line: none;
+  text-decoration-style: solid;
+  transition-delay: 0s;
+  transition-duration: 0.15s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0, 0, 1, 1);
+  vertical-align: middle;
+  white-space: nowrap;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  -moz-user-select: none;
+  }
+  /*nav ul li:hover {
+    color: rgba(4, 83, 95, 0.80)!important;
+    font-size: 1.2em;
+  }*/
+  .forgot.ng-hide-remove{
+    animation:1s fadeInDown ease;
+  }
+  .toast-top-right{
+    top:70px;
+    right: 20px;
+  }
+  .modal-content {
+    box-shadow: 10px 10px 15px rgba(22, 83, 92, 0.72);
+    border-radius: 0px;
+    border: 2px solid #16535C;
+    width: 80%;
+    margin-top: 3.5em;
+  }
+/*  #pro:hover{
+
+  }*/
+/*.ng-hide-add{
+    animation:1s fadeInUp ease;
+  }*/
+</style>
+<div  ng-controller="headerController">
+<toaster-container toaster-options="{'time-out': 5000, 'close-button':true, 'animation-class': 'toast-top-right' }"></toaster-container>
+  <nav class="nav navbar navbar-fixed-top trans" role="navigation"  id="main">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+        btn
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div>
+          <a href="#home"> <img src="img/kramya-logo3.png" style="height: 60px;"></a>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse" id="navigation-example-2">
+        <ul class="navbar-nav navbar-right" style="margin-top: 10px;margin-bottom: 10px;">
+          <button id="regi" class="white" ng-hide="isHospital" data-toggle="modal" data-target="#reg">
+            <b>Register Your Hospital</b>
+          </button>
+          <div class="modal fade" id="reg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header" style="text-align: center;">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h3>Register Your Hospital</h3> 
+                </div>
+                <div class="modal-body">
+                  <div ng-controller="RegisterCtlr">
+                    <div class="form-info" style="padding:0em;">
+                      <form name="hospitalregistration">
+                        <input name="hospitalName" type="text" ng-model="firstformData.hospital_name" placeholder="Name of the Hospital (Required)" pattern="^[a-zA-Z.\s]+$" required style="width:90%;margin-top:1em;margin-bottom:0em;">
+                        <span style="color:green;" ng-show="firstformData.hospital_name">
+                          <i class="fa fa-check"></i>
+                        </span>
+                        <span style="color:red;" ng-show="hospitalregistration.hospitalName.$dirty && hospitalregistration.hospitalName.$invalid ">
+                          <i class="fa fa-times"></i>
+                          <span> Only Letters and .(dot) allowed.</span>
+                        </span>
+                        <br>
+                        <span ng-show="firstformData.hospital_name">
+                          <b>Hospital Name: </b>
+                          <span>{{firstformData.hospital_name}}</span>
+                        </span>
+                        <input type="text" name="email" ng-model="firstformData.hospital_emailid" placeholder="Email for Login (Required)" required style="width:90%;margin-top:1em;margin-bottom:0em;" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$">
+                        <span style="color:green;" ng-show="firstformData.hospital_emailid">
+                          <i class="fa fa-check"></i>
+                        </span>
+                        <span style="color:red;" ng-show="hospitalregistration.email.$dirty && hospitalregistration.email.$invalid ">
+                          <i class="fa fa-times"></i>
+                          <span> Invalid Email Format.</span>
+                        </span>
+                        <br>
+                        <span ng-show="firstformData.hospital_emailid">
+                          <b>Email Id: </b>
+                          <span>{{firstformData.hospital_emailid}}</span>
+                        </span>
+                        <input type="password" name="password" ng-model="firstformData.hospital_password" placeholder="Password (Required)" required style="width:90%;margin-top:1em;margin-bottom:0em;" minlength=6>
+                        <span style="color:green;" ng-show="firstformData.hospital_password">
+                          <i class="fa fa-check"></i>
+                        </span>
+                        <span style="color:red;" ng-show="hospitalregistration.password.$dirty && hospitalregistration.password.$invalid ">
+                          <i class="fa fa-times"></i>
+                          <span>Invalid Password. Password must be 6 letter long.</span>
+                        </span>
+                        <input type="password" name="hospital_password_confirm" ng-model="hospital_password_confirm" placeholder="Confirm Password (Required)" required style="width:90%;margin-top:1em;margin-bottom:0em;">
+                        <span style="color:green;" ng-show="hospitalregistration.hospital_password_confirm.$dirty && hospital_password_confirm==firstformData.hospital_password">
+                          <i class="fa fa-check"></i>
+                        </span>
+                        <span style="color:red;" ng-show="hospitalregistration.hospital_password_confirm.$dirty && hospital_password_confirm!==firstformData.hospital_password">
+                          <i class="fa fa-times"></i>
+                          <span>Password do not match.</span>
+                        </span>
+                        <input  type="file" id="images" file-upload multiple accept="image/*"  style="width:90%;margin-top:1em;margin-bottom:0em;" class="hidden">
+                        <br><br>
+                        <li style="width: 100%;">
+                          <input type="checkbox" name="" ng-model="is_agreed" >
+                          I have read and agree to the 
+                          <a href="" ng-click="go('terms')" data-dismiss="modal">Terms & Conditions.</a>
+                          <br><span ng-show="!is_agreed" style="color:red;"> You must agree to our <a href="" ng-click="go('terms')" data-dismiss="modal" style="color:red"><u> terms and conditions</u></a> in order to register.</span>
+                        </li>
+                        <br>
+                        <button value="none" class="hvr-sweep-to-right more-in" style="height:40px;" ng-disabled="hospitalregistration.$invalid"  ng-click="firstFormSubmit('out')"  data-dismiss="modal"> Register Hospital</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer" style="margin:20px;padding:10px;">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button id="regiup" class="white" ng-show="islogin && isHospital" ng-click="go('/hospital-list')">
+            <b>Your Hospitals</b>
+          </button>
+          <button ng-click="go('/faqs')" class="white" style="border-width:0px;">
+            <b>Help</b>
+          </button>
+          <button class="white" ng-hide="islogin" style="border-width: 0px;"  data-toggle="modal" data-target="#signup">
+            <b>Sign Up</b>
+          </button>
+          <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header" style="text-align: center;">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h3>Sign Up</h3> 
+                </div>
+                <div class="modal-body">
+                  <div ng-controller = "SignupCtlr">
+                    <div ng-controller="SocialLoginCtlr">
+                      <ul class="login-icons">
+                        <li  ng-click="fbLogin()" data-dismiss="modal"><a href="#" ><i class="facebook"> </i><span>Facebook</span></a></li>
+                        <!-- <li><a href="#" class="twit"><i class="twitter"></i><span>Twitter</span></a></li> -->
+                        <li ng-click="googleLogin()" data-dismiss="modal"><google-plus-signin clientid="652791899874-b2kb702sd7g8epsv8gcaaj6oqugapnn9.apps.googleusercontent.com" autorender="false" customtargetid="my-custom-element"><a href="#" class="go"><i class="google"></i><span>Google +</span></a></google-plus-signin></li>
+                        <!-- <b ng-click="logout()">lo</b> -->
+                        <!-- <li><a href="#" class="in"><i class="linkedin"></i><span>Linkedin</span></a></li> -->
+                        <div class="clearfix"> </div>
+                      </ul>
+                    </div>
+                    <div class="form-info" style="padding:0em;">
+                      <form id="forms" name="signup" >
+                        <input name="fullname" type="text" placeholder="Full Name (Required)" ng-model="formData.user_name" required style="width:90%;margin-top:.5em;margin-bottom:0em;" pattern="^[a-zA-Z.\s]+$"> 
+                        <span style="color:green;" ng-show="formData.user_name">
+                          <i class="fa fa-check"></i>
+                        </span>
+                        <span style="color:red;" ng-show="signup.fullname.$dirty && signup.fullname.$invalid ">
+                          <i class="fa fa-times"></i>
+                          <span> Only Letters and .(dot) allowed.</span>
+                        </span>
+                        <br>
+                        <span ng-show="formData.user_name">
+                          <b>Full Name: </b>
+                          <span>{{formData.user_name}}</span>
+                        </span>
+                        <input name="user_email_id" type="text" placeholder="Email Address (Required)" ng-model="formData.user_email_id" required  style="width:90%;margin-top:.5em;margin-bottom:0em;" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" >
+                        <span style="color:green;" ng-show="formData.user_email_id">
+                          <i class="fa fa-check"></i>
+                        </span>
+                        <span style="color:red;" ng-show="signup.user_email_id.$dirty && signup.user_email_id.$invalid ">
+                          <i class="fa fa-times"></i>
+                          <span>Invalid Email Format.</span>
+                        </span>
+                        <br>
+                        <span ng-show="formData.user_email_id">
+                          <b>Email Address: </b>
+                          <span>{{formData.user_email_id}}</span>
+                        </span>
+                        
+                        <input name="user_password" type="password" placeholder="Password (Required)" ng-model="formData.user_password" required minlength=6 style="width:90%;margin-top:.5em;margin-bottom:0em;">
+                        <span style="color:green;" ng-show="formData.user_password">
+                          <i class="fa fa-check"></i>
+                        </span>
+                        <span style="color:red;" ng-show="signup.user_password.$dirty && signup.user_password.$invalid ">
+                          <i class="fa fa-times"></i>
+                          <span>Invalid Password. Password must be 6 letter long.</span>
+                        </span>
+
+
+                        <input name="user_confirm_password" type="password" placeholder="Confirm Password (Required)" ng-model="user_confirm_password" required  style="width:90%;margin-top:.5em;margin-bottom:0em;">
+                        <span style="color:green;" ng-show="signup.user_confirm_password.$dirty && user_confirm_password==formData.user_password">
+                          <i class="fa fa-check"></i>
+                        </span>
+                        <span style="color:red;" ng-show="signup.user_confirm_password.$dirty && user_confirm_password!==formData.user_password ">
+                          <i class="fa fa-times"></i>
+                          <span>Password do not match.</span>
+                        </span>
+
+                        <label  style="width:90%;height:45px;margin-top:.5em;margin-bottom:0em;background:rgba(221, 221, 221, 0.34);padding-top: 9px;padding-left: 9px;cursor:pointer;font-family: "Lato",sans-serif;">
+                          <b style="position: absolute;color:rgb(105, 102, 102);font-weight: normal;font-size: 1.1em;">Picture</b>
+                          <input style="padding-left: 20%;background:none;padding-top: 0;border: none;" type="file" name="img[]" class="file" file-upload multiple accept="image/*">
+                        </label>
+                        
+                        <ul ng-repeat="file in files">
+                          <span style="font-weight: normal; color:blue; width:95%;">
+                            {{file.name}}
+                            <b ng-click="cut($index)" style="color: red;padding-left: 10px; cursor:pointer;cursor:hand;">X</b>
+                          </span>
+                        </ul>
+
+                        <!-- <input type="text"  placeholder="Location" ng-model="formData.user_location"> -->
+                        <input type="text" id="Autocomplete" placeholder="Location" ng-autocomplete="formData.user_location" style="width:90%;margin-top:.5em;margin-bottom:0em;" />
+                        <span style="color:green;" ng-show="formData.user_location">
+                          <i class="fa fa-check"></i>
+                        </span>
+                        <span ng-show="formData.user_location">
+                          <b>Location: </b>
+                          <span>{{formData.user_location}}</span>
+                        </span>
+                        <!-- <input name="user_contact_no" type="text"  placeholder="Contact Number (Required)" ng-model="formData.user_contact_no" required  style="width:90%;margin-top:1em;margin-bottom:0em;" pattern="^[0-9\s]+$" minlength=8>
+                        <span style="color:green;" ng-show="formData.user_contact_no">
+                          <i class="fa fa-check"></i>
+                        </span>
+                        <span style="color:red;" ng-show="signup.user_contact_no.$dirty && signup.user_contact_no.$invalid ">
+                          <i class="fa fa-times"></i>
+                          <span>Must be minimum 8 letters long , No special Symbol.</span>
+                        </span> -->
+                        <br>
+                        <span ng-show="formData.user_contact_no">
+                          <b>Contact No: </b>
+                          <span>{{formData.user_contact_no}}</span>
+                        </span>
+                        <br>
+                        <li style="width: 100%;">
+                          <input type="checkbox" name="" ng-model="is_agreed" >
+                          I have read and agree to the 
+                          <a href="" ng-click="go('terms')" data-dismiss="modal">Terms & Conditions.</a>
+                          <br><span ng-show="!is_agreed" style="color:red;"> You must agree to our <a href="" ng-click="go('terms')" data-dismiss="modal" style="color:red"><u> terms and conditions</u></a> in order to register.</span>
+                        </li>
+                        <br>
+                        <label>
+                          <button class="hvr-sweep-to-right more-in" style="height:42px; width:110px;" type="button" ng-disabled="signup.$invalid" data-dismiss="modal" ng-click="formSubmit()">Sign Up</button>
+                          <p style="padding: 1em 0 0;text-align: left;" >Already have a Kramya account? <a href="" ng-click="go('login')" data-dismiss="modal"><b>Login</b></a></p> 
+                        </label>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class=" white" ng-hide="islogin" style="border-width: 0px;" data-toggle="modal" data-target="#login"><b>Login</b></button>
+            <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header" style="text-align: center;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3>Login</h3> 
+                  </div>
+                  <div class="modal-body">
+                    <div ng-controller = "loginController">
+                      <div ng-controller="SocialLoginCtlr">
+                        <ul class="login-icons">
+                          <li  ng-click="fbLogin()" data-dismiss="modal"><a id="fb" href="#" ><i class="facebook"> </i><span>Facebook</span></a></li>
+                          <!-- <li><a href="#" class="twit"><i class="twitter"></i><span>Twitter</span></a></li> -->
+                          <li ng-click="googleLogin()" data-dismiss="modal"><google-plus-signin clientid="652791899874-b2kb702sd7g8epsv8gcaaj6oqugapnn9.apps.googleusercontent.com" autorender="false" customtargetid="my-custom-element"><a href="#" class="go"><i class="google"></i><span>Google +</span></a></google-plus-signin></li>
+                          <!-- <b ng-click="logout()">lo</b> -->
+                          <!-- <li><a href="#" class="in"><i class="linkedin"></i><span>Linkedin</span></a></li> -->
+                          <div class="clearfix"> </div>
+                        </ul>
+                      </div>
+                      <div class="form-info" style="padding:0em;">
+                        <form name="login">
+                        <div ng-hide="forgot">
+                          <input name="user_email_id" type="text" ng-model="loginData.email" class="text" placeholder="Email Address" required style="width:90%;margin-top:1em;" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" >
+                          <span style="color:green;" ng-show="loginData.email">
+                            <i class="fa fa-check"></i>
+                          </span>
+                          <span style="color:red;" ng-show="login.user_email_id.$dirty  && login.user_email_id.$invalid ">
+                            <i class="fa fa-times"></i>
+                            <span>Invalid Email Format.</span>
+                          </span>
+                          <input name="user_password" type="password" ng-model="loginData.password" placeholder="Password" required minlength=6 style="width:90%;">
+                          <span style="color:green;" ng-show="loginData.password">
+                            <i class="fa fa-check"></i>
+                          </span>
+                          <span style="color:red;" ng-show="login.user_password.$dirty  && login.user_password.$invalid ">
+                            <i class="fa fa-times"></i>
+                            <span>Invalid Password. Password must be 6 letter long.</span>
+                          </span>
+                          <label class="radio-inline">
+                            <input type="radio" name="usertype" ng-model="endpoint" value="users" checked>User
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="usertype" ng-model="endpoint" value="hospitals">Hospital
+                          </label>
+                          <br><br>
+                            <button style="height:35px;" class="hvr-sweep-to-right"  ng-click="sendLoginData()"  data-dismiss="modal">Submit</button>
+                          <br><br>
+                          <input type="checkbox" ng-model="forgot">
+                          Forgot Password
+                        </div>
+                        <div ng-show="forgot" class="forgot">
+                          <input name="user_forgot_email_id" type="text" ng-model="forgotData.email" class="text" placeholder="Email Address" required style="width:90%; margin-top:.5em;" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" >
+                          <span style="color:green;" ng-show="forgotData.email">
+                            <i class="fa fa-check"></i>
+                          </span>
+                          <span style="color:red;" ng-show="login.user_forgot_email_id.$dirty  && login.user_forgot_email_id.$invalid ">
+                            <i class="fa fa-times"></i>
+                            <span>Invalid Email Format.</span>
+                          </span>
+                          <br>
+                          <input name="user_forgot_password" type="password" ng-model="forgotData.password" placeholder="New Password" required minlength=6 style="width:90%;">
+                          <span style="color:green;" ng-show="forgotData.password">
+                            <i class="fa fa-check"></i>
+                          </span>
+                          <span style="color:red;" ng-show="login.user_forgot_password.$dirty  && login.user_forgot_password.$invalid ">
+                            <i class="fa fa-times"></i>
+                            <span>Invalid Password. Password must be 6 letter long.</span>
+                          </span>
+                          <br>
+                          <input name="user_forgot_confirm_password" type="password" ng-model="forgotData.confirmPassword" placeholder="Confirm New Password" required style="width:90%;">
+                          <span style="color:green;" ng-show="login.user_forgot_confirm_password.$dirty &&forgotData.confirmPassword==forgotData.password">
+                            <i class="fa fa-check"></i>
+                          </span>
+                          <span style="color:red;" ng-show="login.user_forgot_confirm_password.$dirty && forgotData.confirmPassword!==forgotData.password">
+                            <i class="fa fa-times"></i>
+                            <span>Password do not match.</span>
+                          </span>
+                          <label class="radio-inline">
+                            <input type="radio" name="usertypeForgot" ng-model="endpointForgot" value="user" checked>User
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="usertypeForgot" ng-model="endpointForgot" value="hospital">Hospital
+                          </label>
+                          <br><br>
+                          <button style="height:35px;" class="hvr-sweep-to-right"  ng-click="sendForgotData()"  data-dismiss="modal">Submit</button>
+                          <br><br>
+                          <input type="checkbox" ng-model="forgot">
+                          Forgot Password
+                        </div>
+                      </form>
+                        <!-- <div class="create">
+                          <h4>New To Kramya?</h4>
+                          <a class="hvr-sweep-to-right" href=""  data-toggle="modal" data-target="#signup" >Create an Account</a>
+                        </div> -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer" style="margin:20px;padding:10px;">
+                    <p style="padding: 1em 0 0;text-align: left;" >New to Kramya ? <a href="" ng-click="go('signup')" data-dismiss="modal"><b>SignUp</b></a></p>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span ng-show="islogin">
+              <button class="white" id="profiledropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="border-width:0px;">
+                <b>{{userData.userName}}</b>
+              </button>
+              <button id="imgbox" type="button" class="white btn-circle" id="profiledropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background:url('{{userImage}}') ; width:45px; height:45px; border-width:1px; background-size: 45px 45px;" >
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="profiledropdown" style="left: auto;min-width: 130px; font-size:1em; text-align:center; cursor:pointer;border-radius:2px;margin-top: -0.5%;">
+                <li id="pro" ng-click="go('/inbox')"><b><i class="fa fa-envelope-o"></i> Inbox</b></li>
+                <li role="separator" class="divider"></li>
+                <li id="pro" ng-click="user(userData.userId)"><b><i class="fa fa-user-secret"></i> Profile</b></li>
+                <li role="separator" class="divider"></li>
+                <li id="pro" ng-click="user(userData.userId)"><b><i class="fa fa-cog"></i> Setting</b></li>
+                <li role="separator" class="divider"></li>
+                <li id="pro" ng-click="logout()"><b><i class="fa fa-sign-out"></i> Logout</b></li>
+              </ul>
+           </span>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-->
+    </nav>
+  </div>
+<script type="text/javascript">
+  window.onload=resize;
+  window.onresize = resize;
+  function resize() {
+    var ans=0;
+    var myMax=$('#regi').offset().left+$('#regi').width();
+    var myMax1=$('#regiup').offset().left+$('#regiup').width();
+    if(myMax>myMax1){
+      ans=myMax;
+    }
+    else{
+      ans=myMax1;
+    }
+    var imgp=$(document).width()-(ans);
+    imgp=imgp-130-200;
+    console.log('img:', imgp);
+    if(imgp<0){
+      imgp=0;
+    }
+    $('.dropdown-menu').css('right',imgp);
+  }
+  var mainbottom = $('#main').offset().top+20 ;
+  // on scroll, 
+  $(window).on('scroll',function(){
+      // we round here to reduce a little workload
+      stop = Math.round($(window).scrollTop());
+      if (stop > mainbottom) {
+          $('.navbar').addClass('past-main');
+      } else {
+          $('.navbar').removeClass('past-main');
+     }
+
+  });
+  var topPos=$('#imgbox').position().top;
+  var mainHeight=$('#main').height();
+  var leftPos=$('#imgbox').position().left;
+  $("#prfiledrop").css({top: mainHeight-15, left: leftPos-20 , width: 150});
+</script>

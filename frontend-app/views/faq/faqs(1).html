@@ -1,0 +1,187 @@
+<script type="text/javascript">
+					$('.au-img img').on("click", function(e) {
+  var $this = $(this),
+      $id = $this.attr('id'),
+      $class = '.' + $('.about-' + $id).attr('class').replace('hide', '');
+  
+  $('.default-text').addClass('hide');
+  $('.about-' + $id).removeClass('hide');
+  $('div[class*=about]').not($class).addClass('hide');
+});
+</script>
+<style type="text/css">
+
+.au-img {
+  cursor: pointer;
+}
+.hide {
+  display: none;
+
+}
+</style>
+<script type="text/javascript">
+var app = angular.module('KramyaApp',[]);
+</script>
+	<div style="background:url('img/hex-transparent1.png'); z-index:0;">    
+        <div class=" banner-buying" style="min-height: 300px;background:url('img/at1.jpg');" >
+            <div class=" container">
+                <h3><span>FAQ</span></h3> 
+            </div> 
+        </div> 
+ 	</div>
+<!--//header-->
+<!--contact-->
+<div class="asked">
+	<div class="container">
+		 <!-- <h3>Frequently Asked Questions</h3> -->
+			<!-- <div class="questions">
+				<h5>1.What is Lorem Ipsum?</h5>
+	        	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+	        </div> -->
+			<div class="row ">
+				<div class="col-md-2" ></div>
+				<div class="col-md-3 well au-img">
+					<h5 class="text-center">I'm a Patient</h5>
+					<img src="img/patient.png" class="img-responsive" style="margin: 0 auto;" width="150px;" id="patfaq">
+				</div>
+				<div class="col-md-2" ></div>
+				<div class="col-md-3 well au-img">
+					<h5 class="text-center">I'm a Hospital</h5>
+					<img src="img/hospital.png" class="img-responsive" style="margin: 0 auto;" width="150px;" id="hosfaq">
+				</div>
+				<div class="col-md-2" ></div>
+			</div>
+			<div class="row" >
+				<div class="container">
+					<div class="about-patfaq hide">
+					  <h4>I'M A PATIENT</h4>
+						<div ng-init="accordion=1">
+							<div class="questions">
+							<h5 class="accordion" ng-class="{active:accordion==1}">
+								<a href ng-click="accordion = 1">How do I search for hospitals?</a>
+							</h5>
+							<p class="accordion-content" ng-show="accordion==1">The hospitals can be searched by Treatment/ Procedure you are looking for or by the name hospital if known on the search in the home page. The search can be filtered by destination country also.</p>
+							</div>
+							<div class="questions">
+							<h5 class="accordion" ng-class="{active:accordion==2}">
+								<a href ng-click="accordion = 2">How do I refine my search for treatment?</a>
+							</h5>
+							<p class="accordion-content" ng-show="accordion==2">You can <i>filter</i> clinics by country, procedures, services offered, and sort clinics by price and review scores. </p>
+							</div>
+							<div class="questions">    
+							<h5 class="accordion" ng-class="{active:accordion==3}">
+								<a href ng-click="accordion = 3">Does my insurance cover medical travel?</a>
+							</h5>
+							<p class="accordion-content" ng-show="accordion==3">Some insurers cover medical travel. You should reach out to your insurer directly and present the medical travel option.</p>
+							</div>
+							<div class="questions">    
+							<h5 class="accordion" ng-class="{active:accordion==4}">
+								<a href ng-click="accordion = 4">How do I register?</a>
+							</h5>
+							<p class="accordion-content" ng-show="accordion==4">Registration is a simple process, click on Register option on Kramya home page, opt suitable option and you are done.</p>
+							</div>
+							<div class="questions">    
+							<h5 class="accordion" ng-class="{active:accordion==5}">
+								<a href ng-click="accordion = 5">The clinic has sent me an estimated quote for a procedure. What should I do next?</a>
+							</h5>
+							<p class="accordion-content" ng-show="accordion==5">If the price and conditions are acceptable for you, you can select the clinic to start planning the further formalities of your trip. By selecting the clinic on Kramya you are not entering into any agreement and you can change your mind any time.
+							<br>
+							If the price is not acceptable to you, you can let the clinic know about it by sending a message and the clinic may offer you another price or search other options on Kramya.</p>
+							</div>
+							<div class="questions">    
+							<h5 class="accordion" ng-class="{active:accordion==6}">
+								<a href ng-click="accordion = 6">What is Kramya Feedback?</a>
+							</h5>
+							<p class="accordion-content" ng-show="accordion==6">If you have a profile on Kramya Search, use Kramya software and/or Kramya Tab, Kramya Feedback will gather feedback from your patients regarding their experience at your practice, and display it on your Profile page on Kramya.com and Kramya smartphone apps.</p>
+							</div>
+							<div class="questions">    
+							<h5 class="accordion" ng-class="{active:accordion==7}">
+								<a href ng-click="accordion = 7">How does feedback help me?</a>
+							</h5>
+							<p class="accordion-content" ng-show="accordion==7">Studies have shown that feedback, both positive and negative, is crucial in building customer trust. It also gives you, as a doctor, a direct look into the needs and expectations of patients.</p>
+							</div>
+							<div class="questions">    
+							<h5 class="accordion" ng-class="{active:accordion==8}">
+								<a href ng-click="accordion = 8">How do I give feedback?</a>
+							</h5>
+							<p class="accordion-content" ng-show="accordion==8">Kramya sends  an Email to the Patient enquiring about their experience at your practice.<br>
+							As soon as we receive the feedback, our moderation team scrutinizes it and publishes only authentic and relevant feedback. You will be notified about approved feedback through an acknowledgment e-mail and/or Feedback Dashboard in your Kramya account.</p>
+							</div>
+							
+						</div>
+
+					</div>
+
+					<div class="about-hosfaq hide">
+					  <h4>I'M A HOSPITAL</h4>
+					  		<div ng-init="accordion=1">
+							<div class="questions">
+							<h5 class="accordion" ng-class="{active:accordion==9}">
+								<a href ng-click="accordion = 9">How Should a Hospital or Clinic register?</a>
+							</h5>
+							<p class="accordion-content" ng-show="accordion==9">Registration is a simple process, click on “Register My Hospital” option on Kramya home page, opt suitable option and you are done.</p>
+							</div>
+							<div class="questions">
+							<h5 class="accordion" ng-class="{active:accordion==10}">
+								<a href ng-click="accordion = 10">Where Do I check my emails from with Patients?</a>
+							</h5>
+							<p class="accordion-content" ng-show="accordion==10">Once a Patients selects your hospital, they send you an email for quotation. You will get this email at the email address which you filled at the time of your hospital registration. </p>
+							</div>
+							<div class="questions">    
+							<h5 class="accordion" ng-class="{active:accordion==11}">
+								<a href ng-click="accordion = 11">How Should I communicate with Patients?</a>
+							</h5>
+							<p class="accordion-content" ng-show="accordion==11">Once you get email you can communicate with patients about offers and other arrangements.</p>
+							</div>
+							<div class="questions">    
+							<h5 class="accordion" ng-class="{active:accordion==12}">
+								<a href ng-click="accordion = 12">Is the profile listing free? Are there any other conditions for listing?</a>
+							</h5>
+							<p class="accordion-content" ng-show="accordion==12">Listing of is hospital procedures is completely free. We do not charge for listing the profile or for subsequently booking appointments with you.
+								<br>The basic conditions for listing are:<br>
+								
+									&nbsp;&nbsp;&nbsp;That you agree with the terms and conditions of use as specified by kramya.com<br>
+									&nbsp;&nbsp;&nbsp;That you keep your information relevant with regard to:<br>
+										
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact number for booking appointments<br>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address<br>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Timings and availability<br>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Services<br>
+							  				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consultation fees<br>
+										
+									
+									You honor the appointments that you confirm through our booking process and intimate us if there is a cancellation required due to unforeseen circumstances.<br>
+									You adequately inform your staff and hospital management who will handle patients about kramya.com appointments and how to handle them.
+								
+							</p>
+							</div>
+							<div class="questions">    
+							<h5 class="accordion" ng-class="{active:accordion==13}">
+								<a href ng-click="accordion = 13">We have specific doctors for multiple procedures. How do I schedule appointments in such case?</a>
+							</h5>
+							<p class="accordion-content" ng-show="accordion==13">By default your account allows you to add only one clinic on your Profile.<br>
+								If you need another clinic to be added please get in touch with the Kramya.com support team either on email or Phone with details of the clinic and we will be able to add it after verification.<br>
+								Once an additional clinic is added you can always edit it. The changes made will reflect on the profile within 24 hrs subject to verification</p>
+							</div>
+							<div class="questions">    
+							<h5 class="accordion" ng-class="{active:accordion==14}">
+								<a href ng-click="accordion = 14">Why is kramya providing a free service?</a>
+							</h5>
+							<p class="accordion-content" ng-show="accordion==14">kramya.com believes that the best model in helping patients find the right Doctors is if we are completely unbiased to the Doctor. However we do make money on advertisements. You will notice that a few banners of featured clinics / packages are clearly marked out and shown in the search pages. These are paid advertisements and are very similar to Google search results. We show ads but our search results are completely unbiased.</p>
+							</div>
+							<div class="questions">    
+							<h5 class="accordion" ng-class="{active:accordion==15}">
+								<a href ng-click="accordion = 15">What is the procedure for getting listed on kramya.com? I never asked to be listed but I am still listed on kramya.com without any prior notification. Why?</a>
+							</h5>
+							<p class="accordion-content" ng-show="accordion==15">We at Kramya.com have field and data teams that search for and find out the top hospitals and gather information on them so that they can be listed on our website. In all cases we call or visit the hospital and verify the details thus collected. In your particular case we would have spoken to hospital management team.<br>
+								In case you don’t want to be listed – Please do drop us a line at <a href="mailto:help@kramya.com">help@kramya.com</a> and we will have one of our senior team members speak to you and explain. If you still want to go ahead and delist – please let the team member know when they speak to you and we will delist you immediately.</p>
+							</div>
+							
+							
+						</div>
+					</div>
+				</div>
+			</div>		    
+	</div>
+</div>
+<!--//contact-->

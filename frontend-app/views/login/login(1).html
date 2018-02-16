@@ -1,0 +1,102 @@
+<div>	
+	<div class="banner-buying-login">   
+		<div class=" container">
+			<h3><span>Log</span>in</h3> 
+		</div>		
+	</div>
+</div>
+<div class="login-right" style="padding: 2em 0px;">
+	<div class="container">
+		<div class="login-top">
+			<div ng-controller = "loginController">
+        <div ng-controller="SocialLoginCtlr">
+          <ul class="login-icons">
+            <li  ng-click="fbLogin()" data-dismiss="modal"><a id="fb" href="#" ><i class="facebook"> </i><span>Facebook</span></a></li>
+            <!-- <li><a href="#" class="twit"><i class="twitter"></i><span>Twitter</span></a></li> -->
+            <li ng-click="googleLogin()" data-dismiss="modal"><google-plus-signin clientid="652791899874-b2kb702sd7g8epsv8gcaaj6oqugapnn9.apps.googleusercontent.com" autorender="false" customtargetid="my-custom-element"><a href="#" class="go"><i class="google"></i><span>Google +</span></a></google-plus-signin></li>
+            <!-- <b ng-click="logout()">lo</b> -->
+            <!-- <li><a href="#" class="in"><i class="linkedin"></i><span>Linkedin</span></a></li> -->
+            <div class="clearfix"> </div>
+          </ul>
+        </div>
+        <div class="form-info" style="padding:0em;">
+          <form name="login">
+          <div ng-hide="forgot">
+            <input name="user_email_id" type="text" ng-model="loginData.email" class="text" placeholder="Email Address" required style="width:95%;" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" >
+            <span style="color:green;" ng-show="loginData.email">
+              <i class="fa fa-check"></i>
+            </span>
+            <span style="color:red;" ng-show="login.user_email_id.$dirty  && login.user_email_id.$invalid ">
+              <i class="fa fa-times"></i>
+              <span>Invalid Email Format.</span>
+            </span>
+            <input name="user_password" type="password" ng-model="loginData.password" placeholder="Password" required minlength=6 style="width:95%;">
+            <span style="color:green;" ng-show="loginData.password">
+              <i class="fa fa-check"></i>
+            </span>
+            <span style="color:red;" ng-show="login.user_password.$dirty  && login.user_password.$invalid ">
+              <i class="fa fa-times"></i>
+              <span>Invalid Password. Password must be 6 letter long.</span>
+            </span>
+            <label class="radio-inline">
+              <input type="radio" name="usertype" ng-model="endpoint" value="users" checked>User
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="usertype" ng-model="endpoint" value="hospitals">Hospital
+            </label>
+            <br><br>
+              <button style="height:35px;" class="hvr-sweep-to-right"  ng-click="sendLoginData()"  data-dismiss="modal">Submit</button>
+            <br><br>
+            <input type="checkbox" ng-model="forgot">
+            Forgot Password
+          </div>
+          <div ng-show="forgot" class="forgot">
+            <input name="user_forgot_email_id" type="text" ng-model="forgotData.email" class="text" placeholder="Email Address" required style="width:95%;" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" >
+            <span style="color:green;" ng-show="forgotData.email">
+              <i class="fa fa-check"></i>
+            </span>
+            <span style="color:red;" ng-show="login.user_forgot_email_id.$dirty  && login.user_forgot_email_id.$invalid ">
+              <i class="fa fa-times"></i>
+              <span>Invalid Email Format.</span>
+            </span>
+            <br>
+            <input name="user_forgot_password" type="password" ng-model="forgotData.password" placeholder="New Password" required minlength=6 style="width:95%;">
+            <span style="color:green;" ng-show="forgotData.password">
+              <i class="fa fa-check"></i>
+            </span>
+            <span style="color:red;" ng-show="login.user_forgot_password.$dirty  && login.user_forgot_password.$invalid ">
+              <i class="fa fa-times"></i>
+              <span>Invalid Password. Password must be 6 letter long.</span>
+            </span>
+            <br>
+            <input name="user_forgot_confirm_password" type="password" ng-model="forgotData.confirmPassword" placeholder="Confirm New Password" required style="width:95%;">
+            <span style="color:green;" ng-show="login.user_forgot_confirm_password.$dirty &&forgotData.confirmPassword==forgotData.password">
+              <i class="fa fa-check"></i>
+            </span>
+            <span style="color:red;" ng-show="login.user_forgot_confirm_password.$dirty && forgotData.confirmPassword!==forgotData.password">
+              <i class="fa fa-times"></i>
+              <span>Password do not match.</span>
+            </span>
+            <label class="radio-inline">
+              <input type="radio" name="usertypeForgot" ng-model="endpointForgot" value="user" checked>User
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="usertypeForgot" ng-model="endpointForgot" value="hospital">Hospital
+            </label>
+            <br><br>
+            <button style="height:35px;" class="hvr-sweep-to-right"  ng-click="sendForgotData()"  data-dismiss="modal">Submit</button>
+            <br><br>
+            <input type="checkbox" ng-model="forgot">
+            Forgot Password
+          </div>
+        </form>
+       </div>
+     </div>
+			<div class="create">
+				<h4>New To Kramya?</h4>
+				<a class="hvr-sweep-to-right" href="#signup">Create an Account</a>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+</div>

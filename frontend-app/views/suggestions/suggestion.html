@@ -1,0 +1,59 @@
+
+<div style="background:url('img/hex-transparent1.png'); z-index:0;">    
+  <div class=" banner-buying" style="min-height: 170px;background:url('img/at1.jpg');" >
+    <div class=" container">
+        <h3 style="color: #fff"><span>suggest</span>ions</h3> 
+    </div> 
+  </div> 
+</div>
+<div ng-controller="suggCtlr">
+	<div class="feedback">
+		<div class="container">
+			<div class="feedback-top">
+				<form  name="suggestions" novalidate>
+
+
+					<input name="name" type="text" ng-model="sugData.name" placeholder="Name"  required style="width:95%;" pattern="^[a-zA-Z.\s]+$">
+					<span style="color:green;" ng-show="sugData.name">
+            <i class="fa fa-check"></i>
+          </span>
+          <span style="color:red;" ng-show="suggestions.name.$dirty && suggestions.name.$invalid ">
+            <i class="fa fa-times"></i>
+            <span> Only Letters and .(dot) allowed.</span>
+          </span>
+
+
+					<input name="email" type="text"  placeholder="Email "  required="" ng-model="sugData.email" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" style="width:95%;">
+					<span style="color:green;" ng-show="sugData.email" >
+            <i class="fa fa-check"></i>
+          </span>
+          <span style="color:red;" ng-show="suggestions.email.$dirty  && suggestions.email.$invalid ">
+            <i class="fa fa-times"></i>
+            <span>Invalid Email Format.</span>
+          </span>
+
+
+					<input name="phoneno" type="text"  placeholder="Phone Number"  ng-model="sugData.phoneno" style="width:95%;" pattern="^[0-9\s]+$" minlength=8>
+					<span style="color:green;" ng-show="sugData.phoneno">
+            <i class="fa fa-check"></i>
+          </span>
+          <span style="color:red;" ng-show="suggestions.phoneno.$dirty && suggestions.phoneno.$invalid ">
+            <i class="fa fa-times"></i>
+            <span>Must be minimum 8 numbers long.</span>
+          </span>
+
+
+					<input type="text"  placeholder="Subject " ng-model="sugData.subject" style="width:95%;">
+
+
+					<textarea  placeholder="Write Your Suggestion" requried="" ng-model="sugData.message" style="width:95%;"></textarea>
+
+
+				 	<label class="hvr-sweep-to-right">
+           	<input type="submit" ng-disabled="signup.$invalid" value="Submit" ng-click="submitSugg()">
+         </label>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>	

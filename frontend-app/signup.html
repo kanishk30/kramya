@@ -1,0 +1,43 @@
+<div ng-controller = "SignupCtlr">
+	<!-- <div style="background:url('img/hex-transparent1.png'); z-index:0;">	
+	<div class="banner-buying-signup">
+			<div class=" container">
+				<h3><span>about</span>kramya</h3> 
+			</div>   		
+	</div>
+</div> -->
+	<!--//header-->
+	<!--contact-->
+	<div class="login-right">
+		<div class="container">
+			<br><br><br><br><br><br><br><br>
+				<h3 style="font-size: 2em;"><span>Sign</span>Up</h3> 
+		
+			<div class="login-top">
+				<!-- <ul class="login-icons">
+					<li><a href="#" ><i class="facebook"> </i><span>Facebook</span></a></li>
+					<li><a href="#" class="twit"><i class="twitter"></i><span>Twitter</span></a></li>
+					<li><a href="#" class="go"><i class="google"></i><span>Google +</span></a></li>
+					<li><a href="#" class="in"><i class="linkedin"></i><span>Linkedin</span></a></li>
+					<div class="clearfix"> </div>
+				</ul> -->
+				<div class="form-info">
+					<form>
+						<input type="text" placeholder="Name" ng-model="formData.user_name" required >
+						<input type="text" placeholder="User Name" ng-model="formData.user_id" required >
+						<input type="text" placeholder="Email Adress" ng-model="formData.user_email_id" required >
+						<input style="" type="file" file-upload accept="image/*">
+						<input type="password" placeholder="Password" ng-model="formData.user_password" required>
+						<input type="text"  placeholder="Location" ng-model="formData.user_location">
+						<input type="text"  placeholder="Contact Number" ng-model="formData.user_contact_no" required >
+						<label class="hvr-sweep-to-right">
+					    <input type="submit" value="Sign Up" ng-click="formSubmit()">
+					  </label>
+					</form>
+					<p>Already have a Real Home account? <a href="#login">Login</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--//contact-->
+</div>

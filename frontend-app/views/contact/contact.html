@@ -1,0 +1,92 @@
+
+	<div style="background:url('img/hex-transparent1.png'); z-index:0;">    
+        <div class=" banner-buying" style="min-height: 300px;background:url('img/contact.jpg');" >
+            <div class=" container">
+                <h3 style="color: #fff"><span>Reach</span> us</h3> 
+            </div> 
+        </div> 
+ 	</div>
+ 
+
+<!--//header-->
+<!--contact-->
+<div class="contact">
+	<div class="container">
+		
+	 <div class="contact-top">
+		<div class="col-md-6 contact-top1">
+		  <h4 > Info</h4>
+          <p class="text-contact">Kramya is first of its kind medical tourism aggregator based in India. It connect patients across the globe to the best of medical facilities.</p>
+		  <div class="contact-address">
+		  	<div class="col-md-6 contact-address1">
+			  	 <h5>Address</h5>
+	             <p>
+NJ 103 Shriram Spandhana,Chalaghatta Yemlur 
+				           
+	             <br>Bangalore <br>560037</p>	
+		  	</div>
+		  	<div class="col-md-6 contact-address1">
+			  	  <h5>Email Address </h5>
+	             <p class="text-left"><strong>Help Kramya : </strong><br>support@kramya.com <br>
+	             <strong>Team Kramya : </strong><br>abhishek@kramya.com</p>
+		  	</div>
+		  	<div class="clearfix"></div>
+		  </div>
+		  <div class="contact-address">
+		  	<div class="col-md-6 contact-address1">
+			  	 <h5 >Phone </h5>
+	              <p>Mobile : +91 998 080 1415</p>
+	        </div>
+		  	<div class="clearfix"></div>
+		  </div>
+		</div>
+		<div class="col-md-6 contact-right">
+		
+		 <script>
+		 $('#contact').submit(function(event){
+		 	 event.preventDefault();
+		 	var formdata={
+		 		'name': $('#name').val(),
+		 		'email':$('#email').val(),
+		 		'subject':$('#subject').val(),
+		 		'message':$('#message').val(),
+		 		
+		 	}
+
+		 	$.ajax({
+		 		method:'post',
+		 		url:'http://kramya.com/kramyaapi/index.php/reachus',
+		 		data:formdata,
+		 		dataType:'json',
+		 		encode:'true',
+		 		headers: { 'X-API-KEY': 'ANSHULVYAS16' }
+
+		 	})
+		 	.done(function(data){
+		 		//console.log(data);
+		 		var obj=JSON.parse(data);
+		 		//console.log(obj.result);
+		 		alert(obj.result);
+		 		
+
+		 	});
+
+		 });
+		 </script>
+            <form id='contact'>
+               <input type="text"  placeholder="Name" id ='name' required="">
+			   <input type="text" placeholder="Email" id='email' required="">
+			   <input type="text" placeholder="Subject" id='subject' required="">
+			   <textarea  placeholder="Message"  id='message' requried=""></textarea>
+			   <label class="hvr-sweep-to-right">
+	           <input type="submit" value="Submit">
+	           </label>
+			</form>
+		</div>
+		<div class="clearfix"> </div>
+</div>
+	</div>
+	<div class="map">
+	     <iframe src="https://www.google.com/maps/embed/v1/place?q=Bangalore,+Karnataka,+India&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"> </iframe>
+	    </div>
+</div>

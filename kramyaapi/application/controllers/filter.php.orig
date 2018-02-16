@@ -1,0 +1,61 @@
+<?php
+include(APPPATH.'libraries/REST_Controller.php');
+
+class Filter extends REST_Controller
+	{
+
+		private function get_by_value($filters)
+		{
+			$final_filters=[];
+
+			$this->db->select('hospitals.hospital_index,hospitals.hospital_id,hospitals.beds,hospitals.count_doctors,hospitals.count_nurses,hospitals.specialisation_area,hospitals.since,hospitals.hospital_desc');
+			$this->db->from('hospitals');
+			$this->db->join('hospital_disease_filter','hospital_disease_filter.hospital_id=hospitals.hospital_id','inner');
+			foreach ($filters as $key => $value){
+				if($value!=NULL)
+					$final_filters[$key]=$value;
+			}
+
+			$this->db->where($final_filters);
+			$result=$this->db->get()->result();
+
+			return $result;
+
+		}
+
+		public function search_get()
+		{
+			$filters=array(
+			'disease_id'=> $this->get('disease'),
+			'city'=> $this->get('location'),
+			);				
+			$result=$this->get_by_value($filters);
+			$final_hospitals=array();
+			if($result!=NULL){
+				$data_counter=0;
+				$search_results=[];
+				foreach($result as $row){
+					$final_hospitals['id']=$row->hospital_index;
+					$final_hospitals['hospital_id']=$row->hospital_id;
+					$final_hospitals['beds']=$row->beds;
+					$final_hospitals['doctors']=$row->count_doctors;
+					$final_hospitals['nurses']=$row->count_nurses;
+					$final_hospitals['desc']=$row->hospital_desc;
+					$final_hospitals['specialisation_area']=$row->specialisation_area;
+					$final_hospitals['since']=$row->since;
+					$search_results[$data_counter]=$final_hospitals;
+					$data_counter++;
+				}
+			$this->response($search_results,200);
+			}
+			else{
+				$this->response(array(1=>'NO RESULTS FOUND'),404);
+			}
+
+
+		}
+			
+			
+
+	}
+?>

@@ -1,0 +1,126 @@
+
+<div style="background:url('img/hex-transparent1.png'); z-index:0;">	
+	<div class="banner-buying-signup">
+			<div class=" container">
+				<h3><span>Sign</span>Up</h3>
+			</div>   		
+	</div>
+</div>
+	<!--//header-->
+	<!--contact-->
+<div class="login-right">
+	<div class="container">
+		<div class="login-top">
+			<!-- <ul class="login-icons">
+				<li><a href="#" ><i class="facebook"> </i><span>Facebook</span></a></li>
+				<li><a href="#" class="twit"><i class="twitter"></i><span>Twitter</span></a></li>
+				<li><a href="#" class="go"><i class="google"></i><span>Google +</span></a></li>
+				<li><a href="#" class="in"><i class="linkedin"></i><span>Linkedin</span></a></li>
+				<div class="clearfix"> </div>
+			</ul> -->
+			<div ng-controller = "SignupCtlr">
+        <div ng-controller="SocialLoginCtlr">
+          <ul class="login-icons">
+            <li  ng-click="fbLogin()" data-dismiss="modal"><a href="#" ><i class="facebook"> </i><span>Facebook</span></a></li>
+            <!-- <li><a href="#" class="twit"><i class="twitter"></i><span>Twitter</span></a></li> -->
+            <li ng-click="googleLogin()" data-dismiss="modal"><google-plus-signin clientid="652791899874-b2kb702sd7g8epsv8gcaaj6oqugapnn9.apps.googleusercontent.com" autorender="false" customtargetid="my-custom-element"><a href="#" class="go"><i class="google"></i><span>Google +</span></a></google-plus-signin></li>
+            <!-- <b ng-click="logout()">lo</b> -->
+            <!-- <li><a href="#" class="in"><i class="linkedin"></i><span>Linkedin</span></a></li> -->
+            <div class="clearfix"> </div>
+          </ul>
+        </div>
+        <div class="form-info" style="padding:0em;">
+          <form id="forms" name="signup" >
+            <input name="fullname" type="text" placeholder="Full Name (Required)" ng-model="formData.user_name" required style="width:95%;margin-top:1em;margin-bottom:0em;" pattern="^[a-zA-Z.\s]+$"> 
+            <span style="color:green;" ng-show="formData.user_name">
+              <i class="fa fa-check"></i>
+            </span>
+            <span style="color:red;" ng-show="signup.fullname.$dirty && signup.fullname.$invalid ">
+              <i class="fa fa-times"></i>
+              <span> Only Letters and .(dot) allowed.</span>
+            </span>
+            <br>
+            <span ng-show="formData.user_name">
+              <b>Full Name: </b>
+              <span>{{formData.user_name}}</span>
+            </span>
+            <input name="user_email_id" type="text" placeholder="Email Address (Required)" ng-model="formData.user_email_id" required  style="width:95%;margin-top:1em;margin-bottom:0em;" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" >
+            <span style="color:green;" ng-show="formData.user_email_id">
+              <i class="fa fa-check"></i>
+            </span>
+            <span style="color:red;" ng-show="signup.user_email_id.$dirty && signup.user_email_id.$invalid ">
+              <i class="fa fa-times"></i>
+              <span>Invalid Email Format.</span>
+            </span>
+            <br>
+            <span ng-show="formData.user_email_id">
+              <b>Email Address: </b>
+              <span>{{formData.user_email_id}}</span>
+            </span>
+            <input  type="file" id="images" file-upload accept="image/*"  style="width:95%;margin-top:1em;margin-bottom:0em;" class="hidden">
+            <label for="images" style="width:95%;height:45px;margin-top:1em;margin-bottom:0em;background:rgba(221, 221, 221, 0.34);padding-top: 9px;padding-left: 9px;cursor:pointer;"> <i class="fa fa-picture-o" style="font-size:1.5em;"></i> <b style="position: absolute;color:rgb(105, 102, 102);font-weight: normal;padding-left: 6px;font-size: 1.1em;"> Select Profile Picture</b></label>
+            <ul ng-repeat="file in files">
+              <span style="font-weight: normal; color:blue; width:95%;">
+                {{file.name}}
+                <b ng-click="cut(file.name)" style="color: red;padding-left: 10px; cursor:pointer;cursor:hand;">X</b>
+              </span>
+            </ul>
+            <input name="user_password" type="password" placeholder="Password (Required)" ng-model="formData.user_password" required minlength=6 style="width:95%;margin-top:1em;margin-bottom:0em;">
+            <span style="color:green;" ng-show="formData.user_password">
+              <i class="fa fa-check"></i>
+            </span>
+            <span style="color:red;" ng-show="signup.user_password.$dirty && signup.user_password.$invalid ">
+              <i class="fa fa-times"></i>
+              <span>Invalid Password. Password must be 6 letter long.</span>
+            </span>
+            <input name="user_confirm_password" type="password" placeholder="Confirm Password (Required)" ng-model="user_confirm_password" required  style="width:95%;margin-top:1em;margin-bottom:0em;">
+            <span style="color:green;" ng-show="signup.user_confirm_password.$dirty && user_confirm_password==formData.user_password">
+              <i class="fa fa-check"></i>
+            </span>
+            <span style="color:red;" ng-show="signup.user_confirm_password.$dirty && user_confirm_password!==formData.user_password ">
+              <i class="fa fa-times"></i>
+              <span>Password do not match.</span>
+            </span>
+            <!-- <input type="text"  placeholder="Location" ng-model="formData.user_location"> -->
+            <input type="text" id="Autocomplete" placeholder="Location" ng-autocomplete="formData.user_location" style="width:95%;margin-top:1em;margin-bottom:0em;" />
+            <span style="color:green;" ng-show="formData.user_location">
+              <i class="fa fa-check"></i>
+            </span>
+            <span ng-show="formData.user_location">
+              <b>Location: </b>
+              <span>{{formData.user_location}}</span>
+            </span>
+            <input name="user_contact_no" type="text"  placeholder="Contact Number (Required)" ng-model="formData.user_contact_no" required  style="width:95%;margin-top:1em;margin-bottom:0em;" pattern="^[0-9\s]+$" minlength=8>
+            <span style="color:green;" ng-show="formData.user_contact_no">
+              <i class="fa fa-check"></i>
+            </span>
+            <span style="color:red;" ng-show="signup.user_contact_no.$dirty && signup.user_contact_no.$invalid ">
+              <i class="fa fa-times"></i>
+              <span>Must be minimum 8 letters long , No special Symbol.</span>
+            </span>
+            <br>
+            <span ng-show="formData.user_contact_no">
+              <b>Contact No: </b>
+              <span>{{formData.user_contact_no}}</span>
+            </span>
+            <br>
+            <input type="checkbox" name="" ng-model="is_agreed" >
+            I have read and agree to the 
+            <a href="#terms">Terms & Conditions.</a>
+            <br><span ng-show="!is_agreed" style="color:red;"> You must agree to our <a href="" ng-click="go('terms')" data-dismiss="modal" style="color:red"><u> terms and conditions</u></a> in order to register.</span>
+            <br>
+            <label>
+              <button class="hvr-sweep-to-right more-in" style="height:42px; width:110px;" type="button" ng-disabled="signup.$invalid" ng-click="formSubmit()">Sign Up</button>
+            </label>
+          </form>
+        </div>
+      </div>
+				<div class="create">
+					<h4>Already have a Kramya account?</h4>
+					<a class="hvr-sweep-to-right" href="#login">Login</a>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
